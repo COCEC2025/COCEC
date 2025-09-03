@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             
             // Informations du membre
-            $table->string('member_name');
-            $table->string('member_number');
-            $table->string('member_phone');
+            $table->string('member_name')->nullable();
+            $table->string('member_number')->nullable();
+            $table->string('member_phone')->nullable();
             $table->string('member_email')->nullable();
             
             // Détails de la plainte
