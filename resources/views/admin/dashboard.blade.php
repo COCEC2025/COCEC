@@ -180,13 +180,13 @@
                     <canvas id="visitorsChart"></canvas>
                 </div>
             </div>
-            <!-- Graphique des abonnés newsletter -->
+            {{-- <!-- Graphique des abonnés newsletter -->
             <div class="col-12">
                 <div class="chart-container">
                     <div class="chart-title">Abonnés newsletter par mois</div>
                     <canvas id="subscribersChart"></canvas>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         @include('includes.admin.footer')
@@ -201,7 +201,7 @@
     const visitorsByMonth = @json($visitorsByMonth);
     const visitorsByDay = @json($visitorsByDay);
     const visitorsByWeek = @json($visitorsByWeek);
-    const subscribersByMonth = @json($subscribersByMonth);
+    // const subscribersByMonth = @json($subscribersByMonth);
 
     // Créer un dégradé pour le graphique des visiteurs
     function createGradient(ctx, chartArea, colorStart, colorEnd) {

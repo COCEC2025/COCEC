@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Ajouter le seeder des plaintes
-        $this->call([
-            ComplaintSeeder::class,
-        ]);
+        // $this->call([
+        //     ComplaintSeeder::class,
+        // ]);
     }
 }

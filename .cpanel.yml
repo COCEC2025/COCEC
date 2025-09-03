@@ -2,7 +2,7 @@
 deployment:
   tasks:
     # Définir le chemin de destination (public_html)
-    - export DEPLOYPATH=/home/cocectogo/public_html/
+    - export DEPLOYPATH=/home/cocerbbe/tg.cocectogo.org/public
     
     # Créer le dossier temporaire pour le build
     - mkdir -p /tmp/laravel-build
@@ -37,8 +37,10 @@ deployment:
     - mkdir -p storage/logs
     
     # Définir les permissions appropriées
-    - chmod -R 755 storage
-    - chmod -R 755 bootstrap/cache
+    - chown -R www-data:www-data storage
+    - chown -R www-data:www-data bootstrap/cache
+    - chmod -R 775 storage
+    - chmod -R 775 bootstrap/cache
     
     # Supprimer les anciens fichiers du serveur (optionnel)
     - /bin/rm -rf $DEPLOYPATH/*

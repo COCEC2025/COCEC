@@ -3153,6 +3153,21 @@ START: Header CSS
     -webkit-transform: none;
     transform: none;
 }
+
+/* Empêcher le hover du menu parent de s'appliquer aux sous-menus */
+.header .primary-header-inner .header-menu-wrap ul li:hover > ul li a {
+    color: #000000 !important;
+}
+
+/* Permettre le hover blanc sur les sous-menus individuels */
+.header .primary-header-inner .header-menu-wrap ul li li:hover a {
+    color: var(--bz-color-common-white) !important;
+}
+
+/* Règle très spécifique pour forcer le hover blanc */
+.header .primary-header-inner .header-menu-wrap ul li.menu-item-has-children:hover ul li:hover a {
+    color: #ffffff !important;
+}
 .header .primary-header-inner .header-menu-wrap ul li li {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3181,7 +3196,7 @@ START: Header CSS
     display: block;
     height: auto;
     line-height: inherit;
-    color: var(--bz-color-heading-primary);
+    color: #000000;
     font-weight: 600;
     font-size: 14px;
     padding: 17px 0;
@@ -3218,16 +3233,16 @@ START: Header CSS
     left: 100%;
 }
 .header .primary-header-inner .header-menu-wrap ul li li ul li a {
-    color: var(--bz-color-common-white) !important;
+    color: #000000 !important;
 }
 .header .primary-header-inner .header-menu-wrap ul li li:hover a {
-    color: var(--bz-color-common-white);
+    color: var(--bz-color-common-white) !important;
 }
 .header .primary-header-inner .header-menu-wrap ul li li:hover li a {
-    color: var(--bz-color-heading-primary) !important;
+    color: #000000 !important;
 }
 .header .primary-header-inner .header-menu-wrap ul li li:hover li a:hover {
-    color: var(--bz-color-common-white);
+    color: var(--bz-color-common-white) !important;
 }
 .header .primary-header-inner .header-menu-wrap ul li.active a {
     color: var(--bz-color-theme-primary) !important;
@@ -3246,7 +3261,7 @@ START: Header CSS
     border-radius: 1px;
 }
 .header .primary-header-inner .header-menu-wrap ul li.active ul li a {
-    color: var(--bz-color-heading-primary);
+    color: #000000;
 }
 .header .primary-header-inner .header-menu-wrap ul li.active ul li:hover a {
     color: var(--bz-color-common-white) !important;
@@ -3254,9 +3269,9 @@ START: Header CSS
 
 /* Style pour les éléments de sous-menu actifs */
 .header .primary-header-inner .header-menu-wrap ul li ul li.active a {
-    color: var(--bz-color-theme-primary) !important;
+    color: #000000 !important;
     font-weight: 600;
-    background: rgba(236, 40, 28, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     padding: 8px 12px;
     margin: 2px 0;
