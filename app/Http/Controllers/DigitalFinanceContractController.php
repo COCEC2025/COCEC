@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 use App\Mail\DigitalFinanceContractMail;
 use App\Mail\DigitalFinanceContractNotificationMail;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class DigitalFinanceContractController extends Controller
 {
@@ -249,28 +250,14 @@ class DigitalFinanceContractController extends Controller
      */
     public function generatePdf(string $id)
     {
-        try {
-            if (!is_numeric($id)) {
-                return redirect()->back()->with('error', 'ID de contrat invalide.');
-            }
-            $contract = DigitalFinanceContract::findOrFail($id);
-            $data = ['contract' => $contract];
+        $contract = DigitalFinanceContract::findOrFail($id);
 
-            // Rendre la vue Blade manuellement
-            $html = view('admin.digitalfinance.contracts.pdf', $data)->render();
+        $data = [
+            'contract' => $contract,
+        ];
 
-            $pdf = \PDF::loadHTML($html)
-                ->setOptions([
-                    'isRemoteEnabled' => true,
-                    'isPhpEnabled' => true,
-                    'defaultFont' => 'Arial',
-                ]);
-            return $pdf->download('contrat_adhesion_' . $contract->id . '.pdf');
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return redirect()->back()->with('error', 'Contrat non trouvé.');
-        } catch (\Exception $e) {
-            Log::error('Erreur lors de la génération du PDF : ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Erreur lors de la génération du PDF.');
-        }
+        $pdf = Pdf::loadView('admin.digitalfinance.contracts.pdf', $data);
+
+        return $pdf->download('contrat_adhesion_' . $contract->id . '.pdf');
     }
 }

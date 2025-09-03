@@ -298,6 +298,26 @@
     color: var(--bz-color-theme-primary);
 }
 
+/* Correction pour les sous-menus - couleur noire par défaut */
+.header .primary-header-inner .header-menu-wrap ul li li a {
+    color: #000000 !important;
+}
+
+/* Empêcher le hover du menu parent de s'appliquer aux sous-menus */
+.header .primary-header-inner .header-menu-wrap ul li:hover > ul li a {
+    color: #000000 !important;
+}
+
+/* Permettre le hover blanc sur les sous-menus individuels */
+.header .primary-header-inner .header-menu-wrap ul li li:hover a {
+    color: var(--bz-color-common-white) !important;
+}
+
+/* Règle très spécifique pour forcer le hover blanc */
+.header .primary-header-inner .header-menu-wrap ul li.menu-item-has-children:hover ul li:hover a {
+    color: #ffffff !important;
+}
+
 /* ===== FORCER L'AFFICHAGE DU BOUTON HAMBURGER ===== */
 
 /* S'assurer que le bouton hamburger est toujours visible sur mobile */
