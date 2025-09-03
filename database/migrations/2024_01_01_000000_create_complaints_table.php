@@ -27,7 +27,7 @@ return new class extends Migration
             
             // Statut et suivi
             $table->enum('status', ['pending', 'processing', 'resolved', 'closed'])->default('pending');
-            $table->string('reference')->unique();
+            $table->string('reference', 191)->unique();
             $table->text('admin_notes')->nullable();
             $table->timestamp('resolved_at')->nullable();
             

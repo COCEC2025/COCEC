@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('nationalities', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // Nom de la nationalité (ex. Togolaise, Française, etc.)
+            $table->string('name', 191)->unique(); // Nom de la nationalité (ex. Togolaise, Française, etc.)
             $table->timestamps();
         });
     }
