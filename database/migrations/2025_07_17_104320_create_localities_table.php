@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('localities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-          $table->string('name')->unique();
+          $table->string('name', 191)->unique();
         $table->enum('status', ['active', 'inactive'])->default('active');
         });
     }
