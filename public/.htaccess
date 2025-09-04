@@ -1,3 +1,5 @@
+# Créer un nouveau fichier .htaccess sans la directive problématique
+cat > .htaccess << 'EOF'
 # ========================================
 # OPTIMISATIONS DE PERFORMANCE - COCEC
 # ========================================
@@ -16,21 +18,21 @@
     AddOutputFilterByType DEFLATE application/javascript
     AddOutputFilterByType DEFLATE application/x-javascript
     AddOutputFilterByType DEFLATE application/json
-    
+
     # Compression pour les polices
     AddOutputFilterByType DEFLATE font/otf
     AddOutputFilterByType DEFLATE font/ttf
     AddOutputFilterByType DEFLATE font/woff
     AddOutputFilterByType DEFLATE font/woff2
-    
-    # Niveau de compression
-    DeflateCompressionLevel 9
+
+    # Niveau de compression (supprimé car non supporté)
+    # DeflateCompressionLevel 9
 </IfModule>
 
 # Mise en cache des ressources statiques
 <IfModule mod_expires.c>
     ExpiresActive on
-    
+
     # Images
     ExpiresByType image/jpg "access plus 1 month"
     ExpiresByType image/jpeg "access plus 1 month"
@@ -39,18 +41,18 @@
     ExpiresByType image/webp "access plus 1 month"
     ExpiresByType image/svg+xml "access plus 1 month"
     ExpiresByType image/x-icon "access plus 1 year"
-    
+
     # CSS et JavaScript
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType text/javascript "access plus 1 month"
-    
+
     # Polices
     ExpiresByType font/otf "access plus 1 year"
     ExpiresByType font/ttf "access plus 1 year"
     ExpiresByType font/woff "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
-    
+
     # Autres ressources
     ExpiresByType application/pdf "access plus 1 month"
     ExpiresByType application/x-shockwave-flash "access plus 1 month"
@@ -62,17 +64,17 @@
     <FilesMatch "\.(jpg|jpeg|png|gif|webp|ico)$">
         Header set Cache-Control "public, max-age=2592000"
     </FilesMatch>
-    
+
     # Cache pour CSS et JS
     <FilesMatch "\.(css|js)$">
         Header set Cache-Control "public, max-age=2592000"
     </FilesMatch>
-    
+
     # Cache pour les polices
     <FilesMatch "\.(woff|woff2|ttf|otf)$">
         Header set Cache-Control "public, max-age=31536000"
     </FilesMatch>
-    
+
     # Sécurité
     Header always set X-Content-Type-Options nosniff
     Header always set X-Frame-Options DENY
@@ -83,7 +85,7 @@
 # Optimisation des images
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    
+
     # Redirection vers les images WebP si supportées
     RewriteCond %{HTTP_ACCEPT} image/webp
     RewriteCond %{REQUEST_FILENAME} (.*)\.(jpe?g|png)$
@@ -157,3 +159,4 @@ Options -Indexes
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+EOF
