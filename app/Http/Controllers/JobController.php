@@ -38,7 +38,7 @@ class JobController extends Controller
 
     public function store(Request $request)
     {
-        $mail = "douvonangelotadn@gmail.com";
+        $mail = "recrutements@cocectogo.org ";
 
         $validated = $request->validate([
             'last_name' => 'required|string|max:255',
@@ -100,7 +100,7 @@ class JobController extends Controller
 
     public function applyOffer(string $id, Request $request)
     {
-        $mail = "douvonangelotadn@gmail.com";
+        $mail = "recrutements@cocectogo.org ";
 
         if (!JobOffer::findOrFail($id)) {
             return back()->withErrors(['error' => 'Offre d\'emploi non trouvée.']);

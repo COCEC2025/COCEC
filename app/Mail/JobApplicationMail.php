@@ -30,7 +30,7 @@ class JobApplicationMail extends Mailable
     {
         return new Envelope(
             subject: 'Merci pour votre candidature auprès de la COCEC',
-            from: new Address('recrutement@cocectogo.org', 'COCEC'),
+            from: new Address('recrutements@cocectogo.org ', 'COCEC'),
         );
     }
 

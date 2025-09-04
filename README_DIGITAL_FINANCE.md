@@ -18,7 +18,7 @@ Ce système permet aux clients de la COCEC de :
 
 ### 📧 **Système d'Emails Automatique**
 - **Email de confirmation** au client (si email fourni)
-- **Email de notification** à l'admin (`douvonangelotadn@gmail.com`)
+- **Email de notification** à l'admin (`info@cocectogo.org`)
 - **Templates personnalisés** avec design COCEC
 - **Gestion d'erreurs** avec logs automatiques
 

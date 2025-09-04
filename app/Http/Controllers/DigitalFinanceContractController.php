@@ -108,7 +108,7 @@ class DigitalFinanceContractController extends Controller
 
         // Envoyer le mail de notification à l'admin
         try {
-            Mail::to('douvonangelotadn@gmail.com')->send(new DigitalFinanceContractNotificationMail(
+            Mail::to('info@cocectogo.org')->send(new DigitalFinanceContractNotificationMail(
                 $request->full_name,
                 $request->account_number,
                 $request->phone,

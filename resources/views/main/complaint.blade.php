@@ -434,22 +434,22 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="input-group-custom">
-                                    <label for="member_name" class="form-label">Nom complet *</label>
-                                    <input type="text" class="form-control" id="member_name" name="member_name" required>
+                                    <label for="member_name" class="form-label">Nom complet</label>
+                                    <input type="text" class="form-control" id="member_name" name="member_name">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="input-group-custom">
-                                    <label for="member_number" class="form-label">Numéro d'adhérent *</label>
-                                    <input type="text" class="form-control" id="member_number" name="member_number" required>
+                                    <label for="member_number" class="form-label">Numéro d'adhérent</label>
+                                    <input type="text" class="form-control" id="member_number" name="member_number">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="input-group-custom">
-                                    <label for="member_phone" class="form-label">Téléphone *</label>
-                                    <input type="tel" class="form-control" id="member_phone" name="member_phone" required>
+                                    <label for="member_phone" class="form-label">Téléphone</label>
+                                    <input type="tel" class="form-control" id="member_phone" name="member_phone">
                                 </div>
                             </div>
                             <div class="col-md-6">

@@ -112,20 +112,26 @@
                     <div class="card-body p-20">
                         <div class="row">
                             <div class="col-md-6">
+                                @if($complaint->member_name)
                                 <div class="mb-3">
                                     <label class="form-label fw-medium text-muted">Nom complet</label>
                                     <div class="form-control-plaintext">{{ $complaint->member_name }}</div>
                                 </div>
+                                @endif
+                                @if($complaint->member_number)
                                 <div class="mb-3">
                                     <label class="form-label fw-medium text-muted">Numéro d'adhérent</label>
                                     <div class="form-control-plaintext">{{ $complaint->member_number }}</div>
                                 </div>
+                                @endif
                             </div>
                             <div class="col-md-6">
+                                @if($complaint->member_phone)
                                 <div class="mb-3">
                                     <label class="form-label fw-medium text-muted">Téléphone</label>
                                     <div class="form-control-plaintext">{{ $complaint->member_phone }}</div>
                                 </div>
+                                @endif
                                 @if($complaint->member_email)
                                 <div class="mb-3">
                                     <label class="form-label fw-medium text-muted">Email</label>

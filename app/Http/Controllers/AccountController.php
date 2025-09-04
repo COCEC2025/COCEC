@@ -146,7 +146,7 @@ class AccountController extends Controller
      */
     public function storePhysical(Request $request)
     {
-        $mail = 'douvonangelotadn@gmail.com';
+        $mail = 'info@cocectogo.org';
         $validated = $request->validate([
             'last_name' => 'required|string|max:255',
             'first_names' => 'required|string|max:255',
@@ -308,7 +308,7 @@ class AccountController extends Controller
      */
     public function storeMoral(Request $request)
     {
-        $mail = 'douvonangelotadn@gmail.com';
+        $mail = 'info@cocectogo.org';
         $validated = $request->validate([
             'company_name' => 'required|string|max:255',
             'category' => 'nullable|string|max:255',
