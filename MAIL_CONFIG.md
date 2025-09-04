@@ -20,7 +20,7 @@ MAIL_FROM_ADDRESS=finance-digitale@cocectogo.org
 MAIL_FROM_NAME="COCEC - Finance Digitale"
 
 # Email de notification admin
-ADMIN_EMAIL=douvonangelotadn@gmail.com
+ADMIN_EMAIL=info@cocectogo.org
 ```
 
 ### 📬 Types d'Emails Envoyés
@@ -72,7 +72,7 @@ Les erreurs d'envoi d'emails sont automatiquement loggées dans `storage/logs/la
 
 Après configuration, testez en soumettant un formulaire :
 1. Vérifiez que l'email client est reçu (si email fourni)
-2. Vérifiez que l'email admin est reçu à `douvonangelotadn@gmail.com`
+2. Vérifiez que l'email admin est reçu à `info@cocectogo.org`
 3. Vérifiez les logs en cas d'erreur
 
 ### 🎯 Personnalisation

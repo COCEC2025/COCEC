@@ -42,7 +42,7 @@ class JobMail extends Mailable
     {
         return new Envelope(
             subject: 'Nouvelle candidature reçue via le site de la COCEC',
-            from: new Address('recrutement@cocectogo.org', 'COCEC - Notification Système'),
+            from: new Address('recrutements@cocectogo.org ', 'COCEC - Notification Système'),
         );
     }
 

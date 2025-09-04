@@ -24,13 +24,13 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
-        $mail = "douvonangelotadn@gmail.com";
+        $mail = "gestiondesplaintes@cocectogo.org";
 
         // Validation des données
         $validator = Validator::make($request->all(), [
-            'member_name' => 'required|string|max:255',
-            'member_number' => 'required|string|max:100',
-            'member_phone' => 'required|string|max:20',
+            'member_name' => 'nullable|string|max:255',
+            'member_number' => 'nullable|string|max:100',
+            'member_phone' => 'nullable|string|max:20',
             'member_email' => 'nullable|email|max:255',
             'complaint_subject' => 'required|string|max:255',
             'complaint_category' => 'required|string|in:service,credit,epargne,technique,autre',
@@ -38,9 +38,6 @@ class ComplaintController extends Controller
             'complaint_attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf,doc,docx|max:5120', // 5MB max
             'data_consent' => 'required|accepted',
         ], [
-            'member_name.required' => 'Le nom complet est obligatoire.',
-            'member_number.required' => 'Le numéro d\'adhérent est obligatoire.',
-            'member_phone.required' => 'Le numéro de téléphone est obligatoire.',
             'member_email.email' => 'L\'adresse email doit être valide.',
             'complaint_subject.required' => 'L\'objet de la plainte est obligatoire.',
             'complaint_category.required' => 'La catégorie de la plainte est obligatoire.',
