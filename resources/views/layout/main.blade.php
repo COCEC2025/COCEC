@@ -39,8 +39,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/Logo.png') }}">
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{{ asset('assets/main/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/main/css/fontawesome.min.css') }}">
+    <!-- Preload des ressources critiques -->
+    {!! App\Helpers\PerformanceHelper::getCriticalPreloads() !!}
+    {!! App\Helpers\PerformanceHelper::getCriticalNoscript() !!}
     <link rel="stylesheet" href="{{ asset('assets/main/css/venobox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/main/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/main/css/keyframe-animation.css') }}">
@@ -51,6 +52,10 @@
     <link rel="stylesheet" href="{{ asset('assets/main/css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/main/css/slick.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/main/css/main.css') }}">
+    
+    <!-- Preload des images critiques -->
+    <link rel="preload" href="{{ asset('assets/images/banner.jpg') }}" as="image">
+    <link rel="preload" href="{{ asset('assets/images/Logo.png') }}" as="image">
 
     <!-- CSS Simulateur de Prêt -->
     <link rel="stylesheet" href="{{ asset('assets/css/loan-simulator.css') }}">
@@ -81,17 +86,17 @@
     <script src="{{ asset('assets/main/js/vendor/smooth-scroll.js') }}"></script>
     <script src="{{ asset('assets/main/js/vendor/jquery.isotope.js') }}"></script>
     <script src="{{ asset('assets/main/js/vendor/magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('assets/main/js/vendor/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/main/js/vendor/swiper.min.js') }}"></script>
-    <script src="{{ asset('assets/main/js/vendor/slick.min.js') }}"></script>
+    <script src="{{ asset('assets/main/js/vendor/wow.min.js') }}" defer></script>
+    <script src="{{ asset('assets/main/js/vendor/swiper.min.js') }}" defer></script>
+    <script src="{{ asset('assets/main/js/vendor/slick.min.js') }}" defer></script>
     <script src="{{ asset('assets/main/js/vendor/moment.min.js') }}"></script>
     <script src="{{ asset('assets/main/js/vendor/daterangepicker.min.js') }}"></script>
-    <script src="{{ asset('assets/main/js/vendor/split-type.min.js') }}"></script>
-    <script src="{{ asset('assets/main/js/vendor/gsap.min.js') }}"></script>
-    <script src="{{ asset('assets/main/js/vendor/scroll-trigger.min.js') }}"></script>
+    <script src="{{ asset('assets/main/js/vendor/split-type.min.js') }}" defer></script>
+    <script src="{{ asset('assets/main/js/vendor/gsap.min.js') }}" defer></script>
+    <script src="{{ asset('assets/main/js/vendor/scroll-trigger.min.js') }}" defer></script>
     <script src="{{ asset('assets/main/js/vendor/nice-select.js') }}"></script>
-    <script src="{{ asset('assets/main/js/contact.js') }}"></script>
-    <script src="{{ asset('assets/main/js/main.js') }}"></script>
+    <script src="{{ asset('assets/main/js/contact.js') }}" defer></script>
+    <script src="{{ asset('assets/main/js/main.js') }}" defer></script>
 
     <!-- Script personnalisé pour le header responsive -->
     <script src="{{ asset('assets/js/header-responsive.js') }}"></script>
@@ -99,46 +104,11 @@
     <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Bannière de Cookies -->
-    <div id="cookie-banner" class="cookie-banner" style="display: none;">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <h4>🍪 Politique de Cookies</h4>
-                <p>Nous utilisons des cookies et du stockage local pour améliorer votre expérience sur notre site.</p>
-            </div>
-            <div class="cookie-actions">
-                <button id="accept-cookies" class="btn btn-primary">Accepter</button>
-                <button id="reject-cookies" class="btn btn-outline-secondary">Refuser</button>
-            </div>
-        </div>
-    </div>
+    <!-- Bannière de Cookies - Composant Réutilisable -->
+    @include('includes.main.cookie-banner')
 
-    <!-- Script pour la bannière de cookies -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cookieBanner = document.getElementById('cookie-banner');
-            const acceptBtn = document.getElementById('accept-cookies');
-            const rejectBtn = document.getElementById('reject-cookies');
-
-            const cookieChoice = localStorage.getItem('cookieChoice');
-
-            if (!cookieChoice) {
-                setTimeout(() => {
-                    cookieBanner.style.display = 'block';
-                }, 2000);
-            }
-
-            acceptBtn.addEventListener('click', function() {
-                localStorage.setItem('cookieChoice', 'accepted');
-                cookieBanner.style.display = 'none';
-            });
-
-            rejectBtn.addEventListener('click', function() {
-                localStorage.setItem('cookieChoice', 'rejected');
-                cookieBanner.style.display = 'none';
-            });
-        });
-    </script>
+    <!-- Script d'optimisation des performances -->
+    {!! App\Helpers\PerformanceHelper::getPerformanceScript() !!}
 
 </body>
 

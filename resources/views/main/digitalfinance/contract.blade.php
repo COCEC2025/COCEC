@@ -354,7 +354,7 @@
                                         <label for="mobile_money">Souscrire au service Mobile Money</label>
                                     </div>
                                     <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
-                                        <strong>Coût :</strong> 1000 F/an
+                                        <strong>Coût :</strong> <span id="mobile_money_cost">1000 F/an</span>
                                     </p>
                                 </div>
 
@@ -365,7 +365,7 @@
                                         <label for="mobile_banking">Souscrire au service Mobile Banking</label>
                                     </div>
                                     <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
-                                        <strong>Coût :</strong> 1000 F/an
+                                        <strong>Coût :</strong> <span id="mobile_banking_cost">1000 F/an</span>
                                     </p>
                                 </div>
 
@@ -422,6 +422,81 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
     const submitBtn = document.getElementById('submit-btn');
+    
+    // Gestion des prix dynamiques pour Mobile Money + Mobile Banking
+    const mobileMoneyCheckbox = document.getElementById('mobile_money');
+    const mobileBankingCheckbox = document.getElementById('mobile_banking');
+    const mobileMoneyCost = document.getElementById('mobile_money_cost');
+    const mobileBankingCost = document.getElementById('mobile_banking_cost');
+    
+    function updatePricing() {
+        const mobileMoneyChecked = mobileMoneyCheckbox.checked;
+        const mobileBankingChecked = mobileBankingCheckbox.checked;
+        
+        if (mobileMoneyChecked && mobileBankingChecked) {
+            // Si les deux sont sélectionnés : 1000 F pour les deux
+            mobileMoneyCost.textContent = '1000 F/an';
+            mobileBankingCost.textContent = '1000 F/an';
+            
+            // Ajouter un message d'information
+            addComboMessage();
+        } else if (mobileMoneyChecked || mobileBankingChecked) {
+            // Si un seul est sélectionné : 1000 F chacun
+            mobileMoneyCost.textContent = '1000 F/an';
+            mobileBankingCost.textContent = '1000 F/an';
+            removeComboMessage();
+        } else {
+            // Si aucun n'est sélectionné : prix normal
+            mobileMoneyCost.textContent = '1000 F/an';
+            mobileBankingCost.textContent = '1000 F/an';
+            removeComboMessage();
+        }
+    }
+    
+    // Écouter les changements des checkboxes
+    mobileMoneyCheckbox.addEventListener('change', updatePricing);
+    mobileBankingCheckbox.addEventListener('change', updatePricing);
+    
+    // Initialiser les prix au chargement
+    updatePricing();
+    
+    function addComboMessage() {
+        // Supprimer l'ancien message s'il existe
+        const existingMessage = document.getElementById('combo-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+        
+        // Créer le message d'information
+        const messageDiv = document.createElement('div');
+        messageDiv.id = 'combo-message';
+        messageDiv.style.cssText = `
+            background: linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%);
+            border: 2px solid #EC281C;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 600;
+            color: #c53030;
+            box-shadow: 0 4px 12px rgba(236, 40, 28, 0.15);
+        `;
+        messageDiv.innerHTML = `
+            <i class="fas fa-gift" style="margin-right: 8px; color: #EC281C;"></i>
+            <strong>Offre spéciale :</strong> Mobile Money + Mobile Banking = 1000 F/an au total
+        `;
+        
+        // Insérer le message après la grille des services
+        const servicesGrid = document.querySelector('.services-grid');
+        servicesGrid.parentNode.insertBefore(messageDiv, servicesGrid.nextSibling);
+    }
+    
+    function removeComboMessage() {
+        const existingMessage = document.getElementById('combo-message');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+    }
 
     if (form) {
         form.addEventListener('submit', function(e) {

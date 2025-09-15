@@ -258,6 +258,11 @@ class DigitalFinanceContractController extends Controller
 
         $pdf = Pdf::loadView('admin.digitalfinance.contracts.pdf', $data);
 
-        return $pdf->download('contrat_adhesion_' . $contract->id . '.pdf');
+        $fileName = \App\Helpers\FileHelper::generatePdfFileName(
+            'contrat_adhesion', 
+            $contract->id, 
+            $contract->full_name
+        );
+        return $pdf->download($fileName);
     }
 }

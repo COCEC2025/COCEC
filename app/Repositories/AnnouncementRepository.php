@@ -37,4 +37,9 @@ class AnnouncementRepository implements AnnouncementInterface
     {
         return $announcement->delete();
     }
+
+    public function unpublishAll()
+    {
+        return Announcements::where('status', 'publier')->update(['status' => 'non publier']);
+    }
 }

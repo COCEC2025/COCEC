@@ -20,6 +20,23 @@
         border-radius: 8px;
         border: 2px solid #e9ecef;
         transition: all 0.3s ease;
+        height: 50px;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Largeur fixe pour le sélecteur */
+    .loan-simulator-section .form-select {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* Options du sélecteur visibles */
+    .loan-simulator-section .form-select option {
+        white-space: normal;
+        word-wrap: break-word;
     }
 
     .loan-simulator-section .form-control:focus,
@@ -28,10 +45,70 @@
         box-shadow: 0 0 0 0.2rem rgba(236, 40, 28, 0.25);
     }
 
+    /* Harmonisation du bouton avec les champs */
+    .loan-simulator-section .bz-primary-btn {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        font-weight: 600;
+        text-transform: none;
+        letter-spacing: 0.5px;
+        padding: 12px 24px;
+    }
+
+    /* Centrage du bouton Actualiser */
+    .simulation-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .simulation-actions .bz-primary-btn {
+        margin: 0 auto;
+    }
+
     /* Correction du bug d'affichage du sélecteur */
     .simulation-form,
     .loan-simulator-card {
         overflow: visible !important;
+    }
+
+    /* Espace supplémentaire pour le simulateur de prêt */
+    .loan-simulator-section {
+        padding: 60px 0 300px 0; /* Beaucoup plus d'espace en bas pour la liste déroulante */
+    }
+
+    /* Optimisation des performances - Réduction des animations au chargement */
+    .fade-wrapper,
+    .fade-top,
+    .fade-bottom,
+    .img-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    /* Animation différée pour améliorer les performances - EXCEPTION pour les cartes de la bannière */
+    @media (prefers-reduced-motion: no-preference) {
+        .fade-wrapper:not(.promo-section .fade-wrapper),
+        .fade-top:not(.promo-section .fade-top),
+        .fade-bottom:not(.promo-section .fade-bottom),
+        .img-reveal:not(.promo-section .img-reveal) {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-wrapper.animate:not(.promo-section .fade-wrapper),
+        .fade-top.animate:not(.promo-section .fade-top),
+        .fade-bottom.animate:not(.promo-section .fade-bottom),
+        .img-reveal.animate:not(.promo-section .img-reveal) {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     /* Style de la carte jaune */
@@ -179,8 +256,7 @@
     }
 
     .amortization-table-wrapper .table-responsive {
-        max-height: 400px;
-        overflow-y: auto;
+        /* Hauteur libre - pas de restriction */
     }
 
     .amortization-table-wrapper .table {
@@ -247,6 +323,177 @@
     .amortization-table-wrapper .table tbody tr:last-child td {
         border-bottom: 1px solid #e9ecef;
     }
+
+    /* ===========================================
+       SECTION GESTION DES PLAINTES
+       =========================================== */
+    .complaints-section {
+        background: #f8f9fa;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .complaints-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(236, 40, 28, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
+        z-index: 1;
+    }
+
+    .complaints-section .container-2 {
+        position: relative;
+        z-index: 2;
+    }
+
+    .complaints-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 40px 0;
+    }
+
+    .complaints-features li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+        padding: 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .complaints-features li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #EC281C 0%, #d4241a 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        flex-shrink: 0;
+    }
+
+    .feature-icon i {
+        color: white;
+        font-size: 20px;
+    }
+
+    .feature-text h5 {
+        color: #1a1a1a;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 8px 0;
+    }
+
+    .feature-text span {
+        color: #6c757d;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .complaints-cta {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .complaints-cta .bz-primary-btn {
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .complaints-cta .bz-primary-btn i {
+        font-size: 18px;
+    }
+
+    .complaints-image {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .complaints-image img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .complaints-stats {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    .stat-item {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .stat-item h3 {
+        color: #EC281C;
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0 0 5px 0;
+    }
+
+    .stat-item p {
+        color: #6c757d;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    /* Responsive pour la section plaintes */
+    @media (max-width: 768px) {
+        .complaints-cta {
+            flex-direction: column;
+        }
+
+        .complaints-cta .bz-primary-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .complaints-stats {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .complaints-features li {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .feature-icon {
+            margin-right: 0;
+            margin-bottom: 15px;
+        }
+    }
 </style>
 @endsection
 
@@ -267,7 +514,7 @@
         </div> -->
         <div class="swiper-container-wrapper swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide hero-slide-1" data-background="{{ asset('assets/images/banner.jpg') }}" loading="lazy">
+                <div class="swiper-slide hero-slide-1" data-background="{{ asset('assets/images/banner.jpg') }}">
                     <div class="container-2">
                         <div class="hero-content hero-content-3">
                             <div class="section-heading mb-40 red-content">
@@ -282,7 +529,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide hero-slide-2" data-background="{{ asset('assets/images/banner-1.jpg') }}" loading="lazy">
+                <div class="swiper-slide hero-slide-2" data-background="{{ asset('assets/images/banner-1.jpg') }}">
                     <div class="container-2">
                         <div class="hero-content hero-content-3">
                             <div class="section-heading mb-40 red-content">
@@ -297,7 +544,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide hero-slide-3" data-background="{{ asset('assets/images/banner-2.jpg') }}" loading="lazy">
+                <div class="swiper-slide hero-slide-3" data-background="{{ asset('assets/images/banner-2.jpg') }}">
                     <div class="container-2">
                         <div class="hero-content hero-content-3">
                             <div class="section-heading mb-40 red-content">
@@ -327,7 +574,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="promo-item white-content">
                         <div class="bg-items">
-                            <div class="bg-img"><img src="{{ asset('assets/images/epargne.jpg') }}" alt="Épargne" loading="lazy"></div>
+                            <div class="bg-img"><img src="{{ asset('assets/images/epargne.jpg') }}" alt="Épargne" loading="lazy" decoding="async"></div>
                             <div class="overlay"></div>
                             <div class="overlay-2"></div>
                         </div>
@@ -339,7 +586,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="promo-item white-content credit-card-middle">
                         <div class="bg-items">
-                            <div class="bg-img"><img src="{{ asset('assets/images/credit.jpg') }}" alt="Crédit" loading="lazy"></div>
+                            <div class="bg-img"><img src="{{ asset('assets/images/credit.jpg') }}" alt="Crédit" loading="lazy" decoding="async"></div>
                             <div class="overlay"></div>
                             <div class="overlay-2"></div>
                         </div>
@@ -351,7 +598,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="promo-item white-content">
                         <div class="bg-items">
-                            <div class="bg-img"><img src="{{ asset('assets/images/accompagnement.jpg') }}" alt="Services Financiers" loading="lazy"></div>
+                            <div class="bg-img"><img src="{{ asset('assets/images/accompagnement.jpg') }}" alt="Services Financiers" loading="lazy" decoding="async"></div>
                             <div class="overlay"></div>
                             <div class="overlay-2"></div>
                         </div>
@@ -429,21 +676,9 @@
                             <img class="img-item" src="{{ asset('assets/images/account1.jpg') }}" alt="Épargne" loading="lazy">
                         </div>
                         <div class="service-content">
-                            <h3 class="title"><a href="#">Compte d'Épargne</a></h3>
+                            <h3 class="title"><a href="#">Épargne</a></h3>
                             <p class="text-justify">Faites fructifier votre argent en toute sécurité et préparez sereinement votre avenir grâce à nos solutions d'épargne flexibles.</p>
-                            <a href="#" class="bz-primary-btn red-btn">Découvrir <i class="fa-regular fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item-3">
-                        <div class="service-thumb">
-                            <img class="img-item" src="{{ asset('assets/images/account2.jpg') }}" alt="Compte Courant" loading="lazy">
-                        </div>
-                        <div class="service-content">
-                            <h3 class="title"><a href="#">Compte Courant</a></h3>
-                            <p class="text-justify">Gérez vos revenus et vos dépenses quotidiennes avec agilité. La solution idéale pour la domiciliation de votre salaire.</p>
-                            <a href="#" class="bz-primary-btn red-btn">Découvrir <i class="fa-regular fa-arrow-right"></i></a>
+                            <a href="{{ route('product.index') }}" class="bz-primary-btn red-btn">Découvrir <i class="fa-regular fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -455,7 +690,19 @@
                         <div class="service-content">
                             <h3 class="title"><a href="#">Crédits & Financements</a></h3>
                             <p class="text-justify">Donnez vie à vos projets personnels ou professionnels avec nos solutions de crédit sur-mesure et à des conditions avantageuses.</p>
-                            <a href="#" class="bz-primary-btn red-btn">Découvrir <i class="fa-regular fa-arrow-right"></i></a>
+                            <a href="{{ route('product.index') }}" class="bz-primary-btn red-btn">Découvrir <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item-3">
+                        <div class="service-thumb">
+                            <img class="img-item" src="{{ asset('assets/images/account2.jpg') }}" alt="Tontine" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3 class="title"><a href="#">Tontine</a></h3>
+                            <p class="text-justify">Un système d'épargne rotatif et solidaire pour atteindre vos objectifs financiers en groupe. Découvrez nos solutions de tontine traditionnelle et moderne.</p>
+                            <a href="{{ route('product.index') }}" class="bz-primary-btn red-btn">Découvrir <i class="fa-regular fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -488,7 +735,7 @@
     <!-- ./ cta-section -->
 
     <!-- Simulateur de Prêt Section -->
-    <section class="loan-simulator-section pt-120 pb-120">
+    <section class="loan-simulator-section pt-120">
         <div class="container-2">
             <div class="section-heading text-center red-content mb-60">
                 <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5">
@@ -598,7 +845,7 @@
                                                 <thead>
                                                     <tr>
                                                         <th>N°</th>
-                                                        <th>Capital Remboursé</th>
+                                                        <th>Capital</th>
                                                         <th>Intérêts</th>
                                                         <th>Mensualité</th>
                                                         <th>Capital Restant</th>
@@ -624,6 +871,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- SECTION STATISTIQUES - VERSION OPTIMISÉE -->
     <section class="strength-section pt-120 pb-120">
@@ -806,7 +1055,7 @@
                                     <li><i class="fa-sharp fa-solid fa-star"></i></li>
                                 </ul>
                             </div>
-                            <p>Avec COCEC Mobile, je gère mes finances directement depuis ma boutique. C'est un gain de temps incroyable qui me permet de me concentrer sur mon business.</p>
+                            <p>Avec finance digitale, je gère mes finances directement depuis ma boutique. C'est un gain de temps incroyable qui me permet de me concentrer sur mon business.</p>
                         </div>
                     </div>
                 </div>
@@ -906,6 +1155,78 @@
         </div>
     </div>
 
+    <!-- Section Gestion des Plaintes -->
+    <section class="complaints-section pt-120 pb-120" data-background="{{ asset('assets/images/shapes/complaints-bg-shape.png') }}">
+        <div class="container-2">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="complaints-content fade-wrapper">
+                        <div class="section-heading red-content mb-20">
+                            <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5">
+                                <span class="left-shape"></span>Votre Voix Compte
+                            </h4>
+                            <h2 class="section-title" data-text-animation data-split="word" data-duration="1">
+                                Gestion des Plaintes & Réclamations
+                            </h2>
+                        </div>
+                        <p class="fade-top text-justify mb-30">
+                            Votre satisfaction est notre priorité. Si vous rencontrez un problème ou souhaitez faire une réclamation, 
+                            notre équipe dédiée est là pour vous écouter et vous accompagner dans la résolution de votre dossier.
+                        </p>
+                        <ul class="complaints-features fade-top">
+                            <li>
+                                <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                                <div class="feature-text">
+                                    <h5>Écoute Active</h5>
+                                    <span>Notre équipe vous écoute attentivement et traite chaque plainte avec sérieux.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                                <div class="feature-text">
+                                    <h5>Réponse Rapide</h5>
+                                    <span>Nous nous engageons à vous répondre dans les plus brefs délais.</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                                <div class="feature-text">
+                                    <h5>Confidentialité</h5>
+                                    <span>Vos informations sont protégées et traitées en toute confidentialité.</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="complaints-cta fade-top">
+                            <a href="{{ route('complaint') }}" class="bz-primary-btn red-btn">
+                                <i class="fas fa-file-alt"></i> Déposer une Plainte
+                            </a>
+                            <a href="tel:+22891126471" class="bz-primary-btn hero-btn">
+                                <i class="fas fa-phone"></i> Appeler le 91 12 64 71
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="complaints-image img-reveal">
+                        <div class="img-overlay overlay-2"></div>
+                        <img src="{{ asset('assets/images/account2.jpg') }}" alt="Gestion des Plaintes" loading="lazy">
+                        <div class="complaints-stats">
+                            <div class="stat-item">
+                                <h3><span class="odometer" data-count="95">0</span>%</h3>
+                                <p>Taux de Résolution</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3><span class="odometer" data-count="24">0</span>h</h3>
+                                <p>Délai de Réponse</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ./ complaints-section -->
+
     @include('includes.main.scroll')
     @include('includes.main.footer')
 </body>
@@ -998,9 +1319,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const resultsEl = document.getElementById('loan-results');
         
         const formatCurrency = (amount) => {
-            return new Intl.NumberFormat('fr-FR', {
-                style: 'currency', currency: 'XOF', minimumFractionDigits: 0
-            }).format(Math.round(amount));
+            // Formatage exact comme dans les spécimens COCEC
+            return Math.round(amount).toLocaleString('fr-FR') + ' FCFA';
         };
 
         const calculateLoan = () => {
@@ -1032,16 +1352,22 @@ document.addEventListener('DOMContentLoaded', function() {
             calculateBtn.querySelector('.btn-loading').style.display = 'inline-block';
 
             setTimeout(() => {
-                const capitalPerMonth = principal / duration;
+                // Calcul semi-dégressif : Capital fixe + Intérêts dégressifs
+                const capitalPerMonth = Math.floor(principal / duration); // Capital fixe par mois
+                const lastMonthCapital = principal - (capitalPerMonth * (duration - 1)); // Dernière échéance
                 let remainingCapital = principal;
                 let totalInterestPaid = 0;
                 
                 const amortizationTable = [];
                 for (let i = 1; i <= duration; i++) {
-                    const interestForMonth = remainingCapital * (annualRate / 100 / 12);
+                    // Intérêts calculés sur le capital restant dû
+                    const interestRaw = remainingCapital * (annualRate / 100 / 12);
+                    // Arrondi standard (0.5 vers le haut)
+                    const interestForMonth = Math.round(interestRaw);
                     totalInterestPaid += interestForMonth;
                     
-                    let capitalToPay = (i === duration) ? remainingCapital : capitalPerMonth;
+                    // Capital fixe sauf pour la dernière échéance
+                    let capitalToPay = (i === duration) ? lastMonthCapital : capitalPerMonth;
                     const monthlyPayment = capitalToPay + interestForMonth;
                     remainingCapital -= capitalToPay;
 
@@ -1100,6 +1426,40 @@ document.addEventListener('DOMContentLoaded', function() {
         calculateBtn.addEventListener('click', calculateLoan);
         refreshBtn.addEventListener('click', refreshLoanSimulator);
     }
+
+    // Optimisation des performances - Chargement différé des animations
+    function initAnimations() {
+        // Attendre que le DOM soit prêt
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAnimations);
+            return;
+        }
+
+        // Délai pour laisser le contenu se charger
+        setTimeout(() => {
+            // Animation des éléments avec Intersection Observer - EXCEPTION pour les cartes de la bannière
+            const animatedElements = document.querySelectorAll('.fade-wrapper:not(.promo-section .fade-wrapper), .fade-top:not(.promo-section .fade-top), .fade-bottom:not(.promo-section .fade-bottom), .img-reveal:not(.promo-section .img-reveal)');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }, 500);
+    }
+
+    // Initialiser les animations
+    initAnimations();
 });
 </script>
 @endsection

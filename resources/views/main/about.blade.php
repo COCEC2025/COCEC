@@ -41,7 +41,7 @@
             </div>
             <div class="director-layout-revisited">
                 <div class="director-image-wrapper" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887&auto=format&fit=crop" alt="Photo du Directeur Général de la COCEC">
+                    <img src="{{ asset('assets/images/DG.jpg') }}" alt="Photo du Directeur Général de la COCEC">
                 </div>
                 <div class="director-content-card" data-aos="fade-left" data-aos-delay="200">
                     <h2 class="section-subtitle">Le mot du Directeur Général</h2>

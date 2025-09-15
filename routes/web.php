@@ -14,6 +14,7 @@ use App\Http\Controllers\JobOfferController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ViewsController;
 use App\Http\Controllers\LocalityController;
+use App\Http\Controllers\ErrorController;
 
 use App\Http\Middleware\LogVisitor;
 use Illuminate\Support\Facades\Route;
@@ -67,7 +68,7 @@ Route::prefix('admin/jobList')->controller(JobController::class)->group(function
 
 Route::get('/blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
 
-Route::middleware('auth')->prefix('admin')->group(function () {
+Route::middleware(['auth', 'check.suspension'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [ViewsController::class, 'dashboard'])->name('admin.dashboard');
 
     Route::get('/localities', [LocalityController::class, 'index'])->name('settings.localities');
@@ -119,6 +120,9 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::put('/{user}', 'update')->name('admin.users.update');
         Route::delete('/{user}', 'destroy')->name('admin.users.destroy');
         Route::post('/{user}/reset-password', 'resetPassword')->name('admin.users.reset-password');
+        Route::post('/{user}/suspend', 'suspend')->name('admin.users.suspend');
+        Route::post('/{user}/unsuspend', 'unsuspend')->name('admin.users.unsuspend');
+        Route::post('/{user}/toggle-suspension', 'toggleSuspension')->name('admin.users.toggle-suspension');
     });
 });
 
@@ -200,3 +204,8 @@ Route::middleware('auth:sanctum')->prefix('admin/digitalfinance')->group(functio
         Route::put('/{id}/notes', 'updateNotes')->name('admin.complaint.updateNotes');
         Route::delete('/{id}', 'destroy')->name('admin.complaint.destroy');
     });
+
+    // Routes pour les pages d'erreur personnalisées
+    Route::get('/404', [ErrorController::class, 'notFound'])->name('error.404');
+    Route::get('/500', [ErrorController::class, 'serverError'])->name('error.500');
+    Route::get('/error/{code}', [ErrorController::class, 'error'])->name('error.generic');

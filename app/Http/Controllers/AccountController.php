@@ -95,7 +95,12 @@ class AccountController extends Controller
 
         $pdf = Pdf::loadView('admin.accounts.physical.pdf', $data);
 
-        return $pdf->download('submission_' . $submission->id . '.pdf');
+        $fileName = \App\Helpers\FileHelper::generatePdfFileName(
+            'submission', 
+            $submission->id, 
+            $submission->first_name . ' ' . $submission->last_name
+        );
+        return $pdf->download($fileName);
     }
 
     /** 
@@ -1005,6 +1010,11 @@ class AccountController extends Controller
 
         $pdf = Pdf::loadView('admin.accounts.moral.pdf', $data);
 
-        return $pdf->download('moral_submission_' . $submission->id . '.pdf');
+        $fileName = \App\Helpers\FileHelper::generatePdfFileName(
+            'moral_submission', 
+            $submission->id, 
+            $submission->company_name
+        );
+        return $pdf->download($fileName);
     }
 }

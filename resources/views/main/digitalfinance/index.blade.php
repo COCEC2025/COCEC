@@ -410,7 +410,7 @@
                         </a>
                         <a href="{{ route('digitalfinance.contracts.create') }}" class="df-action-card-clean">
                             <div class="icon-wrapper"><i class="fas fa-file-signature"></i></div>
-                            <strong>Adhérer aux Services Digitaux</strong>
+                            <strong>Adhérer à la Finance Digitale</strong>
                             <span>Accédez à votre compte 24/7 depuis votre téléphone ou ordinateur en signant notre contrat d'adhésion en ligne.</span>
                             <div class="btn-indicator">Signer le contrat <i class="fas fa-arrow-right"></i></div>
                         </a>
@@ -422,19 +422,19 @@
             <div class="df-security-section" data-aos="fade-up">
                 <h3>Sécurité et Assistance</h3>
                 <div class="df-security-grid">
-                    <div class="df-security-item">
+                    <div class="df-security-item text-justify">
                         <h5>Application Mobile Sécurisée</h5>
                         <p>Notre application utilise un cryptage de données avancé et nécessite une authentification à chaque connexion. Nous recommandons de ne jamais partager votre mot de passe ou votre code PIN.</p>
                     </div>
-                    <div class="df-security-item">
+                    <div class="df-security-item text-justify">
                         <h5>Perte de Téléphone</h5>
-                        <p>Alertez sans délai la COCEC pour que le service soit désactivé temporairement et sécuriser votre compte.</p>
+                        <p>Alertez sans délai la COCEC pour que le service soit désactivé temporairement et sécurisez votre compte.</p>
                     </div>
-                    <div class="df-security-item">
+                    <div class="df-security-item text-justify">
                         <h5>Assistance Technique</h5>
                         <p>Vous pouvez contacter notre assistance digitale via WhatsApp, téléphone ou email. Nous avons une équipe dédiée pour vous aider en cas de problème technique.</p>
                     </div>
-                    <div class="df-security-item">
+                    <div class="df-security-item text-justify">
                         <h5>Accès à Distance</h5>
                         <p>Vous pouvez consulter votre solde, vos échéances et votre historique via l'application Bindoo Mobile ou un code USSD, où que vous soyez.</p>
                     </div>

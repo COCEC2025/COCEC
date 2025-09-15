@@ -12,48 +12,9 @@
         font-family: 'Poppins', sans-serif;
     }
 
-    .product-hero {
-        background: linear-gradient(135deg, #EC281C 0%, #ff6b6b 100%);
-        color: white;
-        padding: 80px 0;
-        position: relative;
-        overflow: hidden;
-    }
+    /* Styles supprimés - utilisation des styles globaux page-header-pro */
 
-    .product-hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
-        pointer-events: none;
-    }
-
-    .product-hero-content {
-        position: relative;
-        z-index: 2;
-    }
-
-    .product-icon-large {
-        font-size: 4rem;
-        margin-bottom: 20px;
-        opacity: 0.9;
-    }
-
-    .product-title-large {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
-
-    .product-subtitle {
-        font-size: 1.2rem;
-        opacity: 0.9;
-        max-width: 600px;
-        margin: 0 auto;
-    }
+    /* Styles supprimés - utilisation des styles globaux */
 
     .product-content {
         background: white;
@@ -207,42 +168,29 @@
     @include('includes.main.loading')
     @include('includes.main.header')
 
-    <!-- Loading State -->
-    <div id="loadingState" class="loading-state">
-        <div class="loading-spinner"></div>
-        <p>Chargement des détails du produit...</p>
-    </div>
-
     <!-- Product Details Content -->
-    <div id="productContent" style="display: none;">
-        <!-- Hero Section -->
-        <section class="product-hero">
+    <div id="productContent">
+        <section class="page-header-pro">
+            <div class="page-header-overlay"></div>
             <div class="container">
-                <div class="product-hero-content text-center">
+                <div class="page-header-content-pro" data-aos="fade-up">
+                    <h1 class="title-pro">{{ $product['title'] ?? 'Titre du Produit' }}</h1>
                     <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb breadcrumb-custom">
+                        <ol class="breadcrumb-pro">
                             <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('product.index') }}">Produits</a></li>
-                            <li class="breadcrumb-item active" aria-current="page" id="breadcrumbProduct">Produit</li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $product['title'] ?? 'Produit' }}</li>
                         </ol>
                     </nav>
-                    
-                    <div class="product-icon-large" id="productIcon">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    
-                    <h1 class="product-title-large" id="productTitle">Titre du Produit</h1>
-                    <p class="product-subtitle" id="productSubtitle">Description courte du produit</p>
                 </div>
             </div>
         </section>
 
-        <!-- Product Content -->
         <section class="product-details-section">
             <div class="container">
                 <div class="product-content">
-                    <div class="product-description" id="productDescription">
-                        Description détaillée du produit...
+                    <div class="product-description">
+                        {{ $product['description'] ?? 'Description détaillée du produit...' }}
                     </div>
 
                     <div class="row">
@@ -252,8 +200,14 @@
                                     <i class="fas fa-star"></i>
                                     Caractéristiques
                                 </h3>
-                                <ul class="features-list" id="featuresList">
-                                    <!-- Features will be loaded here -->
+                                <ul class="features-list">
+                                    @if(isset($product['features']))
+                                        @foreach($product['features'] as $feature)
+                                            <li><i class="fas fa-check-circle"></i> {{ $feature }}</li>
+                                        @endforeach
+                                    @else
+                                        <li><i class="fas fa-check-circle"></i> Caractéristique principale</li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -264,8 +218,14 @@
                                     <i class="fas fa-clipboard-list"></i>
                                     Conditions requises
                                 </h3>
-                                <ul class="requirements-list" id="requirementsList">
-                                    <!-- Requirements will be loaded here -->
+                                <ul class="requirements-list">
+                                    @if(isset($product['requirements']))
+                                        @foreach($product['requirements'] as $requirement)
+                                            <li><i class="fas fa-arrow-right"></i> {{ $requirement }}</li>
+                                        @endforeach
+                                    @else
+                                        <li><i class="fas fa-arrow-right"></i> Condition requise</li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -295,85 +255,7 @@
 
 @section('js')
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Récupérer le slug du produit depuis l'URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const productSlug = urlParams.get('slug');
-    
-    if (!productSlug) {
-        window.location.href = '{{ route("product.index") }}';
-        return;
-    }
-
-    // Charger les données du produit
-    loadProductDetails(productSlug);
-});
-
-async function loadProductDetails(slug) {
-    try {
-        // Charger le fichier JSON
-        const response = await fetch('{{ asset("assets/data/products.json") }}');
-        const data = await response.json();
-        
-        // Trouver le produit correspondant
-        const product = data.products.find(p => p.slug === slug);
-        
-        if (!product) {
-            // Produit non trouvé, rediriger vers la liste
-            window.location.href = '{{ route("product.index") }}';
-            return;
-        }
-
-        // Afficher les détails du produit
-        displayProductDetails(product);
-        
-        // Masquer le loading et afficher le contenu
-        document.getElementById('loadingState').style.display = 'none';
-        document.getElementById('productContent').style.display = 'block';
-        
-    } catch (error) {
-        console.error('Erreur lors du chargement des données:', error);
-        // En cas d'erreur, rediriger vers la liste
-        window.location.href = '{{ route("product.index") }}';
-    }
-}
-
-function displayProductDetails(product) {
-    // Mettre à jour le titre de la page
-    document.title = `${product.title} - COCEC`;
-    
-    // Mettre à jour le breadcrumb
-    document.getElementById('breadcrumbProduct').textContent = product.title;
-    
-    // Mettre à jour l'icône
-    document.getElementById('productIcon').innerHTML = `<i class="${product.icon}"></i>`;
-    
-    // Mettre à jour le titre
-    document.getElementById('productTitle').textContent = product.title;
-    
-    // Mettre à jour la description courte
-    document.getElementById('productSubtitle').textContent = product.short_description;
-    
-    // Mettre à jour la description détaillée
-    document.getElementById('productDescription').textContent = product.description;
-    
-    // Mettre à jour les caractéristiques
-    const featuresList = document.getElementById('featuresList');
-    featuresList.innerHTML = '';
-    product.features.forEach(feature => {
-        const li = document.createElement('li');
-        li.textContent = feature;
-        featuresList.appendChild(li);
-    });
-    
-    // Mettre à jour les conditions requises
-    const requirementsList = document.getElementById('requirementsList');
-    requirementsList.innerHTML = '';
-    product.requirements.forEach(requirement => {
-        const li = document.createElement('li');
-        li.textContent = requirement;
-        requirementsList.appendChild(li);
-    });
-}
+    // Le contenu est maintenant chargé directement depuis le contrôleur
+    // Plus besoin de JavaScript pour charger les données
 </script>
 @endsection

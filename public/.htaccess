@@ -1,8 +1,6 @@
-# Créer un nouveau fichier .htaccess sans la directive problématique
-cat > .htaccess << 'EOF'
-# ========================================
-# OPTIMISATIONS DE PERFORMANCE - COCEC
-# ========================================
+# ===========================================
+# CONFIGURATION APACHE POUR OPTIMISATION
+# ===========================================
 
 # Activation de la compression GZIP
 <IfModule mod_deflate.c>
@@ -29,10 +27,10 @@ cat > .htaccess << 'EOF'
     # DeflateCompressionLevel 9
 </IfModule>
 
-# Mise en cache des ressources statiques
+# Cache des fichiers statiques
 <IfModule mod_expires.c>
-    ExpiresActive on
-
+    ExpiresActive On
+    
     # Images
     ExpiresByType image/jpg "access plus 1 month"
     ExpiresByType image/jpeg "access plus 1 month"
@@ -40,104 +38,61 @@ cat > .htaccess << 'EOF'
     ExpiresByType image/png "access plus 1 month"
     ExpiresByType image/webp "access plus 1 month"
     ExpiresByType image/svg+xml "access plus 1 month"
-    ExpiresByType image/x-icon "access plus 1 year"
-
+    
     # CSS et JavaScript
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType text/javascript "access plus 1 month"
-
+    
     # Polices
-    ExpiresByType font/otf "access plus 1 year"
-    ExpiresByType font/ttf "access plus 1 year"
     ExpiresByType font/woff "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
-
-    # Autres ressources
-    ExpiresByType application/pdf "access plus 1 month"
-    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
 </IfModule>
 
-# Headers de cache pour les navigateurs
+# Headers de cache
 <IfModule mod_headers.c>
-    # Cache pour les images
-    <FilesMatch "\.(jpg|jpeg|png|gif|webp|ico)$">
+    # Cache pour les fichiers statiques
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|otf)$">
         Header set Cache-Control "public, max-age=2592000"
     </FilesMatch>
-
-    # Cache pour CSS et JS
-    <FilesMatch "\.(css|js)$">
-        Header set Cache-Control "public, max-age=2592000"
+    
+    # Cache pour HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=3600"
     </FilesMatch>
+</IfModule>
 
-    # Cache pour les polices
-    <FilesMatch "\.(woff|woff2|ttf|otf)$">
-        Header set Cache-Control "public, max-age=31536000"
-    </FilesMatch>
+# Optimisation des performances
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirection HTTPS (si configuré)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Suppression des trailing slashes
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [R=301,L]
+</IfModule>
 
+# Sécurité et performance
+<IfModule mod_headers.c>
     # Sécurité
     Header always set X-Content-Type-Options nosniff
     Header always set X-Frame-Options DENY
     Header always set X-XSS-Protection "1; mode=block"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Performance
+    Header set Vary "Accept-Encoding"
 </IfModule>
 
-# Optimisation des images
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-
-    # Redirection vers les images WebP si supportées
-    RewriteCond %{HTTP_ACCEPT} image/webp
-    RewriteCond %{REQUEST_FILENAME} (.*)\.(jpe?g|png)$
-    RewriteCond %{REQUEST_FILENAME}\.webp -f
-    RewriteRule (.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1]
-</IfModule>
-
-# Compression des images SVG
-<IfModule mod_deflate.c>
-    <FilesMatch "\.svg$">
-        SetOutputFilter DEFLATE
-    </FilesMatch>
-</IfModule>
-
-# Désactivation de l'ETag pour les performances
-FileETag None
-
-# Optimisation pour les connexions lentes
-<IfModule mod_headers.c>
-    # Keep-Alive pour les connexions persistantes
-    Header set Connection keep-alive
-</IfModule>
-
-# Protection contre les hotlinks d'images
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteCond %{HTTP_REFERER} !^$
-    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?cocectogo.org [NC]
-    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?google.com [NC]
-    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?bing.com [NC]
-    RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|webp)$ [NC]
-    RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F]
-</IfModule>
-
-# Optimisation pour les appareils mobiles
-<IfModule mod_headers.c>
-    # Viewport pour les appareils mobiles
-    <FilesMatch "\.(html|php)$">
-        Header set X-UA-Compatible "IE=edge"
-    </FilesMatch>
-</IfModule>
-
-# Désactivation de l'indexation des dossiers
-Options -Indexes
-
-# Protection des fichiers sensibles
-<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|conf)$">
-    Order Allow,Deny
-    Deny from all
-</FilesMatch>
-
-# Optimisation pour Laravel
+# Configuration Laravel
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
@@ -159,4 +114,3 @@ Options -Indexes
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
-EOF

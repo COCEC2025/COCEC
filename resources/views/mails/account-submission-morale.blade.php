@@ -308,8 +308,15 @@
         </div>
         @endif
 
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="https://www.cocectogo.org/admin" style="display: inline-block; padding: 12px 30px; background-color: #EC281C; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                Se connecter à l'interface admin
+            </a>
+        </div>
+
         <div class="footer">
             <p><strong>COCEC - Service Comptes</strong></p>
+            <p>Site web : <a href="https://www.cocectogo.org" style="color: #EC281C;">www.cocectogo.org</a></p>
             <p>Cette demande a été soumise le {{ now()->format('d/m/Y à H:i') }}</p>
         </div>
     </div>

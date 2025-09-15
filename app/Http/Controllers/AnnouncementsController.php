@@ -61,6 +61,11 @@ class AnnouncementsController extends Controller
                 'image' => $imagePath,
             ];
 
+            // Si on publie une nouvelle annonce, dépublicher toutes les autres
+            if ($request->status === 'publier') {
+                $this->announcementRepo->unpublishAll();
+            }
+
             $this->announcementRepo->create($data);
 
             return redirect()->route('announcement.index')->with('success', 'Annonce ajoutée avec succès.');
@@ -100,6 +105,11 @@ class AnnouncementsController extends Controller
                 'description' => $request->description,
                 'status' => $request->status,
             ];
+
+            // Si on publie une annonce, dépublicher toutes les autres
+            if ($request->status === 'publier') {
+                $this->announcementRepo->unpublishAll();
+            }
 
             if ($request->hasFile('image')) {
                 // Supprimer l'ancienne image si elle existe

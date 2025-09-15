@@ -101,6 +101,7 @@
         <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ecf0f1;">
             <p style="font-size: 0.8em; color: #95a5a6; margin: 0;">
                 &copy; {{ date('Y') }} COCEC. Tous droits réservés.<br>
+                Site web : <a href="https://www.cocectogo.org" style="color: #EC281C;">www.cocectogo.org</a><br>
                 Cet email est généré automatiquement - Ne pas répondre directement
             </p>
         </div>

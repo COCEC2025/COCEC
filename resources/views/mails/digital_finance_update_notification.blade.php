@@ -96,8 +96,15 @@
         <p><strong>Accès au formulaire :</strong></p>
         <p>Connectez-vous à votre espace administrateur pour consulter les détails complets de cette demande.</p>
 
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="https://www.cocectogo.org/admin" style="display: inline-block; padding: 12px 30px; background-color: #EC281C; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                Se connecter à l'interface admin
+            </a>
+        </div>
+
         <div class="footer">
             <p><strong>COCEC - COOPERATIVE CHRETIENNE D'EPARGNE ET DE CREDIT</strong></p>
+            <p>Site web : <a href="https://www.cocectogo.org" style="color: #EC281C;">www.cocectogo.org</a></p>
             <p>Agréée suivant Arrêté 016/MEFP/SG/CAS-IMEC du 26/02/2006</p>
             <p>Inscrite sur le registre des IMCEC sous le N° T/1/GFLM/2006/128 A</p>
         </div>

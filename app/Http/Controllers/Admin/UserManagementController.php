@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
 use App\Mail\NewAccountMail;
+use Illuminate\Support\Facades\Log;
 
 class UserManagementController extends Controller
 {
@@ -176,16 +177,80 @@ class UserManagementController extends Controller
                 $user->role->getLabel()
             ));
 
-            \Log::info("Email envoyé avec succès pour {$user->email}");
+            Log::info("Email envoyé avec succès pour {$user->email}");
         } catch (\Exception $e) {
-            \Log::error("Erreur lors de l'envoi de l'email pour {$user->email}: " . $e->getMessage());
+            Log::error("Erreur lors de l'envoi de l'email pour {$user->email}: " . $e->getMessage());
             
             // En cas d'erreur, on log quand même les identifiants
-            \Log::info("Nouveau compte créé pour {$user->email}", [
+            Log::info("Nouveau compte créé pour {$user->email}", [
                 'email' => $user->email,
                 'password' => $password,
                 'role' => $user->role->getLabel()
             ]);
         }
+    }
+
+    /**
+     * Suspend a user account
+     */
+    public function suspend(Request $request, User $user)
+    {
+        $this->checkPermissions();
+        
+        // Ne pas permettre de suspendre son propre compte
+        if ($user->id === auth()->id()) {
+            return redirect()->back()->with('error', 'Vous ne pouvez pas suspendre votre propre compte.');
+        }
+
+        $request->validate([
+            'suspension_reason' => 'nullable|string|max:500',
+        ], [
+            'suspension_reason.max' => 'La raison ne peut pas dépasser 500 caractères.',
+        ]);
+
+        $user->suspend($request->suspension_reason);
+
+        return redirect()->back()->with('success', "Le compte de {$user->name} a été suspendu avec succès.");
+    }
+
+    /**
+     * Unsuspend a user account
+     */
+    public function unsuspend(User $user)
+    {
+        $this->checkPermissions();
+        
+        $user->unsuspend();
+
+        return redirect()->back()->with('success', "Le compte de {$user->name} a été réactivé avec succès.");
+    }
+
+    /**
+     * Toggle suspension status
+     */
+    public function toggleSuspension(Request $request, User $user)
+    {
+        $this->checkPermissions();
+        
+        // Ne pas permettre de suspendre son propre compte
+        if ($user->id === auth()->id()) {
+            return redirect()->back()->with('error', 'Vous ne pouvez pas suspendre votre propre compte.');
+        }
+
+        if ($user->isSuspended()) {
+            $user->unsuspend();
+            $message = "Le compte de {$user->name} a été réactivé avec succès.";
+        } else {
+            $request->validate([
+                'suspension_reason' => 'nullable|string|max:500',
+            ], [
+                'suspension_reason.max' => 'La raison ne peut pas dépasser 500 caractères.',
+            ]);
+
+            $user->suspend($request->suspension_reason);
+            $message = "Le compte de {$user->name} a été suspendu avec succès.";
+        }
+
+        return redirect()->back()->with('success', $message);
     }
 }

@@ -25,6 +25,9 @@ class User extends Authenticatable
         'role',
         'phone_num',
         'profile_image',
+        'is_suspended',
+        'suspended_at',
+        'suspension_reason',
     ];
 
     /**
@@ -48,6 +51,8 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'role' => UserRole::class,
+            'is_suspended' => 'boolean',
+            'suspended_at' => 'datetime',
         ];
     }
 
@@ -147,5 +152,49 @@ class User extends Authenticatable
             // En cas d'erreur, retourner false par sécurité
             return false;
         }
+    }
+
+    /**
+     * Check if user is suspended
+     */
+    public function isSuspended(): bool
+    {
+        return $this->is_suspended === true;
+    }
+
+    /**
+     * Suspend user account
+     */
+    public function suspend(string $reason = null): void
+    {
+        $this->update([
+            'is_suspended' => true,
+            'suspended_at' => now(),
+            'suspension_reason' => $reason,
+        ]);
+    }
+
+    /**
+     * Unsuspend user account
+     */
+    public function unsuspend(): void
+    {
+        $this->update([
+            'is_suspended' => false,
+            'suspended_at' => null,
+            'suspension_reason' => null,
+        ]);
+    }
+
+    /**
+     * Get suspension status with details
+     */
+    public function getSuspensionStatus(): array
+    {
+        return [
+            'is_suspended' => $this->is_suspended,
+            'suspended_at' => $this->suspended_at,
+            'suspension_reason' => $this->suspension_reason,
+        ];
     }
 }
