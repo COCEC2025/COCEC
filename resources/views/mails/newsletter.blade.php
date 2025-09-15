@@ -25,7 +25,8 @@
         </p>
 
         <p style="font-size: 0.8em; color: #aaa; margin-top: 20px;">
-            &copy; {{ date('Y') }} COCEC. Tous droits réservés.
+            &copy; {{ date('Y') }} COCEC. Tous droits réservés.<br>
+            Site web : <a href="https://www.cocectogo.org" style="color: #EC281C;">www.cocectogo.org</a>
         </p>
     </div>
 </body>

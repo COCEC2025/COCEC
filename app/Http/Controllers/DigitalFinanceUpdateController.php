@@ -267,6 +267,11 @@ class DigitalFinanceUpdateController extends Controller
 
         $pdf = \PDF::loadView('admin.digitalfinance.updates.pdf', $data);
 
-        return $pdf->download('formulaire_mise_a_jour_' . $update->id . '.pdf');
+        $fileName = \App\Helpers\FileHelper::generatePdfFileName(
+            'formulaire_mise_a_jour', 
+            $update->id, 
+            $update->full_name
+        );
+        return $pdf->download($fileName);
     }
 }

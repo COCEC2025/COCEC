@@ -172,6 +172,10 @@
                     <option value="non publier" {{ old('status') == 'non publier' ? 'selected' : '' }}>Non publiée</option>
                     <option value="expirer" {{ old('status') == 'expirer' ? 'selected' : '' }}>Expirée</option>
                 </select>
+                <div class="form-text text-warning">
+                    <i class="fas fa-info-circle me-1"></i>
+                    <strong>Note :</strong> Seule une annonce peut être publiée à la fois. Publier cette annonce dépublichera automatiquement toutes les autres.
+                </div>
                 @error('status')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

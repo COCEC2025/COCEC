@@ -200,6 +200,33 @@
         flex: 1;
     }
 
+    .radio-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+        border: 1px solid #e2e8f0;
+    }
+    .radio-group:not(:last-child){ margin-bottom: 5px; }
+    .radio-group:hover { background-color: #f8fafc; }
+
+    .radio-group input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--primary-color);
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+    .radio-group label {
+        color: var(--text-color);
+        font-weight: 500;
+        cursor: pointer;
+        margin: 0;
+        flex: 1;
+    }
+
     /* === BOUTON DE SOUMISSION === */
     .submit-btn {
         background: var(--primary-color);
@@ -355,18 +382,27 @@
                                     <div class="checkbox-group"><input type="checkbox" id="web_banking" name="services[web_banking]"><label for="web_banking">Activer Web Banking</label></div>
                                 </div>
                                 <div class="service-category">
-                                    <h4>SMS Banking (Bonus)</h4>
-                                    <div class="checkbox-group"><input type="checkbox" id="sms_banking_togocel" name="services[sms_banking_togocel]"><label for="sms_banking_togocel">TOGOCEL</label></div>
-                                    <div class="checkbox-group"><input type="checkbox" id="sms_banking_moov" name="services[sms_banking_moov]"><label for="sms_banking_moov">MOOV</label></div>
+                                    <h4>SMS Banking</h4>
+                                    <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">
+                                        <i class="fas fa-info-circle"></i> Choisissez un seul opérateur
+                                    </p>
+                                    <div class="radio-group">
+                                        <input type="radio" id="sms_banking_togocel" name="sms_banking_operator" value="togocel">
+                                        <label for="sms_banking_togocel">TOGOCEL</label>
+                                    </div>
+                                    <div class="radio-group">
+                                        <input type="radio" id="sms_banking_moov" name="sms_banking_operator" value="moov">
+                                        <label for="sms_banking_moov">MOOV</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3 class="section-title">Notes Additionnelles</h3>
+                            <h3 class="section-title">Motifs de la mise à jour</h3>
                             <div class="form-group full-width">
-                                <label for="notes" class="form-label">Commentaires ou observations</label>
-                                <textarea id="notes" name="notes" class="form-input" rows="5" placeholder="Ajoutez ici vos commentaires ou observations...">{{ old('notes') }}</textarea>
+                                <label for="notes" class="form-label">Motifs de la mise à jour</label>
+                                <textarea id="notes" name="notes" class="form-input" rows="5" placeholder="Ecrire les motifs de la mise à jour ici ...">{{ old('notes') }}</textarea>
                             </div>
                         </div>
 

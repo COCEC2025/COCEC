@@ -157,7 +157,7 @@
             <p>Vous pouvez maintenant vous connecter à votre compte en utilisant les identifiants ci-dessus.</p>
 
             <div style="text-align: center;">
-                <a href="{{ url('/login') }}" class="button">Se connecter maintenant</a>
+                <a href="https://www.cocectogo.org/admin" class="button">Se connecter à l'interface admin</a>
             </div>
 
             <p>Si vous avez des questions ou besoin d'assistance, n'hésitez pas à contacter l'équipe technique.</p>
@@ -165,6 +165,7 @@
 
         <div class="footer">
             <p><strong>COCEC - Coopérative Chrétienne d'Épargne et de Crédit</strong></p>
+            <p>Site web : <a href="https://www.cocectogo.org" style="color: #EC281C;">www.cocectogo.org</a></p>
             <p>Cet email a été envoyé automatiquement, merci de ne pas y répondre.</p>
             <p>© {{ date('Y') }} COCEC. Tous droits réservés.</p>
         </div>

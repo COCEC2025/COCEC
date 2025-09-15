@@ -124,8 +124,8 @@
         </div>
 
         <div style="text-align: center;">
-            <a href="{{ route('admin.complaints.show', $complaint->id) }}" class="btn">
-                Voir les détails complets
+            <a href="https://www.cocectogo.org/admin/complaints/{{ $complaint->id }}" class="btn">
+                Voir les détails complets dans l'interface admin
             </a>
         </div>
 
@@ -133,10 +133,17 @@
             <strong>Action requise :</strong> Cette plainte nécessite votre attention. 
             Veuillez la traiter dans les plus brefs délais conformément aux procédures de la COCEC.
         </div>
+
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="https://www.cocectogo.org/admin" style="display: inline-block; padding: 12px 30px; background-color: #EC281C; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                Se connecter à l'interface admin
+            </a>
+        </div>
     </div>
 
     <div class="footer">
         <p><strong>COCEC - Gestion des Plaintes</strong></p>
+        <p>Site web : <a href="https://www.cocectogo.org" style="color: #EC281C;">www.cocectogo.org</a></p>
         <p>Cet email a été généré automatiquement. Merci de ne pas y répondre directement.</p>
     </div>
 </body>

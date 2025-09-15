@@ -7,6 +7,10 @@
     /* ------------------------------------------- */
 
     /* ----- Section Générale ----- */
+    .title-pro{
+        margin-top: 30px;
+    }
+
     .products-page-section {
         padding: 80px 0;
         background-color: #f7f8fc;
@@ -80,6 +84,7 @@
             opacity: 0;
             transform: translateY(15px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -296,8 +301,13 @@
     }
 
     @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
     }
 
     .error-message {
@@ -321,6 +331,8 @@
         <div class="page-header-overlay"></div>
         <div class="container">
             <div class="page-header-content-pro" data-aos="fade-up">
+                <br><br><br>
+
                 <h1 class="title-pro">Nos Produits & Services</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb-pro">
@@ -382,64 +394,64 @@
 
 @section('js')
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Charger les produits depuis le JSON
-    loadProducts();
-    
-    // Initialisation des onglets Bootstrap
-    var triggerTabList = [].slice.call(document.querySelectorAll('#productTabs button'))
-    triggerTabList.forEach(function (triggerEl) {
-        var tabTrigger = new bootstrap.Tab(triggerEl)
-        
-        triggerEl.addEventListener('click', function (event) {
-            event.preventDefault()
-            tabTrigger.show()
-        })
-    })
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        // Charger les produits depuis le JSON
+        loadProducts();
 
-async function loadProducts() {
-    try {
-        console.log('Début du chargement des produits...');
-        
-        // Charger le fichier JSON
-        const response = await fetch('{{ asset("assets/data/products.json") }}');
-        console.log('Réponse du fetch:', response.status, response.statusText);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        console.log('Données JSON chargées:', data);
-        console.log('Nombre de produits:', data.products ? data.products.length : 'undefined');
-        
-        // Organiser les produits par catégorie
-        const productsByCategory = {};
-        data.products.forEach(product => {
-            if (!productsByCategory[product.category]) {
-                productsByCategory[product.category] = [];
+        // Initialisation des onglets Bootstrap
+        var triggerTabList = [].slice.call(document.querySelectorAll('#productTabs button'))
+        triggerTabList.forEach(function(triggerEl) {
+            var tabTrigger = new bootstrap.Tab(triggerEl)
+
+            triggerEl.addEventListener('click', function(event) {
+                event.preventDefault()
+                tabTrigger.show()
+            })
+        })
+    });
+
+    async function loadProducts() {
+        try {
+            console.log('Début du chargement des produits...');
+
+            // Charger le fichier JSON
+            const response = await fetch('{{ asset("assets/data/products.json") }}');
+            console.log('Réponse du fetch:', response.status, response.statusText);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            productsByCategory[product.category].push(product);
-        });
-        
-        console.log('Produits organisés par catégorie:', productsByCategory);
-        
-        // Générer le contenu des onglets
-        generateTabContent(productsByCategory);
-        
-        // Masquer le loading
-        const loadingState = document.getElementById('loadingState');
-        if (loadingState) {
-            loadingState.style.display = 'none';
-        }
-        
-    } catch (error) {
-        console.error('Erreur lors du chargement des produits:', error);
-        // Afficher un message d'erreur
-        const productTabsContent = document.getElementById('productTabsContent');
-        if (productTabsContent) {
-            productTabsContent.innerHTML = `
+
+            const data = await response.json();
+            console.log('Données JSON chargées:', data);
+            console.log('Nombre de produits:', data.products ? data.products.length : 'undefined');
+
+            // Organiser les produits par catégorie
+            const productsByCategory = {};
+            data.products.forEach(product => {
+                if (!productsByCategory[product.category]) {
+                    productsByCategory[product.category] = [];
+                }
+                productsByCategory[product.category].push(product);
+            });
+
+            console.log('Produits organisés par catégorie:', productsByCategory);
+
+            // Générer le contenu des onglets
+            generateTabContent(productsByCategory);
+
+            // Masquer le loading
+            const loadingState = document.getElementById('loadingState');
+            if (loadingState) {
+                loadingState.style.display = 'none';
+            }
+
+        } catch (error) {
+            console.error('Erreur lors du chargement des produits:', error);
+            // Afficher un message d'erreur
+            const productTabsContent = document.getElementById('productTabsContent');
+            if (productTabsContent) {
+                productTabsContent.innerHTML = `
                 <div class="error-message">
                     <h4><i class="fas fa-exclamation-triangle me-2"></i>Erreur de chargement</h4>
                     <p>Impossible de charger les produits pour le moment. Veuillez réessayer plus tard.</p>
@@ -449,70 +461,70 @@ async function loadProducts() {
                     </button>
                 </div>
             `;
+            }
         }
     }
-}
 
-function generateTabContent(productsByCategory) {
-    const tabContent = document.getElementById('productTabsContent');
-    if (!tabContent) {
-        console.error('Élément productTabsContent non trouvé');
-        return;
-    }
-    tabContent.innerHTML = '';
-    
-    // Mapping des catégories vers les onglets
-    const categoryMapping = {
-        'credit': 'credit',
-        'epargne': 'epargne',
-        'tontine': 'epargne', // Tontine va dans l'onglet épargne
-        'transfert': 'services', // Transfert va dans l'onglet services
-        'conseils': 'services', // Conseils va dans l'onglet services
-        'domiciliation': 'services' // Domiciliation va dans l'onglet services
-    };
-    
-    // Organiser les produits par onglet
-    const productsByTab = {
-        'epargne': [],
-        'credit': [],
-        'services': []
-    };
-    
-    // Répartir les produits selon le mapping
-    Object.keys(productsByCategory).forEach(category => {
-        const targetTab = categoryMapping[category] || 'services';
-        productsByTab[targetTab] = productsByTab[targetTab].concat(productsByCategory[category]);
-    });
-    
-    // Générer le contenu pour chaque onglet
-    Object.keys(productsByTab).forEach((tabName, index) => {
-        const products = productsByTab[tabName];
-        const isActive = index === 0 ? 'show active' : '';
-        
-        const tabPane = document.createElement('div');
-        tabPane.className = `tab-pane fade ${isActive}`;
-        tabPane.id = tabName;
-        tabPane.setAttribute('role', 'tabpanel');
-        
-        const row = document.createElement('div');
-        row.className = 'row g-4';
-        
-        // Ajouter les produits de cet onglet
-        products.forEach(product => {
-            const productCard = createProductCard(product);
-            row.appendChild(productCard);
+    function generateTabContent(productsByCategory) {
+        const tabContent = document.getElementById('productTabsContent');
+        if (!tabContent) {
+            console.error('Élément productTabsContent non trouvé');
+            return;
+        }
+        tabContent.innerHTML = '';
+
+        // Mapping des catégories vers les onglets
+        const categoryMapping = {
+            'credit': 'credit',
+            'epargne': 'epargne',
+            'tontine': 'epargne', // Tontine va dans l'onglet épargne
+            'transfert': 'services', // Transfert va dans l'onglet services
+            'conseils': 'services', // Conseils va dans l'onglet services
+            'domiciliation': 'services' // Domiciliation va dans l'onglet services
+        };
+
+        // Organiser les produits par onglet
+        const productsByTab = {
+            'epargne': [],
+            'credit': [],
+            'services': []
+        };
+
+        // Répartir les produits selon le mapping
+        Object.keys(productsByCategory).forEach(category => {
+            const targetTab = categoryMapping[category] || 'services';
+            productsByTab[targetTab] = productsByTab[targetTab].concat(productsByCategory[category]);
         });
-        
-        tabPane.appendChild(row);
-        tabContent.appendChild(tabPane);
-    });
-}
 
-function createProductCard(product) {
-    const col = document.createElement('div');
-    col.className = 'col-lg-4 col-md-6 d-flex';
-    
-    col.innerHTML = `
+        // Générer le contenu pour chaque onglet
+        Object.keys(productsByTab).forEach((tabName, index) => {
+            const products = productsByTab[tabName];
+            const isActive = index === 0 ? 'show active' : '';
+
+            const tabPane = document.createElement('div');
+            tabPane.className = `tab-pane fade ${isActive}`;
+            tabPane.id = tabName;
+            tabPane.setAttribute('role', 'tabpanel');
+
+            const row = document.createElement('div');
+            row.className = 'row g-4';
+
+            // Ajouter les produits de cet onglet
+            products.forEach(product => {
+                const productCard = createProductCard(product);
+                row.appendChild(productCard);
+            });
+
+            tabPane.appendChild(row);
+            tabContent.appendChild(tabPane);
+        });
+    }
+
+    function createProductCard(product) {
+        const col = document.createElement('div');
+        col.className = 'col-lg-4 col-md-6 d-flex';
+
+        col.innerHTML = `
         <div class="product-card">
             <div class="product-card-header">
                 <i class="${product.icon} product-card-icon"></i>
@@ -526,8 +538,8 @@ function createProductCard(product) {
             </div>
         </div>
     `;
-    
-    return col;
-}
+
+        return col;
+    }
 </script>
 @endsection

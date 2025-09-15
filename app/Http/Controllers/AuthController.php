@@ -8,7 +8,11 @@ use App\Interfaces\AuthInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Str;
+use Illuminate\Support\Facades\Mail;
+
 
 class AuthController extends Controller
 {
@@ -54,7 +58,8 @@ class AuthController extends Controller
 
             return $user;
         } catch (\Throwable $th) {
-
+            DB::rollBack();
+            Log::error("Erreur lors de la création de l'utilisateur: " . $th->getMessage());
             return false;
         }
     }

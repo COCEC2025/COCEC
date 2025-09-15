@@ -9,5 +9,6 @@ interface AnnouncementInterface
     public function create(array $data);
     public function update($announcement, array $data);
     public function delete($announcement);
+    public function unpublishAll();
 }
 

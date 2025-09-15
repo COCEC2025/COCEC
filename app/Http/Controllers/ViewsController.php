@@ -71,7 +71,7 @@ class ViewsController extends Controller
         $totalVisitors = Visitor::count();
 
         // Visiteurs par mois (par exemple, sur les 12 derniers mois)
-        $visitorsByMonth = Visitor::selectRaw('strftime("%Y-%m", created_at) as month, COUNT(*) as count')
+        $visitorsByMonth = Visitor::selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as count')
             ->groupBy('month')
             ->orderBy('month', 'asc')
             ->take(12)
@@ -80,7 +80,7 @@ class ViewsController extends Controller
             ->toArray();
 
         // Visiteurs par jour (par exemple, sur les 30 derniers jours)
-        $visitorsByDay = Visitor::selectRaw('strftime("%Y-%m-%d", created_at) as day, COUNT(*) as count')
+        $visitorsByDay = Visitor::selectRaw('DATE_FORMAT(created_at, "%Y-%m-%d") as day, COUNT(*) as count')
             ->where('created_at', '>=', now()->subDays(30))
             ->groupBy('day')
             ->orderBy('day', 'asc')
@@ -89,7 +89,7 @@ class ViewsController extends Controller
             ->toArray();
 
         // Visiteurs par semaine (par exemple, sur les 12 dernières semaines)
-        $visitorsByWeek = Visitor::selectRaw('strftime("%Y-%W", created_at) as week, COUNT(*) as count')
+        $visitorsByWeek = Visitor::selectRaw('YEARWEEK(created_at) as week, COUNT(*) as count')
             ->where('created_at', '>=', now()->subWeeks(12))
             ->groupBy('week')
             ->orderBy('week', 'asc')
@@ -98,7 +98,7 @@ class ViewsController extends Controller
             ->toArray();
 
         // Abonnés newsletter par mois (par exemple, sur les 12 derniers mois)
-        $subscribersByMonth = NewsletterSubscriber::selectRaw('strftime("%Y-%m", created_at) as month, COUNT(*) as count')
+        $subscribersByMonth = NewsletterSubscriber::selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as count')
             ->groupBy('month')
             ->orderBy('month', 'asc')
             ->take(12)
@@ -245,9 +245,35 @@ class ViewsController extends Controller
         return view('main.product.index');
     }
 
-    public function productDetails()
+    public function productDetails(Request $request)
     {
-        return view('main.product.details');
+        $slug = $request->get('slug');
+        
+        // Charger les données des produits depuis le JSON
+        $productsJsonPath = public_path('assets/data/products.json');
+        $productsData = [];
+        
+        if (file_exists($productsJsonPath)) {
+            $productsData = json_decode(file_get_contents($productsJsonPath), true);
+        }
+        
+        // Trouver le produit correspondant au slug
+        $product = null;
+        if (isset($productsData['products'])) {
+            foreach ($productsData['products'] as $p) {
+                if ($p['slug'] === $slug) {
+                    $product = $p;
+                    break;
+                }
+            }
+        }
+        
+        // Si le produit n'est pas trouvé, rediriger vers la liste des produits
+        if (!$product) {
+            return redirect()->route('product.index');
+        }
+        
+        return view('main.product.details', compact('product'));
     }
 
     public function finance()

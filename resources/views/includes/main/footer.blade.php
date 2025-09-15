@@ -133,7 +133,7 @@
                 <div class="container">
                     <div class="row copyright-content">
                         <div class="col-md-6">
-                            <p>© {{ date('Y') }} COCEC. All Rights Reserved. | Powered by <a href="mailto:douvonangelotadn@gmail.com" style="color: inherit; text-decoration: none;">douvonangelotadn@gmail.com</a></p>
+                            <p>© {{ date('Y') }} COCEC. All Rights Reserved. | Powered by <a href="mailto:douvonangelotadn@gmail.com" style="color: inherit; text-decoration: none;">Angélot</a></p>
                         </div>
                         <div class="col-md-6">
                             <ul class="copy-list">

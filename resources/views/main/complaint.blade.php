@@ -82,9 +82,24 @@
     .form-section {
         margin-bottom: 40px;
         padding: 30px;
-        background: #f8f9fa;
+        background: linear-gradient(135deg, #f8f9fa 0%, #fff5f5 100%);
         border-radius: 15px;
         border-left: 4px solid #EC281C;
+        border-top: 2px solid #FFCC00;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .form-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(135deg, #FFCC00 0%, #ffd700 100%);
+        border-radius: 0 0 0 100px;
+        opacity: 0.1;
     }
 
     .form-section-title {
@@ -95,11 +110,25 @@
         display: flex;
         align-items: center;
         gap: 12px;
+        position: relative;
+        z-index: 2;
     }
 
     .form-section-title i {
         color: #EC281C;
         font-size: 1.2rem;
+        text-shadow: 0 2px 4px rgba(236, 40, 28, 0.2);
+    }
+
+    .form-section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(90deg, #EC281C 0%, #FFCC00 100%);
+        border-radius: 2px;
     }
 
     .input-group-custom {
@@ -143,9 +172,10 @@
     .input-group-custom .form-control:focus,
     .input-group-custom .form-select:focus {
         border-color: #EC281C;
-        box-shadow: 0 0 0 0.2rem rgba(236, 40, 28, 0.25);
+        box-shadow: 0 0 0 0.2rem rgba(236, 40, 28, 0.15), 0 0 0 0.1rem rgba(255, 204, 0, 0.2);
         outline: none;
         z-index: 100;
+        background: linear-gradient(135deg, #fff 0%, #fff5f5 100%);
     }
 
     /* Correction spécifique pour le select */
@@ -187,16 +217,19 @@
         margin-top: 2px;
         accent-color: #EC281C;
         filter: hue-rotate(0deg) saturate(100%) brightness(100%);
+        border: 2px solid #e9ecef;
+        border-radius: 4px;
     }
 
     .form-check-input:checked {
-        background-color: #EC281C !important;
+        background: linear-gradient(135deg, #EC281C 0%, #d4241a 100%) !important;
         border-color: #EC281C !important;
+        box-shadow: 0 2px 8px rgba(236, 40, 28, 0.3);
     }
 
     .form-check-input:focus {
         border-color: #EC281C !important;
-        box-shadow: 0 0 0 0.2rem rgba(236, 40, 28, 0.25) !important;
+        box-shadow: 0 0 0 0.2rem rgba(236, 40, 28, 0.15), 0 0 0 0.1rem rgba(255, 204, 0, 0.2) !important;
     }
 
     .form-check-label {
@@ -210,14 +243,33 @@
         border-radius: 10px;
         padding: 30px;
         text-align: center;
-        background: #f8f9fa;
+        background: linear-gradient(135deg, #f8f9fa 0%, #fff5f5 100%);
         transition: all 0.3s ease;
         cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .file-upload-area::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, transparent 0%, rgba(255, 204, 0, 0.05) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
     .file-upload-area:hover {
         border-color: #EC281C;
-        background: #fff5f5;
+        background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+        box-shadow: 0 4px 15px rgba(236, 40, 28, 0.1);
+    }
+
+    .file-upload-area:hover::before {
+        opacity: 1;
     }
 
     .file-upload-area i {
@@ -237,9 +289,9 @@
     }
 
     .btn-submit {
-        background: linear-gradient(135deg, #EC281C, #d4241a);
+        background: #EC281C;
         color: white;
-        border: none;
+        border: 2px solid #FFCC00;
         padding: 18px 40px;
         font-size: 1.1rem;
         font-weight: 700;
@@ -269,7 +321,8 @@
 
     .btn-submit:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(236, 40, 28, 0.4);
+        box-shadow: 0 12px 35px rgba(236, 40, 28, 0.4), 0 0 20px rgba(255, 204, 0, 0.3);
+        border-color: #FFCC00;
     }
 
     .btn-submit i {
@@ -277,7 +330,7 @@
     }
 
     .commitment-box {
-        background: linear-gradient(135deg, #EC281C, #d4241a);
+        background: #EC281C;
         color: white;
         padding: 30px;
         border-radius: 15px;
@@ -285,6 +338,7 @@
         margin-bottom: 40px;
         position: relative;
         overflow: hidden;
+        border: 2px solid #FFCC00;
     }
 
     .commitment-box::before {
@@ -418,7 +472,7 @@
                     <h5><i class="fa-solid fa-phone"></i> Besoin d'aide ?</h5>
                     <div class="phone-number">
                         <i class="fa-solid fa-headset"></i>
-                        <span>Numéro Vert : <strong>8080</strong></span>
+                        <span>Numéro Vert : <strong>8989</strong></span>
                     </div>
                 </div>
 

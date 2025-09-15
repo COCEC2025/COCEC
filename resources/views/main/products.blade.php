@@ -207,13 +207,10 @@
     @include('includes.main.header')
 
     <section class="page-header-pro">
-        {{-- L'image de fond est appliquée via CSS pour plus de flexibilité --}}
         <div class="page-header-overlay"></div>
         <div class="container">
             <div class="page-header-content-pro" data-aos="fade-up">
-                <h1 class="title-pro">Produits</h1>
-
-                {{-- Utilisation d'une structure sémantique pour le fil d'Ariane --}}
+                <h1 class="title-pro">Nos Produits & Services</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb-pro">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>

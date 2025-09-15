@@ -1,6 +1,8 @@
 @extends('layout.admin')
 
+@section('content')
 <body>
+    @include('includes.main.loading')
 
     <style>
         .auth-left {
@@ -50,7 +52,7 @@
                 <div style="color: red;">{{ $message }}</div><br>
                 @endif
 
-                <form id="loginForm" action="{{ route('login.process') }}" method="POST" onsubmit="showLoading()">
+                <form id="loginForm" action="{{ route('login.process') }}" method="POST">
                     @csrf
                     <div class="icon-field mb-16">
                         <span class="icon top-50 translate-middle-y">
@@ -67,15 +69,14 @@
                         </div>
                         <span class="toggle-password ri-eye-line cursor-pointer position-absolute end-0 top-50 translate-middle-y me-16 text-secondary-light" data-toggle="#password"></span>
                     </div>
-                    <div class="">
+                    <!-- <div class="">
                         <div class="d-flex justify-content-between gap-2">
                             <div class="form-check style-check d-flex align-items-center">
                                 <input class="form-check-input border border-neutral-300" type="checkbox" value="" id="remeber">
                                 <label class="form-check-label" for="remeber">Se souvenir de moi</label>
                             </div>
-                            <!-- <a href="javascript:void(0)" class="text-primary-600 fw-medium">Mot de passe oublié?</a> -->
                         </div>
-                    </div>
+                    </div> -->
 
                     <button type="submit" class="btn btn-danger text-sm btn-sm px-12 py-16 w-100 radius-12 mt-32"> Se connecter</button>
 
@@ -83,17 +84,8 @@
             </div>
         </div>
     </section>
-
-    <!-- Loading Overlay -->
-    <div id="loadingOverlay" class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-white bg-opacity-75" style="z-index: 1050; display: none;">
-        <div class="text-center">
-            <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;" role="status"></div>
-            <div class="fw-medium text-primary">Connexion en cours...</div>
-        </div>
-    </div>
-
-
 </body>
+@endsection
 @section('js')
 <script>
     // ================== Password Show Hide Js Start ==========
@@ -112,49 +104,26 @@
     initializePasswordToggle('.toggle-password');
     // ========================= Password Show Hide Js End ===========================
 
-    function showLoading() {
-        console.log('showLoading déclenché via:', event ? event.type : 'unknown');
-        const overlay = document.getElementById('loadingOverlay');
-        overlay.style.display = 'flex';
-        overlay.classList.remove('hidden');
-
-        const submitBtn = document.querySelector('#loginForm button[type="submit"]');
+    // Gestion du loading lors de la soumission du formulaire
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        // Afficher le loading
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.display = 'flex';
+            preloader.style.zIndex = '9999';
+            preloader.style.position = 'fixed';
+            preloader.style.top = '0';
+            preloader.style.left = '0';
+            preloader.style.width = '100%';
+            preloader.style.height = '100%';
+            preloader.style.backgroundColor = 'var(--secondary-color)';
+        }
+        
+        // Désactiver le bouton de soumission
+        const submitBtn = document.querySelector('button[type="submit"]');
         if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Connexion...`;
-        }
-
-        // Timeout to prevent eternal loading
-        setTimeout(() => {
-            overlay.classList.add('hidden');
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 300);
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Se connecter';
-            }
-        }, 10000);
-    }
-
-
-    window.addEventListener('DOMContentLoaded', function() {
-        const overlay = document.getElementById('loadingOverlay');
-        overlay.style.display = 'none'; // Explicitly hide on page load
-        overlay.classList.add('hidden');
-
-        const submitBtn = document.querySelector('#loginForm button[type="submit"]');
-        if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Se connecter';
-        }
-
-        // Check for errors and ensure overlay stays hidden
-        const hasErrors = document.querySelector('.alert-danger, .invalid-feedback');
-        if (hasErrors) {
-            console.log('Errors detected, ensuring overlay is hidden');
-            overlay.style.display = 'none';
-            overlay.classList.add('hidden');
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Connexion...';
         }
     });
 </script>
