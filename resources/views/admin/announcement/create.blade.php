@@ -85,6 +85,19 @@
         font-size: 0.9rem;
         color: #374151;
     }
+
+    .char-counter {
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .char-counter.warning {
+        color: #fd7e14 !important;
+    }
+
+    .char-counter.danger {
+        color: #dc3545 !important;
+    }
 </style>
 @endsection
 
@@ -136,7 +149,13 @@
 
             <div class="col-12">
                 <label for="description" class="form-label">Description</label>
-                <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" rows="4" maxlength="255">{{ old('description') }}</textarea>
+                <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" rows="4" maxlength="255" placeholder="Décrivez votre annonce en quelques mots...">{{ old('description') }}</textarea>
+                <div class="form-text d-flex justify-content-between align-items-center">
+                    <small class="text-muted">Maximum 255 caractères</small>
+                    <small class="text-muted">
+                        <span id="charCount" class="char-counter">0</span>/255
+                    </small>
+                </div>
                 @error('description')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -208,6 +227,11 @@
         const removeImage = document.getElementById('removeImage');
         const fileInfo = document.getElementById('fileInfo');
         const uploadContent = dragDropArea.querySelector('.upload-content');
+        
+        // Gestion du compteur de caractères pour la description
+        const descriptionTextarea = document.getElementById('description');
+        const charCount = document.getElementById('charCount');
+        const maxLength = 255;
 
         // Formats d'image acceptés
         const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
@@ -245,6 +269,31 @@
         removeImage.addEventListener('click', function(e) {
             e.stopPropagation();
             clearImage();
+        });
+
+        // Gestion du compteur de caractères
+        function updateCharCount() {
+            const currentLength = descriptionTextarea.value.length;
+            charCount.textContent = currentLength;
+            
+            // Supprimer toutes les classes de couleur
+            charCount.classList.remove('warning', 'danger');
+            
+            // Ajouter la classe appropriée selon le nombre de caractères
+            if (currentLength > maxLength * 0.9) {
+                charCount.classList.add('danger'); // Rouge
+            } else if (currentLength > maxLength * 0.8) {
+                charCount.classList.add('warning'); // Orange
+            }
+        }
+
+        // Initialiser le compteur
+        updateCharCount();
+
+        // Mettre à jour le compteur à chaque frappe
+        descriptionTextarea.addEventListener('input', updateCharCount);
+        descriptionTextarea.addEventListener('paste', function() {
+            setTimeout(updateCharCount, 10);
         });
 
         function preventDefaults(e) {
