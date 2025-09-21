@@ -32,7 +32,7 @@
                         @forelse ($blogs->take(4) as $recentPost)
                             <div class="sidebar-post">
                                 <a href="{{ route('blogs.show', ['id' => $recentPost->id]) }}">
-                                    <img src="{{ asset('storage/' . $recentPost->image) }}" alt="{{ $recentPost->title }}">
+                                    <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($recentPost->image) }}" alt="{{ $recentPost->title }}">
                                 </a>
                                 <div class="post-content">
                                     <h3 class="title"><a href="{{ route('blogs.show', ['id' => $recentPost->id]) }}">{{ $recentPost->title }}</a></h3>
@@ -57,7 +57,7 @@
             <div class="post-card post-inner blog-post-item" data-title="{{ strtolower($blog->title) }}">
                 <a href="{{ route('blogs.show', $blog->id) }}">
                     <div class="post-thumb">
-                        <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}">
+                        <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($blog->image) }}" alt="{{ $blog->title }}">
                     </div>
                 </a>
                 <div class="post-content-wrap">

@@ -10,7 +10,7 @@
             <div id="popup-announcement" class="popup-content">
                 <h2>{{ $announcement->title }}</h2>
                 @if($announcement->image)
-                <img src="{{ asset('storage/' . $announcement->image) }}" alt="Annonce">
+                <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($announcement->image) }}" alt="Annonce">
                 @endif
                 <p>{{ $announcement->description }}</p>
             </div>

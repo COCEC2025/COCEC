@@ -337,7 +337,7 @@
                 <div class="col-lg-8 col-md-12">
                     <div class="blog-details-wrap">
                         <div class="blog-details-img mb-40">
-                            <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('assets/images/blog.jpg') }}" alt="{{ $blog->title }}">
+                            <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($blog->image, 'assets/images/blog.jpg') }}" alt="{{ $blog->title }}">
                         </div>
                         <ul class="post-meta">
                             <li><i class="fa-regular fa-calendar"></i>{{ $blog->created_at->format('d M, Y à H:i') }}</li>
@@ -506,7 +506,7 @@
                         <p>Aucun autre poste</p>
                         @endif
                         <div class="sidebar-post">
-                            <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('assets/images/blog.jpg') }}" alt="{{ $blog->title }}">
+                            <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($blog->image, 'assets/images/blog.jpg') }}" alt="{{ $blog->title }}">
                             <div class="post-content">
                                 <ul class="post-meta">
                                     <li><i class="fa-light fa-circle-user"></i>by David Smith</li>

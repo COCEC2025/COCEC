@@ -4,16 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\BlogInterface;
 use App\Models\Blog;
+use App\Services\NewsletterService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class BlogController extends Controller
 {
 
     private BlogInterface $blogInterface;
+    private NewsletterService $newsletterService;
 
-    public function __construct(BlogInterface $blogInterface)
+    public function __construct(BlogInterface $blogInterface, NewsletterService $newsletterService)
     {
         $this->blogInterface = $blogInterface;
+        $this->newsletterService = $newsletterService;
     }
 
 
@@ -68,6 +72,21 @@ class BlogController extends Controller
         $response = $this->blogInterface->create($data);
         if (!$response) {
             return back()->with('error', 'Erreur lors de la création du blog !');
+        }
+
+        // Envoyer les notifications newsletter si l'article est publié
+        if ($request->is_published) {
+            try {
+                $blog = Blog::latest()->first(); // Récupérer le blog créé
+                $notificationResult = $this->newsletterService->notifyNewBlog($blog);
+                
+                if ($notificationResult) {
+                    Log::info("Notifications newsletter envoyées pour le blog: {$blog->title}", $notificationResult);
+                }
+            } catch (\Exception $e) {
+                Log::error("Erreur lors de l'envoi des notifications newsletter: " . $e->getMessage());
+                // Ne pas faire échouer la création du blog si l'envoi de notification échoue
+            }
         }
 
         return redirect()->route('admin.blogs')->with('success', 'Blog créé avec succès !');
@@ -126,6 +145,21 @@ class BlogController extends Controller
         $response = $this->blogInterface->edit($id, $data);
         if (!$response)
             return back()->with('error', 'Erreur lors de la modification du blog!');
+
+        // Envoyer les notifications newsletter si l'article vient d'être publié
+        if ($request->is_published && !$blog->is_published) {
+            try {
+                $updatedBlog = Blog::findOrFail($id);
+                $notificationResult = $this->newsletterService->notifyNewBlog($updatedBlog);
+                
+                if ($notificationResult) {
+                    Log::info("Notifications newsletter envoyées pour le blog modifié: {$updatedBlog->title}", $notificationResult);
+                }
+            } catch (\Exception $e) {
+                Log::error("Erreur lors de l'envoi des notifications newsletter: " . $e->getMessage());
+                // Ne pas faire échouer la modification du blog si l'envoi de notification échoue
+            }
+        }
 
         return back()->with('success', 'Blog modifié avec succès!');
     }

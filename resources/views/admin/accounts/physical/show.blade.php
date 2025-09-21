@@ -646,7 +646,7 @@
                                 <div class="mb-24">
                                     <label class="text-sm text-secondary-light mb-8">Photo d'identité</label>
                                     <div class="text-center">
-                                        <img src="{{ Storage::url($submission->photo_path) }}" alt="Photo d'identité"
+                                        <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($submission->photo_path) }}" alt="Photo d'identité"
                                             class="document-preview">
                                     </div>
                                     <div class="text-center mt-8">

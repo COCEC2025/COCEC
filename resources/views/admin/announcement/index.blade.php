@@ -70,7 +70,7 @@
                         <!-- Image de l'annonce -->
                         <div class="w-100 max-h-194-px radius-8 overflow-hidden mb-20">
                             @if ($announcement->image)
-                            <img src="{{ $announcement->image ? asset('storage/' .$announcement->image) : asset('assets/images/announcements.jpg') }}" alt="{{ $announcement->title }}" class="w-100 h-100 object-fit-cover">
+                            <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($announcement->image, 'assets/images/announcements.jpg') }}" alt="{{ $announcement->title }}" class="w-100 h-100 object-fit-cover">
                             @else
                             <div class="w-100 h-194-px bg-neutral-100 d-flex align-items-center justify-content-center radius-8">
                                 <iconify-icon icon="solar:image-outline" class="text-neutral-400" style="font-size: 48px;"></iconify-icon>
@@ -161,7 +161,7 @@
                                 <div class="col-md-6">
                                     @if ($announcement->image)
                                     <p><strong>Image :</strong></p>
-                                    <img src="{{ Storage::url($announcement->image) }}" alt="{{ $announcement->title }}" class="img-fluid radius-8" style="max-width: 100%; max-height: 300px;">
+                                    <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($announcement->image) }}" alt="{{ $announcement->title }}" class="img-fluid radius-8" style="max-width: 100%; max-height: 300px;">
                                     @else
                                     <div class="text-center py-5">
                                         <iconify-icon icon="solar:image-outline" class="text-neutral-300" style="font-size: 80px;"></iconify-icon>
@@ -232,7 +232,7 @@
                                     <div class="text-center">
                                         <p class="small text-muted mb-1">Image actuelle :</p>
                                         @if ($announcement->image)
-                                        <img src="{{ Storage::url($announcement->image) }}" alt="{{ $announcement->title }}" class="img-fluid radius-8" style="max-width: 100%; max-height: 200px;">
+                                        <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($announcement->image) }}" alt="{{ $announcement->title }}" class="img-fluid radius-8" style="max-width: 100%; max-height: 200px;">
                                         @else
                                         <div class="bg-neutral-100 d-flex align-items-center justify-content-center radius-8" style="height: 150px;">
                                             <iconify-icon icon="solar:image-outline" class="text-neutral-400" style="font-size: 48px;"></iconify-icon>

@@ -205,7 +205,7 @@
 
                                 <div class="w-100 max-h-250-px radius-8 overflow-hidden mb-20">
                                     @if ($agency->image)
-                                        <img src="{{ $agency->image ? asset('storage/' . $agency->image) : asset('assets/images/agency.jpg') }}"
+                                        <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($agency->image, 'assets/images/agency.jpg') }}"
                                             alt="{{ $agency->title }}" class="w-100 h-100 object-fit-cover">
                                     @else
                                         <div
@@ -316,7 +316,7 @@
 
                                 <div class="w-100 max-h-250-px radius-8 overflow-hidden mb-20">
                                     @if ($agency->image)
-                                        <img src="{{ $agency->image ? asset('storage/' . $agency->image) : asset('assets/images/agency.jpg') }}"
+                                        <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($agency->image, 'assets/images/agency.jpg') }}"
                                             alt="{{ $agency->title }}" class="w-100 h-100 object-fit-cover">
                                     @else
                                         <div

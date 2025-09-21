@@ -483,7 +483,7 @@
                 const cardHTML = `
                 <div class="agency-card" id="agency-${agency.id}" data-id="${agency.id}">
                     <a href="${imageUrl}" class="agency-image-link" data-gallery="agencies" data-title="${agency.name}">
-                        <img src="${imageUrl}" alt="Façade de l'agence ${agency.name}" class="agency-card-image" loading="lazy" decoding="async">
+                        <img src="${imageUrl}" alt="Façade de l'agence ${agency.name}" class="agency-card-image" loading="lazy" decoding="async" onerror="this.src='{{ asset('assets/images/placeholder-image.png') }}'">
                     </a>
                     <div class="card-content">
                         <div class="card-header">

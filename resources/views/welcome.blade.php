@@ -1081,7 +1081,7 @@
                     <div class="post-card-3 fade-top" style="--bz-color-theme-primary: #EC281C">
                         <div class="post-thumb img-reveal">
                             <div class="img-overlay"></div>
-                            <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('assets/images/blog.jpg') }}" alt="{{ $blog->title }}">
+                            <img src="@image($blog->image, 'assets/images/blog.jpg')" alt="{{ $blog->title }}">
                         </div>
                         <div class="post-content">
                             <ul class="post-meta">
@@ -1200,8 +1200,8 @@
                             <a href="{{ route('complaint') }}" class="bz-primary-btn red-btn">
                                 <i class="fas fa-file-alt"></i> Déposer une Plainte
                             </a>
-                            <a href="tel:+22891126471" class="bz-primary-btn hero-btn">
-                                <i class="fas fa-phone"></i> Appeler le 91 12 64 71
+                            <a href="tel:8989" class="bz-primary-btn hero-btn">
+                                <i class="fas fa-phone"></i> Appeler le 8989
                             </a>
                         </div>
                     </div>
