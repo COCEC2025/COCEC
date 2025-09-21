@@ -144,7 +144,7 @@
                 <button class="d-flex justify-content-center align-items-center rounded-circle" type="button"
                     data-bs-toggle="dropdown">
                     @if (Auth::user()->profile_image)
-                        <img src="{{ Storage::url(Auth::user()->profile_image) }}" alt="Photo de profil"
+                        <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl(Auth::user()->profile_image) }}" alt="Photo de profil"
                             class="w-40-px h-40-px object-fit-cover rounded-circle">
                     @else
                         <div

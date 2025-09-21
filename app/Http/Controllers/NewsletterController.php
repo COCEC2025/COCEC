@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\NewsLettersMail;
+use App\Services\NewsletterService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -10,6 +11,13 @@ use Illuminate\Support\Facades\Mail;
 
 class NewsletterController extends Controller
 {
+    private NewsletterService $newsletterService;
+
+    public function __construct(NewsletterService $newsletterService)
+    {
+        $this->newsletterService = $newsletterService;
+    }
+
     // Subscribe to the newsletter
     public function subscribe(Request $request)
     {
@@ -35,5 +43,29 @@ class NewsletterController extends Controller
             'status' => 'success',
             'message' => 'Merci pour votre inscription !'
         ]);
+    }
+
+    // Unsubscribe from the newsletter
+    public function unsubscribe(Request $request)
+    {
+        $token = $request->get('token');
+        
+        if (!$token) {
+            return view('mails.unsubscribe-error', [
+                'message' => 'Token de désabonnement invalide ou manquant.'
+            ]);
+        }
+
+        $success = $this->newsletterService->unsubscribe($token);
+        
+        if ($success) {
+            return view('mails.unsubscribe-success', [
+                'message' => 'Vous avez été désabonné avec succès de notre newsletter.'
+            ]);
+        } else {
+            return view('mails.unsubscribe-error', [
+                'message' => 'Token de désabonnement invalide ou expiré.'
+            ]);
+        }
     }
 }

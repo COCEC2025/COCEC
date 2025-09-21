@@ -605,7 +605,7 @@
                             <div class="mb-24">
                                 <label class="text-sm text-secondary-light mb-8">Photo des responsables</label>
                                 <div class="text-center">
-                                    <img src="{{ Storage::url($submission->responsible_persons_photo_path) }}" alt="Photo des responsables" class="document-preview">
+                                    <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($submission->responsible_persons_photo_path) }}" alt="Photo des responsables" class="document-preview">
                                 </div>
                                 <div class="text-center mt-8">
                                     <a href="{{ Storage::url($submission->responsible_persons_photo_path) }}" target="_blank" class="document-link">

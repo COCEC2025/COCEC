@@ -18,7 +18,7 @@
                 </a>
             </li>
 
-            @if(auth()->user()->hasFullAccess())
+            @hasFullAccess
             <li class="sidebar-menu-group-title">Actions</li>
 
             <li class="dropdown">
@@ -88,9 +88,9 @@
                     </li>
                 </ul>
             </li> --}}
-            @endif
+            @endhasFullAccess
 
-            @if(auth()->user()->canCreateAccounts())
+            @canCreateAccounts
             <li class="dropdown">
                 <a href="javascript:void(0)">
                     <iconify-icon icon="mdi:account-plus-outline" class="menu-icon"></iconify-icon>
@@ -111,9 +111,9 @@
                     </li>
                 </ul>
             </li>
-            @endif
+            @endcanCreateAccounts
 
-            @if(auth()->user()->hasFullAccess())
+            @hasFullAccess
             <li class="dropdown">
                 <a href="javascript:void(0)">
                     <iconify-icon icon="mdi:briefcase-outline" class="menu-icon"></iconify-icon>
@@ -133,9 +133,9 @@
 
                 </ul>
             </li>
-            @endif
+            @endhasFullAccess
 
-            @if(auth()->user()->hasFullAccess())
+            @hasFullAccess
             <li class="dropdown">
                 <a href="javascript:void(0)">
                     <iconify-icon icon="mdi:map-marker-outline" class="menu-icon"></iconify-icon>
@@ -152,7 +152,7 @@
 
                 </ul>
             </li>
-            @endif
+            @endhasFullAccess
 
 
             <li class="dropdown">
@@ -162,7 +162,7 @@
                 </a>
 
                 <ul class="sidebar-submenu">
-                    @if(auth()->user()->hasFullAccess())
+                    @hasFullAccess
                     <li>
                         <a href="{{ route('accounts.physical.index') }}">Demande physique</a>
                     </li>

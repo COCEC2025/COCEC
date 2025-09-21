@@ -59,6 +59,7 @@ Route::get('/complaint', [ViewsController::class, 'complaint'])->name('complaint
 Route::post('/complaint/store', [ComplaintController::class, 'store'])->name('complaint.store');
 
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::get('/newsletter/unsubscribe', [NewsletterController::class, 'unsubscribe'])->name('newsletter.unsubscribe');
 
 Route::prefix('admin/jobList')->controller(JobController::class)->group(function () {
     Route::get('/', 'index')->name('jobList.index');
