@@ -18,6 +18,8 @@ use App\Http\Controllers\ErrorController;
 
 use App\Http\Middleware\LogVisitor;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 
 Route::middleware([LogVisitor::class])->group(function () {
     Route::get('/', [ViewsController::class, 'index'])->name('index');
@@ -210,3 +212,23 @@ Route::middleware('auth:sanctum')->prefix('admin/digitalfinance')->group(functio
     Route::get('/404', [ErrorController::class, 'notFound'])->name('error.404');
     Route::get('/500', [ErrorController::class, 'serverError'])->name('error.500');
     Route::get('/error/{code}', [ErrorController::class, 'error'])->name('error.generic');
+
+// Route pour servir les fichiers du storage (solution pour PlanetHoster)
+Route::get('/storage/{path}', function ($path) {
+    // Le chemin complet du fichier dans storage/app/public
+    $filePath = 'public/' . $path;
+
+    // Vérifier si le fichier existe
+    if (!Storage::exists($filePath)) {
+        abort(404, 'Fichier non trouvé.');
+    }
+
+    // Obtenir le contenu du fichier
+    $file = Storage::get($filePath);
+
+    // Déterminer le type MIME du fichier (image/jpeg, image/png, etc.)
+    $mimeType = Storage::mimeType($filePath);
+
+    // Renvoyer le fichier avec le bon en-tête Content-Type
+    return Response::make($file, 200)->header("Content-Type", $mimeType);
+})->where('path', '.*'); // Le '.where('path', '.*')' permet de capturer tout le reste du chemin après /storage/
