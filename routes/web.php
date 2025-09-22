@@ -89,6 +89,15 @@ Route::middleware(['auth', 'check.suspension'])->prefix('admin')->group(function
     Route::delete('/faq/comments/{id}', [FaqCommentController::class, 'destroy'])->name('faq.comments.destroy');
     Route::delete('/blog/comments/{id}', [App\Http\Controllers\BlogCommentController::class, 'destroy'])->name('blog.comments.destroy');
 
+    // Routes des annonces (déplacées dans le groupe auth)
+    Route::prefix('announcement')->controller(AnnouncementsController::class)->group(function () {
+        Route::get('/', 'index')->name('announcement.index');
+        Route::get('/create', 'create')->name('announcement.create');
+        Route::post('/store', 'store')->name('announcement.store');
+        Route::put('/update/{id}', 'update')->name('announcement.update');
+        Route::delete('/destroy/{id}', 'destroy')->name('announcement.destroy');
+    });
+
     Route::prefix('accounts/physical')->controller(AccountController::class)->group(function () {
         Route::get('/', 'indexPhysical')->name('accounts.physical.index');
         Route::get('/{id}', 'showPhysical')->name('accounts.physical.show');
@@ -151,13 +160,6 @@ Route::prefix('admin/agency')->controller(AgencyLocationController::class)->grou
     Route::delete('/destroy/{id}', 'destroy')->name('agency.destroy');
 });
 
-Route::prefix('admin/announcement')->controller(AnnouncementsController::class)->group(function () {
-    Route::get('/', 'index')->name('announcement.index');
-    Route::get('/create', 'create')->name('announcement.create');
-    Route::post('/store', 'store')->name('announcement.store');
-    Route::put('/update/{id}', 'update')->name('announcement.update');
-    Route::delete('/destroy/{id}', 'destroy')->name('announcement.destroy');
-});
 
 Route::post('/login/processing', [AuthController::class, 'login'])->name('login.process');
 

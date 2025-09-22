@@ -134,9 +134,8 @@ class ViewsController extends Controller
 
     public function blogs()
     {
-
-        $blogs = Blog::where('is_published', true)
-            ->orderBy('created_at', 'desc')
+        // Pour l'interface admin, afficher tous les articles (publiés et non publiés)
+        $blogs = Blog::orderBy('created_at', 'desc')
             ->get();
         return view('admin.blog.index', ['blogs' => $blogs]);
     }
