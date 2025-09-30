@@ -23,8 +23,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => 'required|min:3|max: 128 | email',
-            'password' => 'required|max:64'
-
+            'password' => 'required|max:64',
+            'g-recaptcha-response' => 'required|string',
         ];
     }
 
@@ -43,6 +43,8 @@ class LoginRequest extends FormRequest
             'email.max' => 'L\'e-maill doit contenir au maximum 128 caractères.',
             'password.required' => 'Le mot de passe est requis.',
             'password.max' => 'Le nom complet doit contenir au maximum 64 caractères.',
+            'g-recaptcha-response.required' => 'Veuillez cocher la case "Je ne suis pas un robot".',
+            'g-recaptcha-response.string' => 'Le reCAPTCHA est invalide.',
         ];
     }
 }

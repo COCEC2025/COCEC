@@ -67,6 +67,11 @@ class AuthController extends Controller
 
     public function login(LoginRequest $loginRequest)
     {
+        // Vérifier les champs honeypot (détection de bots)
+        if ($loginRequest->filled('website_url') || $loginRequest->filled('phone_number')) {
+            return back()->with('error', 'Soumission détectée comme spam.');
+        }
+
         $data = [
             'email' => $loginRequest->email,
             'password' => $loginRequest->password,

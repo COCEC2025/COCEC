@@ -54,6 +54,9 @@
 
                 <form id="loginForm" action="{{ route('login.process') }}" method="POST">
                     @csrf
+                    
+                    {{-- Champs honeypot pour détecter les bots --}}
+                    @include('components.honeypot')
                     <div class="icon-field mb-16">
                         <span class="icon top-50 translate-middle-y">
                             <iconify-icon icon="mage:email"></iconify-icon>
@@ -77,6 +80,11 @@
                             </div>
                         </div>
                     </div> -->
+
+                    {{-- Widget reCAPTCHA --}}
+                    <div class="mt-3 text-center">
+                        @include('components.recaptcha', ['action' => 'admin_login'])
+                    </div>
 
                     <button type="submit" class="btn btn-danger text-sm btn-sm px-12 py-16 w-100 radius-12 mt-32"> Se connecter</button>
 
@@ -106,6 +114,22 @@
 
     // Gestion du loading lors de la soumission du formulaire
     document.getElementById('loginForm').addEventListener('submit', function(e) {
+        const form = this;
+        
+        // Vérifier les champs honeypot
+        if (form.querySelector('input[name="website_url"]').value !== '' || form.querySelector('input[name="phone_number"]').value !== '') {
+            e.preventDefault();
+            alert('Soumission détectée comme spam.');
+            return;
+        }
+
+        // Vérifier si reCAPTCHA est résolu
+        if (!window.isRecaptchaResolved()) {
+            e.preventDefault();
+            alert('Veuillez cocher la case "Je ne suis pas un robot".');
+            return;
+        }
+        
         // Afficher le loading
         const preloader = document.getElementById('preloader');
         if (preloader) {
