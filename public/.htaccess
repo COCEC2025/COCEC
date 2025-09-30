@@ -6,8 +6,8 @@
 Options +FollowSymLinks
 Options -Indexes
 RewriteEngine On
-# Redirection du dossier /storage vers storage/app/public
-RewriteRule ^storage/(.*)$ storage/app/public/$1 [L]
+# Redirection du dossier /storage vers public/storage
+RewriteRule ^storage/(.*)$ public/storage/$1 [L]
 
 # Activation de la compression GZIP
 <IfModule mod_deflate.c>
