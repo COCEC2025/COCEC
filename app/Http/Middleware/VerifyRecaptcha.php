@@ -28,7 +28,7 @@ class VerifyRecaptcha
             return $next($request);
         }
 
-        $token = $request->input('g-recaptcha-response');
+        $token = $request->input('recaptcha_token');
 
         if (!$this->recaptchaService->verify($token, $action)) {
             if ($request->expectsJson()) {

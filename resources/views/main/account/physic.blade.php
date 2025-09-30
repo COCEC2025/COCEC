@@ -1438,7 +1438,7 @@
                         if (!recaptchaError) {
                             recaptchaError = document.createElement('div');
                             recaptchaError.className = 'recaptcha-error alert alert-warning mt-3';
-                            recaptchaError.innerHTML = '<i class="fas fa-shield-alt me-2"></i>Veuillez cocher la case "Je ne suis pas un robot" pour continuer.';
+                            recaptchaError.innerHTML = '<i class="fas fa-shield-alt me-2"></i>Veuillez patienter pendant la vérification reCAPTCHA.';
                             document.getElementById('recaptcha-container').after(recaptchaError);
                         }
                     } else {

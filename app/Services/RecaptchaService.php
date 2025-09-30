@@ -17,7 +17,7 @@ class RecaptchaService
     }
 
     /**
-     * Vérifier le token reCAPTCHA v2
+     * Vérifier le token reCAPTCHA v3
      *
      * @param string $token
      * @param string $action
@@ -51,8 +51,28 @@ class RecaptchaService
                 return false;
             }
 
-            // Pour reCAPTCHA v2, pas de score à vérifier
-            // La vérification réussie signifie que l'utilisateur a résolu le défi
+            // Pour reCAPTCHA v3, vérifier le score et l'action
+            $score = $result['score'] ?? 0;
+            $actionMatch = $result['action'] === $action;
+
+            if ($score < $this->scoreThreshold) {
+                Log::warning('reCAPTCHA score too low', [
+                    'score' => $score,
+                    'threshold' => $this->scoreThreshold,
+                    'action' => $action,
+                    'ip' => request()->ip(),
+                ]);
+                return false;
+            }
+
+            if (!$actionMatch) {
+                Log::warning('reCAPTCHA action mismatch', [
+                    'expected' => $action,
+                    'received' => $result['action'],
+                    'ip' => request()->ip(),
+                ]);
+                return false;
+            }
 
             return true;
 

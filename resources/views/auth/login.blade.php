@@ -126,7 +126,7 @@
         // Vérifier si reCAPTCHA est résolu
         if (!window.isRecaptchaResolved()) {
             e.preventDefault();
-            alert('Veuillez cocher la case "Je ne suis pas un robot".');
+            alert('Veuillez patienter pendant la vérification reCAPTCHA.');
             return;
         }
         

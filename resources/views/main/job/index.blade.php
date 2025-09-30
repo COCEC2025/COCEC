@@ -469,7 +469,7 @@
                 Swal.fire({ 
                     icon: 'warning', 
                     title: 'Vérification requise', 
-                    text: 'Veuillez cocher la case "Je ne suis pas un robot".', 
+                    text: 'Veuillez patienter pendant la vérification reCAPTCHA.', 
                     confirmButtonColor: "var(--primary-color)" 
                 });
                 return;

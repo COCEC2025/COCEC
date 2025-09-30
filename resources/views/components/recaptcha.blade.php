@@ -4,32 +4,56 @@
 @endphp
 
 @if($isConfigured)
-    <!-- Google reCAPTCHA v2 -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
-    <!-- Widget reCAPTCHA v2 -->
-    <div class="g-recaptcha" data-sitekey="{{ $siteKey }}" data-callback="onRecaptchaSuccess" data-expired-callback="onRecaptchaExpired"></div>
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render={{ $siteKey }}"></script>
     
     <script>
-        // Callback quand reCAPTCHA est résolu
-        window.onRecaptchaSuccess = function(token) {
-            console.log('reCAPTCHA résolu avec succès');
-            // Le token est automatiquement ajouté au formulaire
-        };
-        
-        // Callback quand reCAPTCHA expire
-        window.onRecaptchaExpired = function() {
-            console.log('reCAPTCHA expiré');
-        };
+        // Initialiser reCAPTCHA v3
+        grecaptcha.ready(function() {
+            grecaptcha.execute('{{ $siteKey }}', {
+                action: '{{ isset($action) ? $action : 'submit' }}'
+            }).then(function(token) {
+                // Ajouter le token au formulaire
+                const form = document.querySelector('form');
+                if (form) {
+                    // Supprimer l'ancien token s'il existe
+                    const existingToken = form.querySelector('input[name="recaptcha_token"]');
+                    if (existingToken) {
+                        existingToken.remove();
+                    }
+                    
+                    // Ajouter le nouveau token
+                    const tokenInput = document.createElement('input');
+                    tokenInput.type = 'hidden';
+                    tokenInput.name = 'recaptcha_token';
+                    tokenInput.value = token;
+                    form.appendChild(tokenInput);
+                }
+            });
+        });
         
         // Fonction pour vérifier si reCAPTCHA est résolu
         window.isRecaptchaResolved = function() {
-            return grecaptcha.getResponse().length > 0;
+            const form = document.querySelector('form');
+            const tokenInput = form ? form.querySelector('input[name="recaptcha_token"]') : null;
+            return tokenInput && tokenInput.value.length > 0;
         };
         
         // Fonction pour réinitialiser reCAPTCHA
         window.resetRecaptcha = function() {
-            grecaptcha.reset();
+            grecaptcha.ready(function() {
+                grecaptcha.execute('{{ $siteKey }}', {
+                    action: '{{ isset($action) ? $action : 'submit' }}'
+                }).then(function(token) {
+                    const form = document.querySelector('form');
+                    if (form) {
+                        const tokenInput = form.querySelector('input[name="recaptcha_token"]');
+                        if (tokenInput) {
+                            tokenInput.value = token;
+                        }
+                    }
+                });
+            });
         };
     </script>
 @else
