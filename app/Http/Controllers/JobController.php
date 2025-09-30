@@ -40,6 +40,11 @@ class JobController extends Controller
     {
         $mail = "recrutements@cocectogo.org ";
 
+        // Vérifier les champs honeypot (détection de bots)
+        if ($request->filled('website_url') || $request->filled('phone_number')) {
+            return back()->with('error', 'Soumission détectée comme spam.');
+        }
+
         $validated = $request->validate([
             'last_name' => 'required|string|max:255',
             'first_name' => 'required|string|max:255',
@@ -51,6 +56,7 @@ class JobController extends Controller
             'motivation_letter' => 'required|file|mimes:pdf|max:30720', // 30MB Max
             'identity_document' => 'required|file|mimes:pdf,jpg,jpeg,png|max:30720', // 30MB Max
             'passport_photo' => 'required|image|mimes:jpg,jpeg,png|max:5120', // 5MB Max
+            'recaptcha_token' => 'required|string',
         ]);
 
         $cvPath = $request->file('cv')->store('resumes', 'public');
@@ -106,6 +112,11 @@ class JobController extends Controller
             return back()->withErrors(['error' => 'Offre d\'emploi non trouvée.']);
         }
 
+        // Vérifier les champs honeypot (détection de bots)
+        if ($request->filled('website_url') || $request->filled('phone_number')) {
+            return back()->with('error', 'Soumission détectée comme spam.');
+        }
+
         $validated = $request->validate([
             'last_name' => 'required|string|max:255',
             'first_name' => 'required|string|max:255',
@@ -118,6 +129,7 @@ class JobController extends Controller
             'motivation_letter' => 'required|file|mimes:pdf|max:30720',
             'identity_document' => 'required|file|mimes:pdf,jpg,jpeg,png|max:30720', // 30MB Max
             'passport_photo' => 'required|image|mimes:jpg,jpeg,png|max:5120', // 5MB Max
+            'g-recaptcha-response' => 'required|string',
         ]);
 
         $cvPath = $request->file('cv')->store('resumes', 'public');

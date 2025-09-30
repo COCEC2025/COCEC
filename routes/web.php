@@ -34,17 +34,17 @@ Route::get('/about', [ViewsController::class, 'about'])->name('about');
 Route::get('/open-account', [ViewsController::class, 'account'])->name('main.account');
 Route::get('/digital-finance', [ViewsController::class, 'finance'])->name('main.finance');
 Route::get('/faq', [ViewsController::class, 'faq'])->name('main.faq');
-Route::post('/faq/comment', [FaqCommentController::class, 'store'])->name('faq.comments.store');
+Route::post('/faq/comment', [FaqCommentController::class, 'store'])->middleware(['recaptcha:faq_comment', 'rate.limit.forms:10,5'])->name('faq.comments.store');
 Route::post('/blog/comment', [App\Http\Controllers\BlogCommentController::class, 'store'])->name('blog.comments.store');
 Route::get('/create-account/physic', [AccountController::class, 'physic'])->name('account.create.physic');
 Route::get('/create-account/morale', [AccountController::class, 'morale'])->name('account.create.morale');
-Route::post('/create-account/physical/processing', [AccountController::class, 'storePhysical'])->name('account.store.physical');
-Route::post('/create-account/moral/processing', [AccountController::class, 'storeMoral'])->name('account.store.moral');
+Route::post('/create-account/physical/processing', [AccountController::class, 'storePhysical'])->middleware(['recaptcha:account_creation', 'rate.limit.forms:2,30'])->name('account.store.physical');
+Route::post('/create-account/moral/processing', [AccountController::class, 'storeMoral'])->middleware(['recaptcha:account_creation', 'rate.limit.forms:2,30'])->name('account.store.moral');
 
 Route::get('/career', [ViewsController::class, 'job'])->name('career');
 Route::get('/career/details/{id}', [JobController::class, 'show'])->name('career.details');
-Route::post('/career/apply', [JobController::class, 'store'])->name('career.apply');
-Route::post('/career/apply/{id}', [JobController::class, 'applyOffer'])->name('career.apply.offer');
+Route::post('/career/apply', [JobController::class, 'store'])->middleware(['recaptcha:job_application', 'rate.limit.forms:2,30'])->name('career.apply');
+Route::post('/career/apply/{id}', [JobController::class, 'applyOffer'])->middleware(['recaptcha:job_application', 'rate.limit.forms:2,30'])->name('career.apply.offer');
 // Routes pour les produits
 Route::prefix('products')->group(function () {
     Route::get('/', [ViewsController::class, 'products'])->name('product.index');
@@ -55,12 +55,12 @@ Route::prefix('products')->group(function () {
 Route::get('/products-old', function() {
     return redirect()->route('product.index');
 })->name('products');
-Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/contact/store', [ContactController::class, 'store'])->middleware(['recaptcha:contact', 'rate.limit.forms:3,10'])->name('contact.store');
 Route::get('/contact', [ViewsController::class, 'contact'])->name('contact');
 Route::get('/complaint', [ViewsController::class, 'complaint'])->name('complaint');
-Route::post('/complaint/store', [ComplaintController::class, 'store'])->name('complaint.store');
+Route::post('/complaint/store', [ComplaintController::class, 'store'])->middleware(['recaptcha:complaint', 'rate.limit.forms:2,60'])->name('complaint.store');
 
-Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->middleware(['recaptcha:newsletter', 'rate.limit.forms:5,5'])->name('newsletter.subscribe');
 Route::get('/newsletter/unsubscribe', [NewsletterController::class, 'unsubscribe'])->name('newsletter.unsubscribe');
 
 Route::prefix('admin/jobList')->controller(JobController::class)->group(function () {

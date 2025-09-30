@@ -13,14 +13,19 @@ class ContactController extends Controller
     //
     public function store(Request $request)
     {
-
         $mail = "info@cocectogo.org";
+
+        // Vérifier les champs honeypot (détection de bots)
+        if ($request->filled('website_url') || $request->filled('phone_number')) {
+            return back()->with('error', 'Soumission détectée comme spam.');
+        }
 
         $validated = $request->validate([
             'fullname' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'subject' => 'required|string|max:255',
             'message' => 'required|string|max:2000',
+            'g-recaptcha-response' => 'required|string',
         ]);
 
         try {

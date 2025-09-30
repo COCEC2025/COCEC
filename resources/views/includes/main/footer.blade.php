@@ -111,11 +111,19 @@
                             </div>
                             {{-- Paragraphe traduit et adapté à COCEC --}}
                             <p class="text-justify">Inscrivez-vous à notre newsletter pour ne rien manquer de nos actualités et de nos offres.</p>
+                                    
+        {{-- Intégration reCAPTCHA pour la newsletter --}}
+        @include('components.recaptcha', ['action' => 'newsletter'])
                             <div class="footer-form form-2 mb-20">
                                 <form action="{{ route('newsletter.subscribe') }}" method="POST" class="rr-subscribe-form" id="footer-newsletter-form">
                                     @csrf
+                                    
+                                    {{-- Champs honeypot pour détecter les bots --}}
+                                    @include('components.honeypot')
+                                    
                                     <input class="form-control" type="email" name="email" placeholder="Votre adresse e-mail">
                                     <input type="hidden" name="action" value="mailchimpsubscribe">
+                                    <input type="hidden" name="recaptcha_token" id="newsletter_recaptcha_token">
                                     <button class="submit" id="newsletter-submit-btn">
                                         <span class="btn-text">S'inscrire</span>
                                         <span class="btn-loading" style="display: none;">

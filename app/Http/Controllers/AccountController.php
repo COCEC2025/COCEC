@@ -152,6 +152,12 @@ class AccountController extends Controller
     public function storePhysical(Request $request)
     {
         $mail = 'info@cocectogo.org';
+        
+        // Vérifier les champs honeypot (détection de bots)
+        if ($request->filled('website_url') || $request->filled('phone_number')) {
+            return back()->with('error', 'Soumission détectée comme spam.');
+        }
+        
         $validated = $request->validate([
             'last_name' => 'required|string|max:255',
             'first_names' => 'required|string|max:255',
@@ -314,6 +320,12 @@ class AccountController extends Controller
     public function storeMoral(Request $request)
     {
         $mail = 'info@cocectogo.org';
+        
+        // Vérifier les champs honeypot (détection de bots)
+        if ($request->filled('website_url') || $request->filled('phone_number')) {
+            return back()->with('error', 'Soumission détectée comme spam.');
+        }
+        
         $validated = $request->validate([
             'company_name' => 'required|string|max:255',
             'category' => 'nullable|string|max:255',

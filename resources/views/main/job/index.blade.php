@@ -328,6 +328,10 @@
                 {{-- LA CORRECTION CLÉ EST ICI : l'attribut novalidate --}}
                 <form id="application-form" action="{{ route('career.apply') }}" method="POST" enctype="multipart/form-data" novalidate>
                     @csrf
+                    
+                    {{-- Champs honeypot pour détecter les bots --}}
+                    @include('components.honeypot')
+                    
                     <div class="row g-4">
                         <div class="col-md-6"><label class="form-label">Nom</label><input type="text" class="form-control" name="last_name" required>
                             <div class="invalid-feedback"></div>
@@ -388,6 +392,12 @@
                         </div>
 
                     </div>
+                    
+                    {{-- Widget reCAPTCHA --}}
+                    <div class="mt-4 text-center">
+                        @include('components.recaptcha', ['action' => 'job_application'])
+                    </div>
+                    
                     <div class="text-center mt-5">
                         <button type="submit" id="submit-button" class="bz-primary-btn">
                             <span class="btn-text">Envoyer ma candidature</span>
@@ -434,6 +444,17 @@
             const $btnText = $submitButton.find('.btn-text');
             const $spinner = $submitButton.find('.spinner-border');
 
+            // Vérifier les champs honeypot
+            if ($form.find('input[name="website_url"]').val() !== '' || $form.find('input[name="phone_number"]').val() !== '') {
+                Swal.fire({ 
+                    icon: 'error', 
+                    title: 'Erreur', 
+                    text: 'Soumission détectée comme spam.', 
+                    confirmButtonColor: "var(--primary-color)" 
+                });
+                return;
+            }
+
             // Réinitialiser les erreurs de validation précédentes
             $form.find(".form-control, .custom-file-upload").removeClass("is-invalid");
             $form.find(".invalid-feedback").text("");
@@ -442,6 +463,17 @@
             $submitButton.prop("disabled", true);
             $btnText.addClass('d-none');
             $spinner.removeClass('d-none');
+
+            // Vérifier si reCAPTCHA est résolu
+            if (!window.isRecaptchaResolved()) {
+                Swal.fire({ 
+                    icon: 'warning', 
+                    title: 'Vérification requise', 
+                    text: 'Veuillez cocher la case "Je ne suis pas un robot".', 
+                    confirmButtonColor: "var(--primary-color)" 
+                });
+                return;
+            }
 
             $.ajax({
                 url: $form.attr("action"),
@@ -464,6 +496,10 @@
                         return $(this).parent().find('input[name="cv"]').length ? 'Cliquez ou déposez votre CV' : 'Cliquez ou déposez votre lettre';
                     });
                     $('.custom-file-upload').css('border-color', 'var(--border-color)');
+                    // Réinitialiser reCAPTCHA
+                    if (typeof window.resetRecaptcha === 'function') {
+                        window.resetRecaptcha();
+                    }
                 },
                 error: function(jqXHR) {
                     if (jqXHR.status === 422) {
