@@ -2,6 +2,13 @@
 # CONFIGURATION APACHE POUR OPTIMISATION
 # ===========================================
 
+# Configuration pour les images dynamiques
+Options +FollowSymLinks
+Options -Indexes
+RewriteEngine On
+# Redirection du dossier /storage vers storage/app/public
+RewriteRule ^storage/(.*)$ storage/app/public/$1 [L]
+
 # Activation de la compression GZIP
 <IfModule mod_deflate.c>
     # Compression pour les types de fichiers textuels
