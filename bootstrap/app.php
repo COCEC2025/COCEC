@@ -14,6 +14,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => \App\Http\Middleware\CheckUserRole::class,
             'check.suspension' => \App\Http\Middleware\CheckUserSuspension::class,
+            'recaptcha' => \App\Http\Middleware\VerifyRecaptcha::class,
+            'rate.limit.forms' => \App\Http\Middleware\RateLimitForms::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

@@ -623,6 +623,9 @@
             <form action="{{ route('account.store.physical') }}" method="POST" enctype="multipart/form-data" class="adhesion-form multi-step-form" id="physique" novalidate>
                 @csrf
 
+                {{-- Champs honeypot pour détecter les bots --}}
+                @include('components.honeypot')
+
                 <div class="form-stepper">
                     <div class="progress-line"></div>
                     <div class="step active" data-step="1">
@@ -1167,6 +1170,11 @@
                     </div>
                 </div>
 
+                {{-- Widget reCAPTCHA --}}
+                <div class="mt-4 text-center" style="display: none;" id="recaptcha-container">
+                    @include('components.recaptcha', ['action' => 'account_creation'])
+                </div>
+
                 <div class="form-navigation-buttons">
                     <button type="button" class="btn btn-nav btn-prev" style="display: none;"><i class="fas fa-arrow-left"></i> Précédent</button>
                     <button type="button" class="btn btn-nav btn-next">Suivant <i class="fas fa-arrow-right"></i> </button>
@@ -1175,6 +1183,10 @@
             </form>
         </div>
     </div>
+
+    <br><br><br>
+    @include('includes.main.scroll')
+    @include('includes.main.footer')
 </section>
 @endsection
 
@@ -1216,6 +1228,16 @@
                 nextBtn.style.display = step === steps.length ? 'none' : 'inline-block';
                 submitBtn.style.display = step === steps.length ? 'inline-block' : 'none';
                 updateProgress();
+
+                // Afficher/masquer reCAPTCHA selon l'étape
+                const recaptchaContainer = document.getElementById('recaptcha-container');
+                if (recaptchaContainer) {
+                    if (step === steps.length) {
+                        recaptchaContainer.style.display = 'block';
+                    } else {
+                        recaptchaContainer.style.display = 'none';
+                    }
+                }
 
                 const mapContainers = steps[step - 1].querySelectorAll('.map-container');
                 mapContainers.forEach(container => {
@@ -1406,6 +1428,25 @@
                         const choiceContainer = currentStepContent.querySelector('input[name="signature_method"]').closest('.choice-container');
                         choiceContainer.classList.add('is-invalid');
                         isValid = false;
+                    }
+
+                    // Vérifier reCAPTCHA à la dernière étape
+                    if (!window.isRecaptchaResolved()) {
+                        isValid = false;
+                        // Afficher un message d'erreur pour reCAPTCHA
+                        let recaptchaError = document.querySelector('.recaptcha-error');
+                        if (!recaptchaError) {
+                            recaptchaError = document.createElement('div');
+                            recaptchaError.className = 'recaptcha-error alert alert-warning mt-3';
+                            recaptchaError.innerHTML = '<i class="fas fa-shield-alt me-2"></i>Veuillez cocher la case "Je ne suis pas un robot" pour continuer.';
+                            document.getElementById('recaptcha-container').after(recaptchaError);
+                        }
+                    } else {
+                        // Supprimer l'erreur reCAPTCHA si résolu
+                        const recaptchaError = document.querySelector('.recaptcha-error');
+                        if (recaptchaError) {
+                            recaptchaError.remove();
+                        }
                     }
                 }
 

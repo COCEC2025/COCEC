@@ -479,6 +479,9 @@
                 <!-- Formulaire -->
                 <form class="complaint-form" id="complaintForm" action="{{ route('complaint.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    
+                    {{-- Champs honeypot pour détecter les bots --}}
+                    @include('components.honeypot')
 
                     <!-- Identification -->
                     <div class="form-section">
@@ -567,6 +570,9 @@
                         </div>
                     </div>
 
+                    <!-- Token reCAPTCHA -->
+                    <input type="hidden" name="recaptcha_token" id="recaptcha_token">
+                    
                     <!-- Bouton de soumission -->
                     <div class="text-center">
                         <button type="submit" class="btn-submit">
@@ -583,6 +589,9 @@
 @endsection
 <!-- Script pour la gestion du formulaire avec SweetAlert -->
 @section('js')
+{{-- Intégration reCAPTCHA --}}
+@include('components.recaptcha', ['action' => 'complaint'])
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const complaintForm = document.getElementById('complaintForm');
@@ -592,23 +601,40 @@
             complaintForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
+                // Vérifier les champs honeypot
+                if (complaintForm.querySelector('input[name="website_url"]').value !== '' || 
+                    complaintForm.querySelector('input[name="phone_number"]').value !== '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erreur',
+                        text: 'Soumission détectée comme spam.',
+                        confirmButtonColor: '#EC281C'
+                    });
+                    return;
+                }
+
                 // Validation du formulaire
                 if (!validateForm()) {
                     return;
                 }
 
-                // Afficher le loader
-                Swal.fire({
-                    title: 'Envoi en cours...',
-                    text: 'Votre plainte est en cours de transmission',
-                    allowOutsideClick: false,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
+                // Exécuter reCAPTCHA avant l'envoi
+                window.executeRecaptcha(function(token) {
+                    // Mettre à jour le token reCAPTCHA
+                    complaintForm.querySelector('input[name="recaptcha_token"]').value = token;
 
-                // Envoyer le formulaire via AJAX
-                const formData = new FormData(complaintForm);
+                    // Afficher le loader
+                    Swal.fire({
+                        title: 'Envoi en cours...',
+                        text: 'Votre plainte est en cours de transmission',
+                        allowOutsideClick: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+
+                    // Envoyer le formulaire via AJAX
+                    const formData = new FormData(complaintForm);
 
                 fetch(complaintForm.action, {
                         method: 'POST',
@@ -672,6 +698,7 @@
                             confirmButtonColor: '#EC281C'
                         });
                     });
+                });
             });
         }
 

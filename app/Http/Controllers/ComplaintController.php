@@ -26,6 +26,11 @@ class ComplaintController extends Controller
     {
         $mail = "gestiondesplaintes@cocectogo.org";
 
+        // Vérifier les champs honeypot (détection de bots)
+        if ($request->filled('website_url') || $request->filled('phone_number')) {
+            return back()->with('error', 'Soumission détectée comme spam.');
+        }
+
         // Validation des données
         $validator = Validator::make($request->all(), [
             'member_name' => 'nullable|string|max:255',
@@ -37,6 +42,7 @@ class ComplaintController extends Controller
             'complaint_description' => 'required|string|max:2000',
             'complaint_attachments.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf,doc,docx|max:5120', // 5MB max
             'data_consent' => 'required|accepted',
+            'recaptcha_token' => 'required|string',
         ], [
             'member_email.email' => 'L\'adresse email doit être valide.',
             'complaint_subject.required' => 'L\'objet de la plainte est obligatoire.',

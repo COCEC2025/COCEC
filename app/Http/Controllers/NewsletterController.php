@@ -21,8 +21,17 @@ class NewsletterController extends Controller
     // Subscribe to the newsletter
     public function subscribe(Request $request)
     {
+        // Vérifier les champs honeypot (détection de bots)
+        if ($request->filled('website_url') || $request->filled('phone_number')) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Soumission détectée comme spam.'
+            ], 422);
+        }
+
         $validator = Validator::make($request->all(), [
             'email' => 'required|email:rfc,dns|max:255',
+            'recaptcha_token' => 'required|string',
         ]);
 
         if ($validator->fails()) {

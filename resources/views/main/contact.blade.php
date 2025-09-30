@@ -162,12 +162,22 @@
                         <h2>Envoyez-nous un message</h2>
                         <form id="contact-prestige-form" action="{{ route('contact.store') }}" method="POST" novalidate>
                             @csrf
+                            
+                            {{-- Champs honeypot pour détecter les bots --}}
+                            @include('components.honeypot')
+                            
                             <div class="row">
                                 <div class="col-md-6 input-line-group"><label for="fullname" class="form-label">Nom Complet</label><input type="text" class="form-control" id="fullname" name="fullname" placeholder="Ex: Jean Dupont" required><div class="invalid-feedback"></div></div>
                                 <div class="col-md-6 input-line-group"><label for="email" class="form-label">Votre Email</label><input type="email" class="form-control" id="email" name="email" placeholder="Ex: jean.dupont@email.com" required><div class="invalid-feedback"></div></div>
                                 <div class="col-12 input-line-group"><label for="subject" class="form-label">Sujet</label><input type="text" class="form-control" id="subject" name="subject" placeholder="Ex: Information sur un produit" required><div class="invalid-feedback"></div></div>
                                 <div class="col-12 input-line-group"><label for="message" class="form-label">Votre message</label><textarea class="form-control" id="message" name="message" rows="4" placeholder="Écrivez votre message ici..." required></textarea><div class="invalid-feedback"></div></div>
                             </div>
+                            
+                            {{-- Widget reCAPTCHA --}}
+                            <div class="mt-3">
+                                @include('components.recaptcha', ['action' => 'contact'])
+                            </div>
+                            
                             <div class="mt-4">
                                 <button type="submit" id="submit-button" class="btn-submit-prestige"><span class="btn-text">Envoyer</span><span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span></button>
                             </div>
@@ -193,7 +203,6 @@
 @endsection
 
 @section('js')
-{{-- Le Javascript reste inchangé --}}
 <script>
 $(document).ready(function() {
     $("#contact-prestige-form").on("submit", function (e) {
@@ -203,6 +212,17 @@ $(document).ready(function() {
         const $btnText = $submitButton.find('.btn-text');
         const $spinner = $submitButton.find('.spinner-border');
 
+        // Vérifier les champs honeypot
+        if ($form.find('input[name="website_url"]').val() !== '' || $form.find('input[name="phone_number"]').val() !== '') {
+            Swal.fire({ 
+                icon: 'error', 
+                title: 'Erreur', 
+                text: 'Soumission détectée comme spam.', 
+                confirmButtonColor: "var(--primary-color)" 
+            });
+            return;
+        }
+
         $form.find(".form-control").removeClass("is-invalid");
         $form.find(".invalid-feedback").text("");
 
@@ -210,39 +230,55 @@ $(document).ready(function() {
         $btnText.addClass('d-none');
         $spinner.removeClass('d-none');
 
+        // Vérifier si reCAPTCHA est résolu
+        if (!window.isRecaptchaResolved()) {
+            Swal.fire({ 
+                icon: 'warning', 
+                title: 'Vérification requise', 
+                text: 'Veuillez cocher la case "Je ne suis pas un robot".', 
+                confirmButtonColor: "var(--primary-color)" 
+            });
+            return;
+        }
+
         $.ajax({
-            url: $form.attr("action"),
-            method: "POST",
-            data: new FormData(this),
-            processData: false,
-            contentType: false,
-            headers: { "X-CSRF-TOKEN": $form.find('input[name="_token"]').val() },
-            success: function (data) {
-                Swal.fire({
-                    icon: "success", title: "Message envoyé ! 🎉",
-                    text: "Merci, nous avons bien reçu votre message.",
-                    confirmButtonColor: "var(--primary-color)",
-                });
-                $form[0].reset();
-            },
-            error: function (jqXHR) {
-                if (jqXHR.status === 422) {
-                    const errors = jqXHR.responseJSON.errors;
-                    $.each(errors, function (key, value) {
-                        const field = $('[name="' + key + '"]');
-                        field.addClass("is-invalid");
-                        field.closest('.input-line-group').find(".invalid-feedback").text(value[0]).show();
+                url: $form.attr("action"),
+                method: "POST",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                headers: { "X-CSRF-TOKEN": $form.find('input[name="_token"]').val() },
+                success: function (data) {
+                    Swal.fire({
+                        icon: "success", title: "Message envoyé ! 🎉",
+                        text: "Merci, nous avons bien reçu votre message.",
+                        confirmButtonColor: "var(--primary-color)",
                     });
-                    Swal.fire({ icon: 'error', title: 'Erreur', text: 'Veuillez corriger les champs indiqués.', confirmButtonColor: "var(--primary-color)" });
-                } else {
-                    Swal.fire({ icon: "error", title: "Oups...", text: "Une erreur est survenue.", confirmButtonColor: "var(--primary-color)" });
+                    $form[0].reset();
+                    // Réinitialiser reCAPTCHA
+                    if (typeof window.resetRecaptcha === 'function') {
+                        window.resetRecaptcha();
+                    }
+                },
+                error: function (jqXHR) {
+                    if (jqXHR.status === 422) {
+                        const errors = jqXHR.responseJSON.errors;
+                        $.each(errors, function (key, value) {
+                            const field = $('[name="' + key + '"]');
+                            field.addClass("is-invalid");
+                            field.closest('.input-line-group').find(".invalid-feedback").text(value[0]).show();
+                        });
+                        Swal.fire({ icon: 'error', title: 'Erreur', text: 'Veuillez corriger les champs indiqués.', confirmButtonColor: "var(--primary-color)" });
+                    } else {
+                        Swal.fire({ icon: "error", title: "Oups...", text: "Une erreur est survenue.", confirmButtonColor: "var(--primary-color)" });
+                    }
+                },
+                complete: function() {
+                    $submitButton.prop("disabled", false);
+                    $spinner.addClass('d-none');
+                    $btnText.removeClass('d-none');
                 }
-            },
-            complete: function() {
-                $submitButton.prop("disabled", false);
-                $spinner.addClass('d-none');
-                $btnText.removeClass('d-none');
-            }
+            });
         });
     });
 });

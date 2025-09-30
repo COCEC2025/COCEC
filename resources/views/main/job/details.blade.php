@@ -404,6 +404,10 @@
             <div class="premium-form-container" data-aos="fade-up">
                 <form id="job-application-form" action="{{ route('career.apply.offer', $offer->id) }}" method="POST" enctype="multipart/form-data" novalidate>
                     @csrf
+                    
+                    {{-- Champs honeypot pour détecter les bots --}}
+                    @include('components.honeypot')
+                    
                     <input type="hidden" name="intitule" value="{{ $offer->title }}">
                     <input type="hidden" name="application_type" value="{{ $offer->type }}">
 
@@ -472,6 +476,11 @@
 
                     </div>
 
+                    {{-- Widget reCAPTCHA --}}
+                    <div class="mt-4 text-center">
+                        @include('components.recaptcha', ['action' => 'job_application'])
+                    </div>
+
                     <div class="mt-4">
                         <button type="submit" id="submit-button" class="btn-submit-premium">
                             <span class="btn-text">Envoyer ma candidature</span>
@@ -518,6 +527,28 @@
             const $btnText = $submitButton.find('.btn-text');
             const $spinner = $submitButton.find('.spinner-border');
 
+            // Vérifier les champs honeypot
+            if ($form.find('input[name="website_url"]').val() !== '' || $form.find('input[name="phone_number"]').val() !== '') {
+                Swal.fire({ 
+                    icon: 'error', 
+                    title: 'Erreur', 
+                    text: 'Soumission détectée comme spam.', 
+                    confirmButtonColor: "var(--primary-color)" 
+                });
+                return;
+            }
+
+            // Vérifier si reCAPTCHA est résolu
+            if (!window.isRecaptchaResolved()) {
+                Swal.fire({ 
+                    icon: 'warning', 
+                    title: 'Vérification requise', 
+                    text: 'Veuillez cocher la case "Je ne suis pas un robot".', 
+                    confirmButtonColor: "var(--primary-color)" 
+                });
+                return;
+            }
+
             $form.find(".form-control, .file-upload-wrapper").removeClass("is-invalid");
             $form.find(".invalid-feedback").text("");
 
@@ -546,6 +577,10 @@
                         return $(this).closest('.file-upload-wrapper').find('input[name="cv"]').length ? 'Déposez votre CV ici ou cliquez' : 'Déposez votre lettre ou cliquez';
                     });
                     $('.file-upload-wrapper').css('border-color', 'var(--border-color)');
+                    // Réinitialiser reCAPTCHA
+                    if (typeof window.resetRecaptcha === 'function') {
+                        window.resetRecaptcha();
+                    }
                 },
                 error: function(jqXHR) {
                     if (jqXHR.status === 422) {
