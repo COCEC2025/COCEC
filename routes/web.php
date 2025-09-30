@@ -161,7 +161,7 @@ Route::prefix('admin/agency')->controller(AgencyLocationController::class)->grou
 });
 
 
-Route::post('/login/processing', [AuthController::class, 'login'])->name('login.process');
+Route::post('/login/processing', [AuthController::class, 'login'])->middleware(['recaptcha:admin_login', 'rate.limit.forms:5,5'])->name('login.process');
 
 // Routes pour la Finance Digitale
 Route::prefix('digitalfinance')->group(function () {

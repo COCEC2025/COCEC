@@ -6,7 +6,7 @@ return [
     | Google reCAPTCHA Configuration
     |--------------------------------------------------------------------------
     |
-    | Configuration pour Google reCAPTCHA v3
+    | Configuration pour Google reCAPTCHA v3 (invisible)
     | Obtenez vos clés sur : https://www.google.com/recaptcha/admin
     |
     */
@@ -16,7 +16,7 @@ return [
     
     /*
     |--------------------------------------------------------------------------
-    | Score Threshold
+    | Score Threshold (pour reCAPTCHA v3 uniquement)
     |--------------------------------------------------------------------------
     |
     | Score minimum requis pour considérer une soumission comme légitime
@@ -42,5 +42,6 @@ return [
         'complaint' => 'complaint_form',
         'faq_comment' => 'faq_comment',
         'account_creation' => 'account_creation',
+        'admin_login' => 'admin_login',
     ],
 ];

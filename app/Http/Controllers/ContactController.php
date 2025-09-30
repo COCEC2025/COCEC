@@ -25,7 +25,7 @@ class ContactController extends Controller
             'email' => 'required|email|max:255',
             'subject' => 'required|string|max:255',
             'message' => 'required|string|max:2000',
-            'g-recaptcha-response' => 'required|string',
+            'recaptcha_token' => 'required|string',
         ]);
 
         try {

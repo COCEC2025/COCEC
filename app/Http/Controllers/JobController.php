@@ -129,7 +129,7 @@ class JobController extends Controller
             'motivation_letter' => 'required|file|mimes:pdf|max:30720',
             'identity_document' => 'required|file|mimes:pdf,jpg,jpeg,png|max:30720', // 30MB Max
             'passport_photo' => 'required|image|mimes:jpg,jpeg,png|max:5120', // 5MB Max
-            'g-recaptcha-response' => 'required|string',
+            'recaptcha_token' => 'required|string',
         ]);
 
         $cvPath = $request->file('cv')->store('resumes', 'public');

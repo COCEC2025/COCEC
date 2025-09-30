@@ -23,8 +23,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => 'required|min:3|max: 128 | email',
-            'password' => 'required|max:64'
-
+            'password' => 'required|max:64',
+            'recaptcha_token' => 'required|string',
         ];
     }
 
@@ -43,6 +43,8 @@ class LoginRequest extends FormRequest
             'email.max' => 'L\'e-maill doit contenir au maximum 128 caractères.',
             'password.required' => 'Le mot de passe est requis.',
             'password.max' => 'Le nom complet doit contenir au maximum 64 caractères.',
+            'recaptcha_token.required' => 'Veuillez compléter la vérification reCAPTCHA.',
+            'recaptcha_token.string' => 'Le reCAPTCHA est invalide.',
         ];
     }
 }
