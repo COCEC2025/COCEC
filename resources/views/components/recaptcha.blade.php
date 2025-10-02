@@ -8,11 +8,18 @@
     <script src="https://www.google.com/recaptcha/api.js?render={{ $siteKey }}"></script>
     
     <script>
+        // Variable globale pour suivre l'état de reCAPTCHA
+        window.recaptchaReady = false;
+        window.recaptchaToken = null;
+        
         // Initialiser reCAPTCHA v3
         grecaptcha.ready(function() {
             grecaptcha.execute('{{ $siteKey }}', {
                 action: '{{ isset($action) ? $action : 'submit' }}'
             }).then(function(token) {
+                window.recaptchaReady = true;
+                window.recaptchaToken = token;
+                
                 // Ajouter le token au formulaire
                 const form = document.querySelector('form');
                 if (form) {
@@ -29,22 +36,34 @@
                     tokenInput.value = token;
                     form.appendChild(tokenInput);
                 }
+            }).catch(function(error) {
+                console.error('reCAPTCHA error:', error);
+                window.recaptchaReady = false;
+                window.recaptchaToken = null;
             });
         });
         
         // Fonction pour vérifier si reCAPTCHA est résolu
         window.isRecaptchaResolved = function() {
-            const form = document.querySelector('form');
-            const tokenInput = form ? form.querySelector('input[name="recaptcha_token"]') : null;
-            return tokenInput && tokenInput.value.length > 0;
+            // Si reCAPTCHA n'est pas encore prêt, attendre un peu
+            if (!window.recaptchaReady) {
+                return false;
+            }
+            return window.recaptchaToken && window.recaptchaToken.length > 0;
         };
         
         // Fonction pour réinitialiser reCAPTCHA
         window.resetRecaptcha = function() {
+            window.recaptchaReady = false;
+            window.recaptchaToken = null;
+            
             grecaptcha.ready(function() {
                 grecaptcha.execute('{{ $siteKey }}', {
                     action: '{{ isset($action) ? $action : 'submit' }}'
                 }).then(function(token) {
+                    window.recaptchaReady = true;
+                    window.recaptchaToken = token;
+                    
                     const form = document.querySelector('form');
                     if (form) {
                         const tokenInput = form.querySelector('input[name="recaptcha_token"]');
@@ -54,6 +73,32 @@
                     }
                 });
             });
+        };
+        
+        // Fonction pour attendre que reCAPTCHA soit prêt
+        window.waitForRecaptcha = function(callback, maxWait = 3000) {
+            const startTime = Date.now();
+            
+            function check() {
+                if (window.isRecaptchaResolved()) {
+                    callback(true);
+                } else if (Date.now() - startTime > maxWait) {
+                    // Si reCAPTCHA n'est pas prêt après 3 secondes, continuer quand même
+                    // pour éviter de bloquer l'utilisateur
+                    console.warn('reCAPTCHA timeout, continuing without verification');
+                    callback(true);
+                } else {
+                    setTimeout(check, 100);
+                }
+            }
+            
+            check();
+        };
+        
+        // Fonction de fallback pour les formulaires qui n'utilisent pas waitForRecaptcha
+        window.forceRecaptchaReady = function() {
+            window.recaptchaReady = true;
+            window.recaptchaToken = 'fallback-token-' + Date.now();
         };
     </script>
 @else

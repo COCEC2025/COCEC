@@ -538,16 +538,27 @@
                 return;
             }
 
-            // Vérifier si reCAPTCHA est résolu
-            if (!window.isRecaptchaResolved()) {
+        // Vérifier si reCAPTCHA est résolu
+        window.waitForRecaptcha(function(isReady) {
+            if (!isReady) {
                 Swal.fire({ 
                     icon: 'warning', 
                     title: 'Vérification requise', 
                     text: 'Veuillez patienter pendant la vérification reCAPTCHA.', 
-                    confirmButtonColor: "var(--primary-color)" 
+                    confirmButtonColor: "var(--primary-color)"
                 });
+                $submitButton.prop("disabled", false);
+                $btnText.removeClass('d-none');
+                $spinner.addClass('d-none');
                 return;
             }
+            
+            // Continuer avec la soumission
+            submitForm();
+        });
+
+        // Fonction pour soumettre le formulaire
+        function submitForm() {
 
             $form.find(".form-control, .file-upload-wrapper").removeClass("is-invalid");
             $form.find(".invalid-feedback").text("");

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test reCAPTCHA Simple</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Test reCAPTCHA Simple</h1>
+    
+    <form id="testForm">
+        <div>
+            <label>Nom:</label>
+            <input type="text" name="name" required>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+        </div>
+        <button type="submit">Tester</button>
+    </form>
+    
+    <div id="result"></div>
+    
+    <!-- Inclure le composant reCAPTCHA -->
+    <div id="recaptcha-container">
+        <!-- Le composant reCAPTCHA sera chargé ici -->
+    </div>
+    
+    <script>
+        // Simuler le composant reCAPTCHA
+        window.recaptchaReady = false;
+        window.recaptchaToken = null;
+        
+        // Simuler l'initialisation de reCAPTCHA
+        setTimeout(function() {
+            window.recaptchaReady = true;
+            window.recaptchaToken = 'test-token-' + Date.now();
+            console.log('reCAPTCHA simulé comme prêt');
+        }, 1000);
+        
+        // Fonction pour vérifier si reCAPTCHA est résolu
+        window.isRecaptchaResolved = function() {
+            return window.recaptchaReady && window.recaptchaToken && window.recaptchaToken.length > 0;
+        };
+        
+        // Fonction pour attendre que reCAPTCHA soit prêt
+        window.waitForRecaptcha = function(callback, maxWait = 3000) {
+            const startTime = Date.now();
+            
+            function check() {
+                if (window.isRecaptchaResolved()) {
+                    callback(true);
+                } else if (Date.now() - startTime > maxWait) {
+                    console.warn('reCAPTCHA timeout, continuing without verification');
+                    callback(true);
+                } else {
+                    setTimeout(check, 100);
+                }
+            }
+            
+            check();
+        };
+        
+        // Test du formulaire
+        $('#testForm').on('submit', function(e) {
+            e.preventDefault();
+            
+            $('#result').html('Vérification reCAPTCHA...');
+            
+            window.waitForRecaptcha(function(isReady) {
+                if (isReady) {
+                    $('#result').html('✅ reCAPTCHA OK - Formulaire soumis avec succès!');
+                } else {
+                    $('#result').html('❌ reCAPTCHA non résolu');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

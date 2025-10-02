@@ -231,17 +231,27 @@ $(document).ready(function() {
         $spinner.removeClass('d-none');
 
         // Vérifier si reCAPTCHA est résolu
-        if (!window.isRecaptchaResolved()) {
-            Swal.fire({ 
-                icon: 'warning', 
-                title: 'Vérification requise', 
-                text: 'Veuillez patienter pendant la vérification reCAPTCHA.', 
-                confirmButtonColor: "var(--primary-color)" 
-            });
-            return;
-        }
+        window.waitForRecaptcha(function(isReady) {
+            if (!isReady) {
+                Swal.fire({ 
+                    icon: 'warning', 
+                    title: 'Vérification requise', 
+                    text: 'Veuillez patienter pendant la vérification reCAPTCHA.', 
+                    confirmButtonColor: "var(--primary-color)"
+                });
+                $submitButton.prop("disabled", false);
+                $btnText.removeClass('d-none');
+                $spinner.addClass('d-none');
+                return;
+            }
+            
+            // Continuer avec la soumission
+            submitForm();
+        });
 
-        $.ajax({
+        // Fonction pour soumettre le formulaire
+        function submitForm() {
+            $.ajax({
                 url: $form.attr("action"),
                 method: "POST",
                 data: new FormData(this),
