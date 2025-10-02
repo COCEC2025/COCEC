@@ -58,8 +58,8 @@
                             <p>Quartier KANYIKOPE à 50m du Lycée FOLLY-BEBE en allant vers KAGOME</p>
                             <p>
                                 <b>Tél:</b>
-                                <a href="tel:+22891126471">(+228) 91 12 64 71</a> /
-                                <a href="tel:+22898422473">98 42 24 73</a>
+                                <a href="tel:+22891126471">+228 91 12 64 71</a> /
+                                <a href="tel:+22822714148">+228 22 71 41 48</a>
                                 <br>
                                 <b>Email:</b>
                                 <a href="mailto:cocec@cocectogo.org">cocec@cocectogo.org</a>
@@ -145,8 +145,8 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="copy-list">
-                                <li><a href="contact.html">Terms & Conditions</a></li>
-                                <li><a href="contact.html">Privacy Policy</a></li>
+                                <li><a href="{{ route('legal') }}">Mentions Légales</a></li>
+                                <li><a href="{{ route('legal') }}#politique-confidentialite">Politique de Confidentialité</a></li>
                             </ul>
                         </div>
                     </div>

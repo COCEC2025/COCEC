@@ -92,7 +92,7 @@
             <div class="contact-info">
                 <p><strong>Besoin d'aide ?</strong></p>
                 <p>N'hésitez pas à nous contacter :</p>
-                <p>📞 Téléphone : 22 71 41 48 / 70 42 96 80 / 98 42 24 73</p>
+                <p>📞 Téléphone : +228 91 12 64 71 / +228 22 71 41 48</p>
                 <p>📧 Email : finance-digitale@cocectogo.org</p>
                 <p>📍 Adresse : Lomé, KANYIKOPE à 50 m du Lycée FOLLY-BEBE</p>
             </div>

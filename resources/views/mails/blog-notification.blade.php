@@ -184,7 +184,7 @@
             <div class="contact-info">
                 <strong>COCEC - Votre partenaire financier de confiance</strong><br>
                 📍 Quartier KANYIKOPE à 50m du Lycée FOLLY-BEBE<br>
-                📞 (+228) 91 12 64 71 / 98 42 24 73<br>
+                📞 +228 91 12 64 71 / +228 22 71 41 48<br>
                 ✉️ cocec@cocectogo.org<br>
                 🌐 <a href="{{ $siteUrl }}">{{ $siteUrl }}</a>
             </div>
