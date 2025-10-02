@@ -33,6 +33,7 @@ Route::get('/show-agencies', [ViewsController::class, 'agency'])->name('agencies
 Route::get('/about', [ViewsController::class, 'about'])->name('about');
 Route::get('/open-account', [ViewsController::class, 'account'])->name('main.account');
 Route::get('/digital-finance', [ViewsController::class, 'finance'])->name('main.finance');
+Route::get('/legal', [ViewsController::class, 'legal'])->name('legal');
 Route::get('/faq', [ViewsController::class, 'faq'])->name('main.faq');
 Route::post('/faq/comment', [FaqCommentController::class, 'store'])->middleware(['recaptcha:faq_comment', 'rate.limit.forms:10,5'])->name('faq.comments.store');
 Route::post('/blog/comment', [App\Http\Controllers\BlogCommentController::class, 'store'])->name('blog.comments.store');

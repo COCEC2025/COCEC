@@ -187,7 +187,7 @@
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
-                            <a href="tel:+22891126471">(+228) 91 12 64 71 / 98 42 24 73</a>
+                            <a href="tel:+22891126471">+228 91 12 64 71 / +228 22 71 41 48</a>
                         </li>
                         <li>
                             <i class="fas fa-envelope-open-text"></i>

@@ -297,4 +297,9 @@ class ViewsController extends Controller
     {
         return view('main.complaint');
     }
+
+    public function legal()
+    {
+        return view('main.legal');
+    }
 }
