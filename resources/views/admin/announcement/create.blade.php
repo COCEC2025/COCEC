@@ -235,7 +235,7 @@
 
         // Formats d'image acceptés
         const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
-        const maxSize = 2 * 1024 * 1024; // 2MB
+        const maxSize = 3 * 1024 * 1024; // 3MB
 
         // Prévenir les comportements par défaut
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
@@ -321,13 +321,14 @@
         function handleFile(file) {
             // Vérifier le type de fichier
             if (!allowedTypes.includes(file.type)) {
-                alert('Format de fichier non autorisé. Veuillez sélectionner une image (JPG, PNG, GIF).');
+                alert('❌ Format de fichier non autorisé.\n\nVeuillez sélectionner une image au format :\n• JPEG (.jpg, .jpeg)\n• PNG (.png)\n• GIF (.gif)');
                 return;
             }
 
             // Vérifier la taille
             if (file.size > maxSize) {
-                alert('Le fichier est trop volumineux. Taille maximale autorisée: 2MB.');
+                const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
+                alert(`❌ Fichier trop volumineux.\n\nTaille du fichier : ${fileSizeMB} Mo\nTaille maximale autorisée : 3 Mo\n\n💡 Conseil : Compressez votre image ou choisissez une image plus légère.`);
                 return;
             }
 
