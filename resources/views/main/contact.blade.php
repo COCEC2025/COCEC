@@ -126,7 +126,7 @@
         <div class="page-header-overlay"></div>
         <div class="container">
             <div class="page-header-content-pro" data-aos="fade-up">
-                <h1 class="title-pro">Prendre Contact</h1>
+                <h1 class="title-pro">Prendre contact</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb-pro">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
@@ -147,10 +147,10 @@
                 <div class="contact-prestige-layout">
                     <!-- PANNEAU D'INFORMATION (GAUCHE) -->
                     <div class="info-panel">
-                        <h2>Nos Coordonnées</h2>
+                        <h2>Nos coordonnées</h2>
                         <p class="panel-intro">Nous sommes à votre écoute. Utilisez les informations ci-dessous ou remplissez le formulaire pour une réponse rapide.</p>
                         <ul class="info-list">
-                            <li class="info-item"><div class="icon"><i class="fas fa-map-marker-alt"></i></div><div class="content"><h4>Notre Siège</h4><p>Kangnikopé à 50m du lycée Folly Bébé, Lomé, Togo</p></div></li>
+                            <li class="info-item"><div class="icon"><i class="fas fa-map-marker-alt"></i></div><div class="content"><h4>Notre siège</h4><p>Kangnikopé à 50m du lycée Folly Bébé, Lomé, Togo</p></div></li>
                             <li class="info-item"><div class="icon"><i class="fas fa-phone-alt"></i></div><div class="content"><h4>Téléphone</h4><a href="tel:+22891126471">(+228) 91 12 64 71</a></div></li>
                             <li class="info-item"><div class="icon"><i class="fas fa-envelope"></i></div><div class="content"><h4>Email</h4><a href="mailto:cocec@cocectogo.org">cocec@cocectogo.org</a></div></li>
                             <li class="info-item"><div class="icon"><i class="fas fa-clock"></i></div><div class="content"><h4>Heures d'ouverture</h4><p>Lundi - Vendredi : 7h30 - 15h00<br>Samedi : 8h00 - 12h00</p></div></li>
@@ -167,8 +167,8 @@
                             @include('components.honeypot')
                             
                             <div class="row">
-                                <div class="col-md-6 input-line-group"><label for="fullname" class="form-label">Nom Complet</label><input type="text" class="form-control" id="fullname" name="fullname" placeholder="Ex: Jean Dupont" required><div class="invalid-feedback"></div></div>
-                                <div class="col-md-6 input-line-group"><label for="email" class="form-label">Votre Email</label><input type="email" class="form-control" id="email" name="email" placeholder="Ex: jean.dupont@email.com" required><div class="invalid-feedback"></div></div>
+                                <div class="col-md-6 input-line-group"><label for="fullname" class="form-label">Nom complet</label><input type="text" class="form-control" id="fullname" name="fullname" placeholder="Ex: Jean Dupont" required><div class="invalid-feedback"></div></div>
+                                <div class="col-md-6 input-line-group"><label for="email" class="form-label">Votre email</label><input type="email" class="form-control" id="email" name="email" placeholder="Ex: jean.dupont@email.com" required><div class="invalid-feedback"></div></div>
                                 <div class="col-12 input-line-group"><label for="subject" class="form-label">Sujet</label><input type="text" class="form-control" id="subject" name="subject" placeholder="Ex: Information sur un produit" required><div class="invalid-feedback"></div></div>
                                 <div class="col-12 input-line-group"><label for="message" class="form-label">Votre message</label><textarea class="form-control" id="message" name="message" rows="4" placeholder="Écrivez votre message ici..." required></textarea><div class="invalid-feedback"></div></div>
                             </div>

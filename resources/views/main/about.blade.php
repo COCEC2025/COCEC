@@ -17,7 +17,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb-pro">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">À Propos</li>
+                        <li class="breadcrumb-item active" aria-current="page">À propos</li>
                     </ol>
                 </nav>
             </div>
@@ -44,7 +44,7 @@
                     <img src="{{ asset('assets/images/dg.jpg') }}" alt="Photo du Directeur Général de la COCEC">
                 </div>
                 <div class="director-content-card" data-aos="fade-left" data-aos-delay="200">
-                    <h2 class="section-subtitle">Le mot du Directeur Général</h2>
+                    <h2 class="section-subtitle">Le mot du directeur général</h2>
                     <blockquote>
                         <p class="text-justify">"
 
@@ -53,7 +53,7 @@
                             "</p>
                         <cite>
                             <span class="director-name">M. Kokou GABIAM</span>
-                            <span class="director-title">Directeur Général, COCEC</span>
+                            <span class="director-title">Directeur général, COCEC</span>
                         </cite>
                     </blockquote>
                 </div>
@@ -68,7 +68,7 @@
         <div class="container">
             <!-- Titre de la section -->
             <div class="section-header text-center" data-aos="fade-up">
-                <h2 class="section-title">Les Piliers de Notre Identité</h2>
+                <h2 class="section-title">Les piliers de notre identité</h2>
                 <p class="section-intro">Trois engagements qui définissent qui nous sommes, ce que nous visons, et comment nous y parvenons.</p>
             </div>
 
@@ -81,7 +81,7 @@
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <div class="pillar-content">
-                        <h4>Notre Mission</h4>
+                        <h4>Notre mission</h4>
                         <p class="text-justify">
                             Elle a l’ambition de contribuer à l’amélioration de la qualité de vie de la ation du Togo en général et de sa population cible en particulier, en œuvrant à la réduction de la pauvreté par la mise à la disposition de ces dernières des services d’épargne et de crédit à la base, adaptés à leurs besoins en veillant à la pérennité de ces services.</p>
                     </div>
@@ -93,7 +93,7 @@
                         <i class="fas fa-eye"></i>
                     </div>
                     <div class="pillar-content">
-                        <h4>Notre Vision</h4>
+                        <h4>Notre vision</h4>
                         <p class="text-justify"> La COCEC compte devenir une Institution de référence dans le secteur de la micro finance au Togo et à l’extérieur en matière de bonnes pratiques de gouvernance, de contrôle et d’offres de produits et services de qualité et à moindre coût.</p>
                     </div>
                 </div>
@@ -104,12 +104,12 @@
                         <i class="fas fa-gem"></i>
                     </div>
                     <div class="pillar-content">
-                        <h4>Nos Valeurs</h4>
+                        <h4>Nos valeurs</h4>
                         <ul class="values-sublist">
                             <li><i class="fas fa-cross"></i><span><strong>Crainte de Dieu :</strong> Le fondement de notre sagesse.</span></li>
                             <li><i class="fas fa-praying-hands"></i><span><strong>Foi :</strong> Le moteur de notre ambition.</span></li>
-                            <li><i class="fas fa-users"></i><span><strong>Respect des Membres :</strong> Notre raison d'être.</span></li>
-                            <li><i class="fas fa-star"></i><span><strong>Qualité de Service :</strong> Notre standard d'excellence.</span></li>
+                            <li><i class="fas fa-users"></i><span><strong>Respect des membres :</strong> Notre raison d'être.</span></li>
+                            <li><i class="fas fa-star"></i><span><strong>Qualité de service :</strong> Notre standard d'excellence.</span></li>
                             <li><i class="fas fa-balance-scale"></i><span><strong>Responsabilité :</strong> Notre engagement de transparence.</span></li>
                         </ul>
                     </div>
@@ -125,7 +125,7 @@
     <section class="org-chart-section page-section">
         <div class="container">
             <div class="section-header text-center" data-aos="fade-up">
-                <h2 class="section-title">Notre Structure Organisationnelle</h2>
+                <h2 class="section-title">Notre structure organisationnelle</h2>
                 <p class="section-intro">Une organisation claire pour un service efficace.</p>
             </div>
             <!-- Le wrapper permet un défilement horizontal sur mobile si l'image est trop large -->

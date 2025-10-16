@@ -111,13 +111,13 @@
         }
     }
 
-    /* Style de la carte jaune */
+    /* Style de la carte verte */
     .promo-section .promo-item.credit-card-middle .overlay {
-        background: linear-gradient(180deg, rgba(255, 204, 0, 0) 0%, #ffc400 58.48%);
+        background: linear-gradient(180deg, rgba(22, 101, 52, 0) 0%, var(--bz-color-theme-green) 58.48%);
     }
 
     .promo-section .promo-item.credit-card-middle .overlay-2 {
-        background: rgba(255, 204, 0, 0.45);
+        background: rgba(22, 101, 52, 0.45);
         mix-blend-mode: normal;
     }
 
@@ -388,6 +388,10 @@
         font-size: 20px;
     }
 
+    .feature-text {
+        text-align: left;
+    }
+
     .feature-text h5 {
         color: #1a1a1a;
         font-size: 18px;
@@ -434,6 +438,7 @@
         height: 400px;
         object-fit: cover;
     }
+    
 
     .complaints-stats {
         position: absolute;
@@ -468,32 +473,38 @@
         margin: 0;
     }
 
-    /* Responsive pour la section plaintes */
-    @media (max-width: 768px) {
-        .complaints-cta {
+    /* Styles pour les textes spécifiques avec couleur verte */
+    .green-text {
+        color: var(--bz-color-theme-green) !important;
+    }
+        /* .complaints-cta {
             flex-direction: column;
         }
 
         .complaints-cta .bz-primary-btn {
             width: 100%;
             justify-content: center;
-        }
+        } */
 
-        .complaints-stats {
-            flex-direction: column;
-            gap: 10px;
+        .complaints-cta {
+            margin-bottom: 30px;
         }
 
         .complaints-features li {
-            flex-direction: column;
-            text-align: center;
+            display: flex;
+            /* flex-direction: column; */
+            align-items: center;
         }
 
         .feature-icon {
             margin-right: 0;
             margin-bottom: 15px;
         }
-    }
+
+        .feature-text {
+            margin-left: 15px;
+        }
+    
 </style>
 @endsection
 
@@ -514,47 +525,47 @@
         </div> -->
         <div class="swiper-container-wrapper swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide hero-slide-1" data-background="{{ asset('assets/images/banner.jpg') }}">
+                <div class="swiper-slide hero-slide-1" data-background="{{ asset('assets/images/cocec-accueil-banniere-principale.jpg') }}">
                     <div class="container-2">
                         <div class="hero-content hero-content-3">
                             <div class="section-heading mb-40 red-content">
                                 <h4 class="sub-heading"><span class="left-shape"></span>Votre Partenaire Financier</h4>
-                                <h2 class="section-title">Des Solutions Financières pour <br>Votre Avenir</h2>
+                                <h2 class="section-title">Des solutions financières pour <br>votre avenir</h2>
                                 <p class="text-justify">La COCEC vous accompagne avec des services d’épargne, de crédit et d’accompagnement personnalisé pour réaliser vos projets et assurer votre sécurité financière.</p>
                             </div>
                             <div class="hero-btn-wrap" style="--bz-color-theme-primary: #EC281C">
-                                <a href="{{ route('contact') }}" class="bz-primary-btn primary">Nous Contacter <i class="fa-regular fa-arrow-right"></i></a>
-                                <a href="{{ route('product.index') }}" class="bz-primary-btn hero-btn">Nos Produits</a>
+                                <a href="{{ route('contact') }}" class="bz-primary-btn primary">Nous contacter <i class="fa-regular fa-arrow-right"></i></a>
+                                <a href="{{ route('product.index') }}" class="bz-primary-btn hero-btn">Nos produits</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide hero-slide-2" data-background="{{ asset('assets/images/banner-1.jpg') }}">
+                <div class="swiper-slide hero-slide-2" data-background="{{ asset('assets/images/cocec-accueil-banniere-credit-investissement.jpg') }}">
                     <div class="container-2">
                         <div class="hero-content hero-content-3">
                             <div class="section-heading mb-40 red-content">
                                 <h4 class="sub-heading"><span class="left-shape"></span>Crédit & Investissement</h4>
-                                <h2 class="section-title">Financez Vos Projets les Plus <br>Ambitieux</h2>
+                                <h2 class="section-title">Financez vos projets les plus <br>ambitieux</h2>
                                 <p class="text-justify">Que ce soit pour un projet immobilier, agricole ou entrepreneurial, nos solutions de crédit sont conçues pour vous donner les moyens de réussir.</p>
                             </div>
                             <div class="hero-btn-wrap" style="--bz-color-theme-primary: #EC281C">
-                                <a href="{{ route('contact') }}" class="bz-primary-btn primary">Demander un Crédit <i class="fa-regular fa-arrow-right"></i></a>
-                                <a href="{{ route('product.index') }}" class="bz-primary-btn hero-btn">Explorer les Options</a>
+                                <a href="{{ route('contact') }}" class="bz-primary-btn primary">Demander un crédit <i class="fa-regular fa-arrow-right"></i></a>
+                                <a href="{{ route('product.index') }}" class="bz-primary-btn hero-btn">Explorer les options</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide hero-slide-3" data-background="{{ asset('assets/images/banner-2.jpg') }}">
+                <div class="swiper-slide hero-slide-3" data-background="{{ asset('assets/images/cocec-accueil-banniere-epargne-securisee.jpg') }}">
                     <div class="container-2">
                         <div class="hero-content hero-content-3">
                             <div class="section-heading mb-40 red-content">
                                 <h4 class="sub-heading"><span class="left-shape"></span>Épargne Sécurisée</h4>
-                                <h2 class="section-title">Construisez Votre Patrimoine <br>en Toute Confiance</h2>
+                                <h2 class="section-title">Construisez votre patrimoine <br>en toute confiance</h2>
                                 <p class="text-justify">Découvrez nos comptes d'épargne flexibles et rentables pour préparer l'avenir, financer les études de vos enfants ou simplement vous constituer une réserve.</p>
                             </div>
                             <div class="hero-btn-wrap" style="--bz-color-theme-primary: #EC281C">
-                                <a href="{{ route('contact') }}" class="bz-primary-btn primary">Ouvrir un Compte <i class="fa-regular fa-arrow-right"></i></a>
-                                <a href="{{ route('product.index') }}" class="bz-primary-btn hero-btn">Types de Comptes</a>
+                                <a href="{{ route('contact') }}" class="bz-primary-btn primary">Ouvrir un compte <i class="fa-regular fa-arrow-right"></i></a>
+                                <a href="{{ route('product.index') }}" class="bz-primary-btn hero-btn">Types de comptes</a>
                             </div>
                         </div>
                     </div>
@@ -574,11 +585,11 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="promo-item white-content">
                         <div class="bg-items">
-                            <div class="bg-img"><img src="{{ asset('assets/images/epargne.jpg') }}" alt="Épargne" loading="lazy" decoding="async"></div>
+                            <div class="bg-img"><img src="{{ asset('assets/images/cocec-service-epargne-securisee.jpg') }}" alt="Épargne" loading="lazy" decoding="async"></div>
                             <div class="overlay"></div>
                             <div class="overlay-2"></div>
                         </div>
-                        <h3 class="title">Épargne Sécurisée</h3>
+                        <h3 class="title">Épargne sécurisée</h3>
                         <p class="text-justify">Épargnez en toute tranquillité avec nos comptes d’épargne flexibles, conçus pour répondre à vos besoins à court et long terme, avec des options comme l’épargne à vue ou à terme.</p>
                         <a href="{{route('product.index') }}" class="bz-primary-btn red-btn">En savoir plus <i class="fa-regular fa-arrow-right"></i></a>
                     </div>
@@ -586,11 +597,11 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="promo-item white-content credit-card-middle">
                         <div class="bg-items">
-                            <div class="bg-img"><img src="{{ asset('assets/images/credit.jpg') }}" alt="Crédit" loading="lazy" decoding="async"></div>
+                            <div class="bg-img"><img src="{{ asset('assets/images/cocec-service-credits-adaptes.jpg') }}" alt="Crédit" loading="lazy" decoding="async"></div>
                             <div class="overlay"></div>
                             <div class="overlay-2"></div>
                         </div>
-                        <h3 class="title">Crédits Adaptés</h3>
+                        <h3 class="title">Crédits adaptés</h3>
                         <p class="text-justify">Financez vos projets avec nos solutions de crédit sur mesure : prêts scolaires, commerciaux, ou agricoles pour soutenir vos ambitions personnelles et professionnelles.</p>
                         <a href="{{route('product.index') }}" class="bz-primary-btn red-btn">En savoir plus <i class="fa-regular fa-arrow-right"></i></a>
                     </div>
@@ -598,11 +609,11 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="promo-item white-content">
                         <div class="bg-items">
-                            <div class="bg-img"><img src="{{ asset('assets/images/accompagnement.jpg') }}" alt="Services Financiers" loading="lazy" decoding="async"></div>
+                            <div class="bg-img"><img src="{{ asset('assets/images/cocec-service-accompagnement-financier.jpg') }}" alt="Services Financiers" loading="lazy" decoding="async"></div>
                             <div class="overlay"></div>
                             <div class="overlay-2"></div>
                         </div>
-                        <h3 class="title">Accompagnement Financier</h3>
+                        <h3 class="title">Accompagnement financier</h3>
                         <p class="text-justify">Bénéficiez de conseils personnalisés et de services comme le transfert d’argent pour gérer efficacement vos finances avec le soutien de la COCEC.</p>
                         <a href="{{route('product.index') }}" class="bz-primary-btn red-btn">En savoir plus <i class="fa-regular fa-arrow-right"></i></a>
                     </div>
@@ -618,14 +629,14 @@
                 <div class="col-lg-6">
                     <div class="about-img-3 img-reveal">
                         <div class="img-overlay overlay-2"></div>
-                        <img src="{{ asset('assets/images/director.jpeg') }}" alt="about" loading="lazy">
+                        <img src="{{ asset('assets/images/cocec-directeur-general-kokou-gabiam.jpg') }}" alt="Directeur Général COCEC Kokou Gabiam" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-content-3 fade-wrapper">
                         <div class="section-heading red-content mb-20">
-                            <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5"><span class="left-shape"></span>Mot du Directeur Général</h4>
-                            <h2 class="section-title" data-text-animation data-split="word" data-duration="1">Bâtir un Avenir Financier Inclusif et Moderne</h2>
+                            <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5"><span class="left-shape"></span>Mot du directeur général</h4>
+                            <h2 class="section-title green-text" data-text-animation data-split="word" data-duration="1">Bâtir un avenir financier inclusif et moderne</h2>
                         </div>
                         <p class="fade-top text-justify">
                             Depuis 2001, la COCEC a placé l’amélioration de vos conditions de vie au centre de ses stratégies. Notre plus grande fierté réside dans les témoignages de ceux qui, partis de rien, subviennent aujourd’hui aux besoins de leur famille grâce à notre accompagnement.
@@ -634,14 +645,14 @@
                             <li>
                                 <div class="list-icon-revisited"><i class="fas fa-rocket"></i></div>
                                 <div class="list-text">
-                                    <h5>Innovation & Modernité</h5>
+                                    <h5>Innovation & modernité</h5>
                                     <span>Nous intégrons les nouvelles technologies (Mobile Money, Web Banking) pour vous offrir des produits innovants à moindre coût.</span>
                                 </div>
                             </li>
                             <li>
                                 <div class="list-icon-revisited"><i class="fas fa-hands-helping"></i></div>
                                 <div class="list-text">
-                                    <h5>Confiance & Partenariat</h5>
+                                    <h5>Confiance & partenariat</h5>
                                     <span>Avec la confiance renouvelée de nos clients et partenaires, et avec Dieu à nos côtés, nous accomplirons des exploits.</span>
                                 </div>
                             </li>
@@ -649,11 +660,11 @@
                         <hr class="section-divider fade-top">
                         <div class="director-cta-block fade-top">
                             <div class="director-signature-block">
-                                <strong>M. Kokou GABIAM</strong>
-                                <span>Directeur Général</span>
+                                <strong class="green-text">M. Kokou GABIAM</strong>
+                                <span>Directeur général</span>
                             </div>
                             <div class="about-btn">
-                                <a href="{{ route('about') }}" class="bz-primary-btn red-btn">En Savoir Plus <i class="fa-regular fa-arrow-right"></i></a>
+                                <a href="{{ route('about') }}" class="bz-primary-btn red-btn">En savoir plus <i class="fa-regular fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -666,14 +677,14 @@
     <section class="service-section-3 pt-120 pb-120" data-background="{{ asset('assets/images/shapes/service-bg-shape.png') }}">
         <div class="container-2">
             <div class="section-heading text-center red-content">
-                <h4 class="sub-heading"><span class="left-shape"></span>Nos Produits Phares</h4>
-                <h2 class="section-title mb-0">Des Solutions Financières Conçues Pour Vous</h2>
+                <h4 class="sub-heading"><span class="left-shape"></span>Nos produits phares</h4>
+                <h2 class="section-title mb-0">Des solutions financières conçues pour vous</h2>
             </div>
             <div class="row gy-lg-0 gy-4 justify-content-center">
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item-3">
                         <div class="service-thumb">
-                            <img class="img-item" src="{{ asset('assets/images/account1.jpg') }}" alt="Épargne" loading="lazy">
+                            <img class="img-item" src="{{ asset('assets/images/cocec-produit-epargne-compte.jpg') }}" alt="Compte d'épargne COCEC" loading="lazy">
                         </div>
                         <div class="service-content">
                             <h3 class="title"><a href="#">Épargne</a></h3>
@@ -685,10 +696,10 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item-3">
                         <div class="service-thumb">
-                            <img class="img-item" src="{{ asset('assets/images/account3.jpg') }}" alt="Crédits" loading="lazy">
+                            <img class="img-item" src="{{ asset('assets/images/cocec-produit-credits-financements.jpg') }}" alt="Crédits et financements COCEC" loading="lazy">
                         </div>
                         <div class="service-content">
-                            <h3 class="title"><a href="#">Crédits & Financements</a></h3>
+                            <h3 class="title"><a href="#">Crédits & financements</a></h3>
                             <p class="text-justify">Donnez vie à vos projets personnels ou professionnels avec nos solutions de crédit sur-mesure et à des conditions avantageuses.</p>
                             <a href="{{ route('product.index') }}" class="bz-primary-btn red-btn">Découvrir <i class="fa-regular fa-arrow-right"></i></a>
                         </div>
@@ -697,7 +708,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="service-item-3">
                         <div class="service-thumb">
-                            <img class="img-item" src="{{ asset('assets/images/account2.jpg') }}" alt="Tontine" loading="lazy">
+                            <img class="img-item" src="{{ asset('assets/images/cocec-produit-tontine-traditionnelle.jpg') }}" alt="Tontine traditionnelle COCEC" loading="lazy">
                         </div>
                         <div class="service-content">
                             <h3 class="title"><a href="#">Tontine</a></h3>
@@ -712,7 +723,7 @@
     <!-- ./ service-section -->
 
     <section class="cta-section cta-2 pt-120 pb-120">
-        <div class="bg-img"><img src="{{ asset('assets/images/products.jpeg') }}" alt="img"></div>
+        <div class="bg-img"><img src="{{ asset('assets/images/cocec-gamme-complete-produits-financiers.jpg') }}" alt="Gamme complète de produits financiers COCEC"></div>
         <div class="overlay"></div>
         <div class="overlay-2"></div>
         <div class="container-2">
@@ -720,7 +731,7 @@
                 <div class="cta-content">
                     <div class="section-heading mb-0 white-content">
                         <h4 class="sub-heading">
-                            <span class="left-shape"></span>Une Gamme Complète de Produits
+                            <span class="left-shape"></span>Une gamme complète de produits
                         </h4>
                         <h2 class="section-title mb-0">
                             De l'épargne à la concrétisation de vos projets, nous avons la solution financière qu'il vous faut.</h2>
@@ -739,9 +750,9 @@
         <div class="container-2">
             <div class="section-heading text-center red-content mb-60">
                 <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5">
-                    <span class="left-shape"></span>Simulateur de Prêt
+                    <span class="left-shape"></span>Simulateur de prêt
                 </h4>
-                <h2 class="section-title mb-0" data-text-animation data-split="word" data-duration="1">
+                <h2 class="section-title green-text mb-0" data-text-animation data-split="word" data-duration="1">
                     Calculez votre échéance de prêt
                 </h2>
                 <p class="mt-20">Simulez votre prêt en quelques clics et obtenez un tableau d'amortissement détaillé</p>
@@ -751,7 +762,7 @@
                 <div class="col-lg-10">
                     <div class="loan-simulator-card">
                         <div class="simulator-header">
-                            <h3><i class="fas fa-calculator"></i> Simulateur de Prêt COCEC</h3>
+                            <h3><i class="fas fa-calculator"></i> Simulateur de prêt COCEC</h3>
                             <p>Entrez vos informations pour calculer votre échéance et voir le tableau d'amortissement</p>
                         </div>
 
@@ -877,7 +888,7 @@
     <!-- SECTION STATISTIQUES - VERSION OPTIMISÉE -->
     <section class="strength-section pt-120 pb-120">
         <div class="bg-item">
-            <div class="bg-img" data-background="{{ asset('assets/images/strength-bg.jpg') }}"></div>
+            <div class="bg-img" data-background="{{ asset('assets/images/cocec-statistiques-force-chiffres.jpg') }}"></div>
             <div class="overlay"></div>
             <div class="shapes">
                 <div class="shape">
@@ -892,10 +903,10 @@
                     <div class="strength-content">
                         <div class="section-heading mb-20 white-content red-content">
                             <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5">
-                                <span class="left-shape"></span>Notre Force en Chiffres
+                                <span class="left-shape"></span>Notre force en chiffres
                             </h4>
                             <h2 class="section-title mb-0" data-text-animation data-split="word" data-duration="1">
-                                Plus qu'une Institution, <br>une Communauté Qui Prospère
+                                Plus qu'une institution, <br>une communauté qui prospère
                             </h2>
                         </div>
                         <p class="fade-top text-justify mb-40">
@@ -906,28 +917,35 @@
                                 <div class="strength-icon"><i class="fas fa-heart"></i></div>
                                 <div class="strength-content">
                                     <h3 class="title"><span class="odometer" data-count="95">0</span>%</h3>
-                                    <p>Taux de Satisfaction</p>
+                                    <p>Taux de satisfaction</p>
                                 </div>
                             </div>
                             <div class="strength-item fade-top">
                                 <div class="strength-icon"><i class="fas fa-users"></i></div>
                                 <div class="strength-content">
                                     <h3 class="title">+<span class="odometer" data-count="50000">0</span></h3>
-                                    <p>Membres Accompagnés</p>
+                                    <p>Membres accompagnés</p>
                                 </div>
                             </div>
                             <div class="strength-item fade-top">
                                 <div class="strength-icon"><i class="fas fa-chart-line"></i></div>
                                 <div class="strength-content">
                                     <h3 class="title"><span class="odometer" data-count="20">0</span>+</h3>
-                                    <p>Années d'Expérience</p>
+                                    <p>Années d'expérience</p>
                                 </div>
                             </div>
                             <div class="strength-item fade-top">
                                 <div class="strength-icon"><i class="fas fa-handshake"></i></div>
                                 <div class="strength-content">
                                     <h3 class="title"><span class="odometer" data-count="1000">0</span>+</h3>
-                                    <p>Projets Financés</p>
+                                    <p>Projets financés</p>
+                                </div>
+                            </div>
+                            <div class="strength-item fade-top">
+                                <div class="strength-icon"><i class="fas fa-eye"></i></div>
+                                <div class="strength-content">
+                                    <h3 class="title">+<span class="odometer" data-count="{{ $total }}">0</span></h3>
+                                    <p>Visiteurs totaux</p>
                                 </div>
                             </div>
                         </div>
@@ -935,7 +953,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="strength-man">
-                        <img class="men" src="{{ asset('assets/images/forces.png') }}" alt="man">
+                        <img class="men" src="{{ asset('assets/images/cocec-equipe-professionnelle.jpg') }}" alt="Équipe professionnelle COCEC">
                     </div>
                 </div>
             </div>
@@ -946,8 +964,8 @@
     <section class="home-agencies-section">
         <div class="container">
             <div class="section-heading text-center">
-                <h4 class="sub-heading"><span class="left-shape"></span>Notre Réseau</h4>
-                <h2>Trouvez un point de service proche de vous</h2>
+                <h4 class="sub-heading"><span class="left-shape"></span>Notre réseau</h4>
+                <h2 class="green-text">Trouvez un point de service proche de vous</h2>
                 <p>Avec un réseau en pleine expansion, la COCEC est toujours à vos côtés. Découvrez nos agences principales.</p>
             </div>
             <div class="agency-grid">
@@ -987,12 +1005,12 @@
                 </div>
                 <div class="cta-mask-img">
                     <div class="overlay"></div>
-                    <img src="{{ asset('assets/images/job-offer.jpg') }}" alt="cta">
+                    <img src="{{ asset('assets/images/cocec-rejoindre-equipe-offres-emploi.jpg') }}" alt="Rejoindre l'équipe COCEC - Offres d'emploi">
                 </div>
-                <h3 class="title">Rejoignez Notre Équipe</h3>
+                <h3 class="title">Rejoignez notre équipe</h3>
                 <p>Nous sommes toujours à la recherche de professionnels talentueux et passionnés, <br> désireux de contribuer à notre mission d'inclusion financière.</p>
                 <div style="margin-top: 30px;">
-                    <a href="{{ route('career') }}" class="bz-primary-btn red-btn">Voir les Offres d'Emploi <i class="fa-regular fa-arrow-right"></i></a>
+                    <a href="{{ route('career') }}" class="bz-primary-btn red-btn">Voir les offres d'emploi <i class="fa-regular fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -1002,8 +1020,8 @@
     <section class="testimonial-section-3 overflow-hidden pb-120" data-background="{{ URL::asset('assets/images/shapes/testi-bg-2.png') }}">
         <div class="container-2">
             <div class="section-heading text-center red-content">
-                <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5"><span class="left-shape"></span>Témoignages de nos Membres</h4>
-                <h2 class="section-title mb-0" data-text-animation data-split="word" data-duration="1">Leurs Mots, Notre Plus Grande Fierté</h2>
+                <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5"><span class="left-shape"></span>Témoignages de nos membres</h4>
+                <h2 class="section-title mb-0" data-text-animation data-split="word" data-duration="1">Leurs mots, notre plus grande fierté</h2>
             </div>
             <div class="testi-carousel-2 swiper">
                 <div class="swiper-wrapper">
@@ -1011,7 +1029,7 @@
                         <div class="testi-item-2">
                             <div class="testi-top no-image">
                                 <div class="testi-author">
-                                    <h3 class="name">Mme Akouvi MENSAH <span>Enseignante & Mère de famille</span></h3>
+                                    <h3 class="name">Mme Akouvi MENSAH <span>Enseignante & mère de famille</span></h3>
                                 </div>
                                 <ul class="review">
                                     <li><i class="fa-sharp fa-solid fa-star"></i></li>
@@ -1045,7 +1063,7 @@
                         <div class="testi-item-2">
                             <div class="testi-top no-image">
                                 <div class="testi-author">
-                                    <h3 class="name">Mlle Fati ALI <span>Jeune Entrepreneure</span></h3>
+                                    <h3 class="name">Mlle Fati ALI <span>Jeune entrepreneure</span></h3>
                                 </div>
                                 <ul class="review">
                                     <li><i class="fa-sharp fa-solid fa-star"></i></li>
@@ -1070,9 +1088,9 @@
             <div class="blog-top heading-space">
                 <div class="section-heading red-content mb-0">
                     <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5"><span class="left-shape"></span>Nos actualités</h4>
-                    <h2 class="section-title mb-0" data-text-animation data-split="word" data-duration="1">L'actualité financière décryptée <br>par nos experts</h2>
+                    <h2 class="section-title green-text mb-0" data-text-animation data-split="word" data-duration="1">L'actualité financière décryptée <br>par nos experts</h2>
                 </div>
-                <a href="{{ route('blogs') }}" class="bz-primary-btn red-btn">Voir tous les Posts <i class="fa-regular fa-arrow-right"></i></a>
+                <a href="{{ route('blogs') }}" class="bz-primary-btn red-btn">Voir tous les posts <i class="fa-regular fa-arrow-right"></i></a>
             </div>
             <div class="row gy-lg-0 gy-4 fade-wrapper">
                 @if($blogs->count() > 0)
@@ -1101,7 +1119,7 @@
                             <i class="fa-regular fa-newspaper" style="font-size: 4rem; color: #EC281C; margin-bottom: 1rem;"></i>
                             <h3 class="mb-3">Aucun article disponible</h3>
                             <p class="text-muted mb-4">Nous travaillons actuellement sur de nouveaux contenus. Revenez bientôt pour découvrir nos derniers articles !</p>
-                            <a href="{{ route('blogs') }}" class="bz-primary-btn red-btn">Voir tous les Posts <i class="fa-regular fa-arrow-right"></i></a>
+                            <a href="{{ route('blogs') }}" class="bz-primary-btn red-btn">Voir tous les posts <i class="fa-regular fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1115,7 +1133,7 @@
         <div class="container">
             <h3 class="sponsor-text-wrap">
                 <span></span>
-                <span class="sponsor-text">Nos Partenaires Institutionnels & Techniques Nous Font Confiance</span>
+                <span class="sponsor-text">Nos partenaires institutionnels & techniques nous font confiance</span>
                 <span></span>
             </h3>
             <div class="sponsor-carousel swiper">
@@ -1163,10 +1181,10 @@
                     <div class="complaints-content fade-wrapper">
                         <div class="section-heading red-content mb-20">
                             <h4 class="sub-heading" data-text-animation="fade-in" data-duration="1.5">
-                                <span class="left-shape"></span>Votre Voix Compte
+                                <span class="left-shape"></span>Votre voix compte
                             </h4>
                             <h2 class="section-title" data-text-animation data-split="word" data-duration="1">
-                                Gestion des Plaintes & Réclamations
+                                Gestion des plaintes & réclamations
                             </h2>
                         </div>
                         <p class="fade-top text-justify mb-30">
@@ -1177,14 +1195,14 @@
                             <li>
                                 <div class="feature-icon"><i class="fas fa-headset"></i></div>
                                 <div class="feature-text">
-                                    <h5>Écoute Active</h5>
+                                    <h5>Écoute active</h5>
                                     <span>Notre équipe vous écoute attentivement et traite chaque plainte avec sérieux.</span>
                                 </div>
                             </li>
                             <li>
                                 <div class="feature-icon"><i class="fas fa-clock"></i></div>
                                 <div class="feature-text">
-                                    <h5>Réponse Rapide</h5>
+                                    <h5>Réponse rapide</h5>
                                     <span>Nous nous engageons à vous répondre dans les plus brefs délais.</span>
                                 </div>
                             </li>
@@ -1198,7 +1216,7 @@
                         </ul>
                         <div class="complaints-cta fade-top">
                             <a href="{{ route('complaint') }}" class="bz-primary-btn red-btn">
-                                <i class="fas fa-file-alt"></i> Déposer une Plainte
+                                <i class="fas fa-file-alt"></i> Déposer une plainte
                             </a>
                             <a href="tel:8989" class="bz-primary-btn hero-btn">
                                 <i class="fas fa-phone"></i> Appeler le 8989
@@ -1209,15 +1227,15 @@
                 <div class="col-lg-6">
                     <div class="complaints-image img-reveal">
                         <div class="img-overlay overlay-2"></div>
-                        <img src="{{ asset('assets/images/account2.jpg') }}" alt="Gestion des Plaintes" loading="lazy">
+                        <img src="{{ asset('assets/images/cocec-produit-tontine-traditionnelle.jpg') }}" alt="Gestion des Plaintes COCEC" loading="lazy">
                         <div class="complaints-stats">
                             <div class="stat-item">
                                 <h3><span class="odometer" data-count="95">0</span>%</h3>
-                                <p>Taux de Résolution</p>
+                                <p>Taux de résolution</p>
                             </div>
                             <div class="stat-item">
                                 <h3><span class="odometer" data-count="24">0</span>h</h3>
-                                <p>Délai de Réponse</p>
+                                <p>Délai de réponse</p>
                             </div>
                         </div>
                     </div>

@@ -30,6 +30,7 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;
+        color: var(--bz-color-theme-green);
     }
 
     .contract-header .subtitle {
@@ -250,11 +251,11 @@
         <div class="page-header-overlay"></div>
         <div class="container">
             <div class="page-header-content-pro" data-aos="fade-up">
-                <h1 class="title-pro">Contrat d'Adhésion à la Finance Digitale</h1>
+                <h1 class="title-pro">Contrat d'adhésion à la finance digitale</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb-pro">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Contrat Finance Digitale</li>
+                        <li class="breadcrumb-item active" aria-current="page">Contrat finance digitale</li>
                     </ol>
                 </nav>
             </div>
@@ -265,7 +266,7 @@
         <div class="contract-card">
             <div class="contract-header">
                 <h1>CONTRAT D'ADHÉSION À LA FINANCE DIGITALE</h1>
-                <p class="subtitle">COCEC - Services Financiers Numériques</p>
+                <p class="subtitle">COCEC - Services financiers numériques</p>
             </div>
 
             <div class="contract-body">
@@ -277,7 +278,7 @@
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="full_name" class="form-label">Nom et Prénoms *</label>
+                                <label for="full_name" class="form-label">Nom et prénoms *</label>
                                 <input type="text" id="full_name" name="full_name" class="form-input @error('full_name') error @enderror" value="{{ old('full_name') }}" required>
                                 @error('full_name')
                                     <span class="error-message">{{ $message }}</span>
@@ -339,7 +340,7 @@
                         <div class="contract-section">
 
                             <div class="info-box">
-                                <h3>📱 Services Disponibles</h3>
+                                <h3>Services disponibles</h3>
                                 <p><strong>Mobile Money :</strong> Consultation de solde, mini relevé, dépôts/retraits, transferts</p>
                                 <p><strong>Mobile Banking :</strong> Toutes les opérations Mobile Money + demandes de crédit</p>
                                 <p><strong>Web Banking :</strong> Accès via navigateur web pour toutes les opérations</p>
@@ -348,7 +349,7 @@
 
                             <div class="services-grid">
                                 <div class="service-category">
-                                    <h4>💰 MOBILE MONEY</h4>
+                                    <h4>MOBILE MONEY</h4>
                                     <div class="checkbox-group">
                                         <input type="checkbox" id="mobile_money" name="mobile_money" value="1" {{ old('mobile_money') ? 'checked' : '' }}>
                                         <label for="mobile_money">Souscrire au service Mobile Money</label>
@@ -359,7 +360,7 @@
                                 </div>
 
                                 <div class="service-category">
-                                    <h4>📱 MOBILE BANKING</h4>
+                                    <h4>MOBILE BANKING</h4>
                                     <div class="checkbox-group">
                                         <input type="checkbox" id="mobile_banking" name="mobile_banking" value="1" {{ old('mobile_banking') ? 'checked' : '' }}>
                                         <label for="mobile_banking">Souscrire au service Mobile Banking</label>
@@ -370,7 +371,7 @@
                                 </div>
 
                                 <div class="service-category">
-                                    <h4>💻 WEB BANKING</h4>
+                                    <h4>WEB BANKING</h4>
                                     <div class="checkbox-group">
                                         <input type="checkbox" id="web_banking" name="web_banking" value="1" {{ old('web_banking') ? 'checked' : '' }}>
                                         <label for="web_banking">Souscrire au service Web Banking</label>
@@ -381,7 +382,7 @@
                                 </div>
 
                                 <div class="service-category">
-                                    <h4>📨 SMS BANKING</h4>
+                                    <h4>SMS BANKING</h4>
                                     <div class="checkbox-group">
                                         <input type="checkbox" id="sms_banking" name="sms_banking" value="1" {{ old('sms_banking') ? 'checked' : '' }}>
                                         <label for="sms_banking">Souscrire au service SMS Banking</label>

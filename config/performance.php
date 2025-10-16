@@ -77,7 +77,7 @@ return [
                 'bootstrap-bundle.js',
             ],
             'images' => [
-                'banner.jpg',
+                'cocec-accueil-banniere-principale.jpg',
                 'Logo.png',
             ],
         ],

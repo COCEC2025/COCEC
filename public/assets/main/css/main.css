@@ -1,4 +1,4 @@
-
+ 
 
 /**----------------------------------------
 START:  CSS
@@ -35,6 +35,7 @@ START:  CSS
     --bz-color-theme-primary: #ec281c;
     --bz-color-theme-secondary: #ffcc00;
     --bz-color-theme-red: #ec281c;
+    --bz-color-theme-green: #166534;
     --bz-color-bg-1: #191f30;
     --bz-color-grey-1: #f8f8f8;
     --bz-color-grey-2: #f6f6f6;
@@ -4659,6 +4660,7 @@ START: Header CSS
     z-index: 1;
 }
 
+/* OVERLAY COMMENTÉ POUR VOIR LES IMAGES EN CLAIR
 .hero-section-3 .swiper-slide::before {
     content: "";
     position: absolute;
@@ -4669,15 +4671,16 @@ START: Header CSS
     background-color: rgba(10, 20, 30, 0.5);
     z-index: -1; /* Se place derrière le contenu du slide */
 }
+*/
 
 .hero-slide-1 {
-    background: url("assets/images/banner.jpg");
+    background: url("assets/images/cocec-accueil-banniere-principale.jpg");
 }
 .hero-slide-2 {
-    background-image: url("assets/images/banner-2.jpg");
+    background-image: url("assets/images/cocec-accueil-banniere-epargne-securisee.jpg");
 }
 .hero-slide-3 {
-    background-image: url("assets/images/banner-3.jpg");
+    background-image: url("assets/images/cocec-accueil-banniere-credit-investissement.jpg");
 }
 
 /* Contenu du Hero (texte & boutons) */
@@ -7987,7 +7990,9 @@ START: Blog CSS
     color: #ffffff;
 
     /* IMPORTANT : Appliquez votre image de fond ici */
-    background-image: url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2940&auto=format&fit=crop");
+    /* background-image: url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2940&auto=format&fit=crop"); */
+    background-image: url("../../images/cocec_siege.jpg");
+
 }
 
 .page-header-pro::before {
@@ -9708,8 +9713,9 @@ START: Theme Slider CSS
     transform: translateY(-50%);
     z-index: 3;
 }
+/* Overlay commenté selon la demande du client */
 .slider-item .shapes .color-shape {
-    background-color: #064098;
+    /* background-color: #064098;
     mix-blend-mode: multiply;
     width: 1045px;
     height: 1065px;
@@ -9720,10 +9726,11 @@ START: Theme Slider CSS
     border-radius: 60px;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-    z-index: 2;
+    z-index: 2; */
+    display: none;
 }
 .slider-item .shapes .color-shape-2 {
-    background: linear-gradient(
+    /* background: linear-gradient(
         102.04deg,
         #1d304e 25.25%,
         rgba(25, 31, 41, 0) 58.79%
@@ -9733,7 +9740,8 @@ START: Theme Slider CSS
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: 1;
+    z-index: 1; */
+    display: none;
 }
 .slider-item .slide-img-wrap {
     height: 860px;

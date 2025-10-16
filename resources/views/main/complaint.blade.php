@@ -432,8 +432,7 @@
         <div class="page-header-overlay"></div>
         <div class="container">
             <div class="page-header-content-pro" data-aos="fade-up">
-                <h1 class="title-pro">Gestion des Plaintes
-                </h1>
+                <h1 class="title-pro">Gestion des plaintes</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb-pro">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
@@ -457,13 +456,13 @@
 
                 <!-- En-tête -->
                 <div class="section-heading">
-                    <h2>Déposer une Plainte</h2>
+                    <h2>Déposer une plainte</h2>
                     <p>Remplissez ce formulaire sécurisé pour nous informer de votre préoccupation</p>
                 </div>
 
                 <!-- Notre engagement -->
                 <div class="commitment-box">
-                    <h4><i class="fa-solid fa-heart"></i> Notre Engagement</h4>
+                    <h4><i class="fa-solid fa-heart"></i> Notre engagement</h4>
                     <p>Vous offrir une écoute attentive, un suivi transparent et une réponse adaptée à votre situation dans les plus brefs délais.</p>
                 </div>
 
@@ -472,7 +471,7 @@
                     <h5><i class="fa-solid fa-phone"></i> Besoin d'aide ?</h5>
                     <div class="phone-number">
                         <i class="fa-solid fa-headset"></i>
-                        <span>Numéro Vert : <strong>8989</strong></span>
+                        <span>Numéro vert : <strong>8989</strong></span>
                     </div>
                 </div>
 

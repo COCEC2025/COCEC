@@ -15,7 +15,7 @@
                 <p>{{ $announcement->description }}</p>
             </div>
             @else
-            <div id="popup-newsletter" class="popup-content">
+            <!-- <div id="popup-newsletter" class="popup-content">
                 <div class="popup-newsletter-header">
                     <h2>Inscrivez-vous à notre newsletter</h2>
                     <p>Recevez nos meilleures offres et actualités directement dans votre boîte mail.</p>
@@ -35,7 +35,7 @@
                 <div class="popup-newsletter-footer">
                     <small>🔒 Vos données sont protégées et ne seront jamais partagées</small>
                 </div>
-            </div>
+            </div> -->
             @endif
         </section>
     </div>

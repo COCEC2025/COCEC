@@ -43,7 +43,7 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: var(--dark-charcoal);
+        color: var(--bz-color-theme-green);
     }
     
     .form-header h1::after {
@@ -277,7 +277,7 @@
         <div class="page-header-overlay"></div>
         <div class="container">
             <div class="page-header-content-pro" data-aos="fade-up">
-                <h1 class="title-pro">Mise à Jour et Souscription</h1>
+                <h1 class="title-pro">Mise à jour et souscription</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb-pro">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
@@ -293,7 +293,7 @@
         <div class="container">
             <div class="form-card">
                 <div class="form-header">
-                    <h1>Services Financiers Digitaux</h1>
+                    <h1>Services financiers digitaux</h1>
                     <p class="subtitle">Remplissez ce formulaire pour mettre à jour vos informations et souscrire à nos services</p>
                 </div>
 
@@ -301,37 +301,37 @@
                     <form id="digital-finance-form" action="{{ route('digitalfinance.updates.store') }}" method="POST">
                         @csrf
                         <div class="form-section">
-                            <h3 class="section-title">Informations Client</h3>
+                            <h3 class="section-title">Informations client</h3>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="account_number" class="form-label">N° Compte *</label>
+                                    <label for="account_number" class="form-label">N° compte *</label>
                                     <input type="text" id="account_number" name="account_number" class="form-input" value="{{ old('account_number') }}" placeholder="Ex: 0123456789" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="full_name" class="form-label">Nom et Prénom(s) *</label>
+                                    <label for="full_name" class="form-label">Nom et prénom(s) *</label>
                                     <input type="text" id="full_name" name="full_name" class="form-input" value="{{ old('full_name') }}" placeholder="Votre nom complet" required>
                                 </div>
                             </div>
                              <div class="form-row">
                                 <div class="form-group">
-                                    <label for="cni_type" class="form-label">Type de Pièce d'Identité *</label>
+                                    <label for="cni_type" class="form-label">Type de pièce d'identité *</label>
                                     <select id="cni_type" name="cni_type" class="form-select" required>
                                         <option value="" disabled selected>Sélectionnez le type</option>
-                                        <option value="CNI" {{ old('cni_type') == 'CNI' ? 'selected' : '' }}>Carte Nationale d'Identité (CNI)</option>
+                                        <option value="CNI" {{ old('cni_type') == 'CNI' ? 'selected' : '' }}>Carte nationale d'identité (CNI)</option>
                                         <option value="Passeport" {{ old('cni_type') == 'Passeport' ? 'selected' : '' }}>Passeport</option>
                                         <option value="Permis de conduire" {{ old('cni_type') == 'Permis de conduire' ? 'selected' : '' }}>Permis de conduire</option>
                                         <option value="Autre" {{ old('cni_type') == 'Autre' ? 'selected' : '' }}>Autre</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cni_number" class="form-label">N° de la Pièce *</label>
+                                    <label for="cni_number" class="form-label">N° de la pièce *</label>
                                     <input type="text" id="cni_number" name="cni_number" class="form-input" value="{{ old('cni_number') }}" placeholder="Numéro de la pièce d'identité" required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3 class="section-title">Contacts à Mettre à Jour</h3>
+                            <h3 class="section-title">Contacts à mettre à jour</h3>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="togocel" class="form-label">Numéro Togocel</label>
@@ -358,14 +358,14 @@
                                     <input type="tel" id="whatsapp_togocel" name="whatsapp_togocel" class="form-input" value="{{ old('whatsapp_togocel') }}" placeholder="Votre numéro WhatsApp">
                                 </div>
                                  <div class="form-group">
-                                    <label for="email" class="form-label">Adresse Email</label>
+                                    <label for="email" class="form-label">Adresse email</label>
                                     <input type="email" id="email" name="email" class="form-input" value="{{ old('email') }}" placeholder="Ex: votre.email@domaine.com">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3 class="section-title">Souscription aux Services</h3>
+                            <h3 class="section-title">Souscription aux services</h3>
                             <div class="services-grid">
                                 <div class="service-category">
                                     <h4>Mobile Banking</h4>

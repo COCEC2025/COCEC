@@ -282,7 +282,7 @@
     <section class="offers-section page-section-light">
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title">Nos Opportunités Actuelles</h2>
+                <h2 class="section-title">Nos opportunités actuelles</h2>
             </div>
             <div class="row">
                 @forelse($jobOffers as $offer)
@@ -320,7 +320,7 @@
     <section class="form-section page-section">
         <div class="container">
             <div class="section-header text-center">
-                <h2 class="section-title">Candidature Spontanée</h2>
+                <h2 class="section-title">Candidature spontanée</h2>
                 <p class="section-intro">Aucune offre ne vous correspond ? Prenez l'initiative ! Nous sommes toujours intéressés par des profils exceptionnels.</p>
             </div>
 
@@ -348,7 +348,7 @@
                         <div class="col-md-6"><label class="form-label">Intitulé du poste souhaité</label><input type="text" class="form-control" name="intitule" placeholder="Ex: Comptable, Agent de crédit..." required>
                             <div class="invalid-feedback"></div>
                         </div>
-                        <div class="col-md-6"><label class="form-label">Type de Poste</label><select class="form-control" name="application_type" required>
+                        <div class="col-md-6"><label class="form-label">Type de poste</label><select class="form-control" name="application_type" required>
                                 <option value="">Sélectionnez...</option>
                                 <option value="emploi">Emploi</option>
                                 <option value="stage">Stage</option>

@@ -512,8 +512,8 @@
     <section class="faq-pro-section">
         <div class="container">
             <div class="section-heading text-center" data-aos="fade-up">
-                <h4 class="sub-heading">Aide & Support</h4>
-                <h2 class="section-title">Réponses à vos Questions</h2>
+                <h4 class="sub-heading">Aide & support</h4>
+                <h2 class="section-title">Réponses à vos questions</h2>
                 <p class="lead">Parcourez nos catégories pour trouver rapidement les informations dont vous avez besoin.</p>
             </div>
             <div class="faq-layout">
@@ -844,26 +844,26 @@
         <div class="container">
             <div class="community-wrapper">
                 <div class="section-heading text-center" data-aos="fade-up">
-                    <h2 class="section-title">Avis & Questions des Membres</h2>
+                    <h2 class="section-title">Avis & questions des membres</h2>
                     <p class="lead">Posez une question ou partagez votre expérience.</p>
                 </div>
                 <div class="comment-form-wrapper" data-aos="fade-up">
                     <h3 class="form-title">Exprimez-vous</h3>
                     <form id="main-comment-form" action="{{ route('faq.comments.store') }}" method="POST" novalidate>@csrf<div class="form-grid">
-                            <div class="form-group"><label for="comment-name" class="form-label">Votre Nom</label><input type="text" id="comment-name" name="name" class="form-control-pro" required value="{{ auth()->user()->name ?? '' }}">
+                            <div class="form-group"><label for="comment-name" class="form-label">Votre nom</label><input type="text" id="comment-name" name="name" class="form-control-pro" required value="{{ auth()->user()->name ?? '' }}">
                                 <div class="invalid-feedback"></div>
                             </div>
-                            <div class="form-group"><label for="comment-email" class="form-label">Votre Email</label><input type="email" id="comment-email" name="email" class="form-control-pro" required value="{{ auth()->user()->email ?? '' }}">
+                            <div class="form-group"><label for="comment-email" class="form-label">Votre email</label><input type="email" id="comment-email" name="email" class="form-control-pro" required value="{{ auth()->user()->email ?? '' }}">
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
-                        <div class="form-group full-width"><label for="comment-message" class="form-label">Votre Question ou Avis</label><textarea id="comment-message" name="body" class="form-control-pro" placeholder="Posez votre question ou laissez un avis..." required></textarea>
+                        <div class="form-group full-width"><label for="comment-message" class="form-label">Votre question ou avis</label><textarea id="comment-message" name="body" class="form-control-pro" placeholder="Posez votre question ou laissez un avis..." required></textarea>
                             <div class="invalid-feedback"></div>
                         </div><button type="submit" class="btn-submit-comment"><i class="fas fa-paper-plane"></i><span>Soumettre</span></button>
                     </form>
                 </div>
                 <div class="comments-list-wrapper" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="list-title">Discussions Récentes</h3>
+                    <h3 class="list-title">Discussions récentes</h3>
                     <ol class="comments-list">
                         @forelse ($comments as $comment)
                         <li class="comment-item" id="comment-{{ $comment->id }}">
@@ -961,7 +961,7 @@
             <div class="faq-contact-section">
                 <h3>Vous ne trouvez pas votre réponse ?</h3>
                 <p>Notre équipe est là pour vous aider. N'hésitez pas à nous contacter directement.</p>
-                <a href="{{ route('contact') }}" class="btn-contact-faq">Nous Contacter</a>
+                <a href="{{ route('contact') }}" class="btn-contact-faq">Nous contacter</a>
             </div>
         </div>
     </section>
