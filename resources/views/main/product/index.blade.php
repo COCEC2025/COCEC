@@ -333,7 +333,7 @@
             <div class="page-header-content-pro" data-aos="fade-up">
                 <br><br><br>
 
-                <h1 class="title-pro">Nos Produits & Services</h1>
+                <h1 class="title-pro">Nos produits & services</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb-pro">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
@@ -347,7 +347,7 @@
     <section class="hero-section text-center">
         <div class="container">
             <div class="section-heading">
-                <h4 class="sub-heading"><span class="left-shape"></span>Solutions Financières COCEC</h4>
+                <h4 class="sub-heading"><span class="left-shape"></span>Solutions financières COCEC</h4>
                 <h2 class="section-title">Votre partenaire financier de confiance</h2>
                 <p class="lead">Découvrez notre gamme complète de produits d'épargne, de crédit et de services financiers. Depuis 2001, COCEC accompagne les Togolais dans la réalisation de leurs projets avec des solutions adaptées et des conditions transparentes.</p>
             </div>

@@ -346,7 +346,7 @@
     <div class="page-header-overlay"></div>
     <div class="container">
         <div class="page-header-content-pro" data-aos="fade-up">
-            <h1 class="title-pro">Notre Réseau d'Agences</h1>
+            <h1 class="title-pro">Notre réseau d'agences</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb-pro">
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
@@ -370,7 +370,7 @@
             </div>
             <div>
                 <div class="agency-list-header">
-                    <h3>Nos Agences</h3><span id="agency-count"></span>
+                    <h3>Nos agences</h3><span id="agency-count"></span>
                 </div>
                 <div class="agency-list-container" id="agency-list"></div>
             </div>

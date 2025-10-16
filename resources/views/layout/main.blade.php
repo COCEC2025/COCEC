@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="{{ asset('assets/main/css/main.css') }}">
     
     <!-- Preload des images critiques -->
-    <link rel="preload" href="{{ asset('assets/images/banner.jpg') }}" as="image">
+    <link rel="preload" href="{{ asset('assets/images/cocec-accueil-banniere-principale.jpg') }}" as="image">
     <link rel="preload" href="{{ asset('assets/images/Logo.png') }}" as="image">
 
     <!-- CSS Simulateur de Prêt -->

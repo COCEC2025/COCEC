@@ -297,11 +297,11 @@
         <div class="page-header-overlay"></div>
         <div class="container">
             <div class="page-header-content-pro" data-aos="fade-up">
-                <h1 class="title-pro">Finance Digitale</h1>
+                <h1 class="title-pro">Finance digitale</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb-pro">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Accueil</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Finance Digitale</li>
+                        <li class="breadcrumb-item active" aria-current="page">Finance digitale</li>
                     </ol>
                 </nav>
             </div>
@@ -311,8 +311,8 @@
     <section class="df-light-section">
         <div class="container">
             <div class="section-heading text-center" data-aos="fade-up">
-                <h4 class="sub-heading">Services Financiers Digitaux</h4>
-                <h2 class="section-title">Finance Digitale et Services en Ligne</h2>
+                <h4 class="sub-heading">Services financiers digitaux</h4>
+                <h2 class="section-title">Finance digitale et services en ligne</h2>
                 <p class="lead">La COCEC met à votre disposition plusieurs services numériques pour faciliter l'accès à nos produits et gérer vos finances en toute simplicité.</p>
             </div>
 
@@ -374,7 +374,7 @@
 
                 <!-- Colonne des Codes USSD -->
                 <div class="df-ussd-section" data-aos="fade-left" data-aos-delay="400">
-                    <h3>Codes USSD pour Accéder à Votre Compte</h3>
+                    <h3>Codes USSD pour accéder à votre compte</h3>
                     <div class="df-ussd-codes">
                         <div class="df-ussd-item">
                             <div class="df-ussd-provider">FLOOZ</div>
@@ -404,13 +404,13 @@
                     <div class="df-actions-grid-clean">
                         <a href="{{ route('digitalfinance.updates.create') }}" class="df-action-card-clean">
                             <div class="icon-wrapper"><i class="fas fa-user-edit"></i></div>
-                            <strong>Mettre à Jour mes Informations</strong>
+                            <strong>Mettre à jour mes informations</strong>
                             <span>Un changement de numéro ou d'adresse ? Mettez à jour votre profil pour garantir la sécurité de votre compte.</span>
                             <div class="btn-indicator">Remplir le formulaire <i class="fas fa-arrow-right"></i></div>
                         </a>
                         <a href="{{ route('digitalfinance.contracts.create') }}" class="df-action-card-clean">
                             <div class="icon-wrapper"><i class="fas fa-file-signature"></i></div>
-                            <strong>Adhérer à la Finance Digitale</strong>
+                            <strong>Adhérer à la finance digitale</strong>
                             <span>Accédez à votre compte 24/7 depuis votre téléphone ou ordinateur en signant notre contrat d'adhésion en ligne.</span>
                             <div class="btn-indicator">Signer le contrat <i class="fas fa-arrow-right"></i></div>
                         </a>
@@ -420,22 +420,22 @@
             
             <!-- Section Sécurité -->
             <div class="df-security-section" data-aos="fade-up">
-                <h3>Sécurité et Assistance</h3>
+                <h3>Sécurité et assistance</h3>
                 <div class="df-security-grid">
                     <div class="df-security-item text-justify">
-                        <h5>Application Mobile Sécurisée</h5>
+                        <h5>Application mobile sécurisée</h5>
                         <p>Notre application utilise un cryptage de données avancé et nécessite une authentification à chaque connexion. Nous recommandons de ne jamais partager votre mot de passe ou votre code PIN.</p>
                     </div>
                     <div class="df-security-item text-justify">
-                        <h5>Perte de Téléphone</h5>
+                        <h5>Perte de téléphone</h5>
                         <p>Alertez sans délai la COCEC pour que le service soit désactivé temporairement et sécurisez votre compte.</p>
                     </div>
                     <div class="df-security-item text-justify">
-                        <h5>Assistance Technique</h5>
+                        <h5>Assistance technique</h5>
                         <p>Vous pouvez contacter notre assistance digitale via WhatsApp, téléphone ou email. Nous avons une équipe dédiée pour vous aider en cas de problème technique.</p>
                     </div>
                     <div class="df-security-item text-justify">
-                        <h5>Accès à Distance</h5>
+                        <h5>Accès à distance</h5>
                         <p>Vous pouvez consulter votre solde, vos échéances et votre historique via l'application Bindoo Mobile ou un code USSD, où que vous soyez.</p>
                     </div>
                 </div>

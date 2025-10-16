@@ -25,7 +25,7 @@
     <section class="auth bg-base d-flex flex-wrap">
         <div class="auth-left d-lg-block d-none">
             <div class="d-flex align-items-center flex-column h-100 justify-content-center">
-                <!-- <img src="{{ URL::asset('assets/images/accompagnement.jpg') }}" alt="" > -->
+                <!-- <img src="{{ URL::asset('assets/images/cocec-service-accompagnement-financier.jpg') }}" alt="" > -->
                 <img src="{{ URL::asset('assets/images/admin.jpg') }}" alt="">
 
             </div>
