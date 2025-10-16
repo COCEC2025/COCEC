@@ -318,6 +318,11 @@
         border-radius: 8px;
         margin: 20px 0;
     }
+
+    /* Style pour les textes verts */
+    .green-text {
+        color: var(--bz-color-theme-green) !important;
+    }
 </style>
 @endsection
 
@@ -348,7 +353,7 @@
         <div class="container">
             <div class="section-heading">
                 <h4 class="sub-heading"><span class="left-shape"></span>Solutions financières COCEC</h4>
-                <h2 class="section-title">Votre partenaire financier de confiance</h2>
+                <h2 class="section-title green-text">Votre partenaire financier de confiance</h2>
                 <p class="lead">Découvrez notre gamme complète de produits d'épargne, de crédit et de services financiers. Depuis 2001, COCEC accompagne les Togolais dans la réalisation de leurs projets avec des solutions adaptées et des conditions transparentes.</p>
             </div>
         </div>
