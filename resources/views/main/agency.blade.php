@@ -476,7 +476,7 @@
                 const statusText = getDynamicAgencyStatus(agency.status).text;
                 const statusClass = getDynamicAgencyStatus(agency.status).className;
                 // Gestion des images : utiliser l'image de l'agence si elle existe, sinon placeholder
-                const imageUrl = agency.image ? `/storage/agency/${agency.image}` : `/storage/agency/placeholder.jpg`;
+                const imageUrl = agency.image ? `/storage/${agency.image}` : `/storage/agency/placeholder.jpg`;
 
                 const cardHTML = `
                 <div class="agency-card" id="agency-${agency.id}" data-id="${agency.id}">
