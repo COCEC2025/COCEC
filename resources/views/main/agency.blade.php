@@ -475,10 +475,8 @@
             filteredAgencies.forEach(agency => {
                 const statusText = getDynamicAgencyStatus(agency.status).text;
                 const statusClass = getDynamicAgencyStatus(agency.status).className;
-                // Optimisation des images : format WebP si supporté, sinon JPEG optimisé
-                const imageUrl = agency.image ? `/storage/${agency.image}` : `/storage/agency/placeholder.jpg`;
-                // Pour l'instant, utiliser la même image car WebP n'existe pas encore
-                const optimizedImageUrl = imageUrl;
+                // Gestion des images : utiliser l'image de l'agence si elle existe, sinon placeholder
+                const imageUrl = agency.image ? `/storage/agency/${agency.image}` : `/storage/agency/placeholder.jpg`;
 
                 const cardHTML = `
                 <div class="agency-card" id="agency-${agency.id}" data-id="${agency.id}">

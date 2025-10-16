@@ -35,15 +35,15 @@ class AnnouncementsController extends Controller
             $request->validate([
                 'title' => 'required|string|max:255',
                 'description' => 'nullable|string|max:255',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:3072',
                 'status' => 'required|in:publier,non publier,expirer',
             ], [
                 'title.required' => 'Le titre est obligatoire.',
                 'title.string' => 'Le titre doit être une chaîne de caractères.',
                 'title.max' => 'Le titre ne peut pas dépasser 255 caractères.',
-                'image.image' => 'Le fichier doit être une image.',
-                'image.mimes' => 'L\'image doit être au format jpeg, png, jpg ou gif.',
-                'image.max' => 'L\'image ne peut pas dépasser 2 Mo.',
+                'image.image' => 'Le fichier sélectionné doit être une image valide.',
+                'image.mimes' => 'L\'image doit être au format JPEG, PNG, JPG ou GIF.',
+                'image.max' => 'L\'image ne peut pas dépasser 3 Mo. Veuillez compresser votre image ou en choisir une plus légère.',
                 'status.required' => 'Le statut est obligatoire.',
                 'status.in' => 'Le statut doit être "publier", "non publier" ou "expirer".',
             ]);
@@ -87,15 +87,15 @@ class AnnouncementsController extends Controller
             $request->validate([
                 'title' => 'required|string|max:255',
                 'description' => 'nullable|string',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:30720',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:3072',
                 'status' => 'required|in:publier,non publier,expirer',
             ], [
                 'title.required' => 'Le titre est obligatoire.',
                 'title.string' => 'Le titre doit être une chaîne de caractères.',
                 'title.max' => 'Le titre ne peut pas dépasser 255 caractères.',
-                'image.image' => 'Le fichier doit être une image.',
-                'image.mimes' => 'L\'image doit être au format jpeg, png, jpg ou gif.',
-                'image.max' => 'L\'image ne peut pas dépasser 2 Mo.',
+                'image.image' => 'Le fichier sélectionné doit être une image valide.',
+                'image.mimes' => 'L\'image doit être au format JPEG, PNG, JPG ou GIF.',
+                'image.max' => 'L\'image ne peut pas dépasser 3 Mo. Veuillez compresser votre image ou en choisir une plus légère.',
                 'status.required' => 'Le statut est obligatoire.',
                 'status.in' => 'Le statut doit être "publier", "non publier" ou "expirer".',
             ]);
