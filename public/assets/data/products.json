@@ -1,737 +1,737 @@
 {
-    "products": [
-      {
-        "id": 1,
-        "slug": "credit-commerce-agr",
-        "title": "Crédit Commerce et autres AGR (CCAA)",
-        "category": "credit",
-        "icon": "fas fa-store",
-        "short_description": "Financement pour le commerce et autres activités génératrices de revenus avec des conditions adaptées selon le montant.",
-        "description": "Le Crédit Commerce et autres AGR (CCAA) est destiné aux membres qui exercent des activités commerciales et autres activités génératrices de revenus. Ce produit offre une flexibilité dans la durée selon le montant emprunté et des conditions de remboursement adaptées.",
-        "features": [
-          "Activités financées : Commerce et autres activités génératrices de revenus",
-          "Critères d'éligibilité : Être membre et avoir mouvementé régulièrement son compte",
-          "Durée maximale : 0 à 3.000.000 : 18 mois maxi | 3.000.000 à 7.500.000 : 24 mois maxi | 7.500.000 à 10.000.000 : 36 mois maxi | 10.000.000 à 25.000.000 : 48 mois maxi",
-          "Taux : 1,17 à 1,34% mensuel et dégressif",
-          "Différé : Au plus 3 mois",
-          "Paiement : Mensuel, trimestriel, semestriel ou unique",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 15.000.000 pour les personnes physiques et 25.000.000 pour les personnes morales"
-        ],
-        "requirements": [
-          "Être membre de COCEC",
-          "Avoir mouvementé régulièrement son compte",
-          "Nantissement : 1/3 à 1/5 du montant emprunté",
-          "Garanties : Plans visés, Certificat administratif, Titre foncier, Caution fin. et caution solidaire"
-        ],
-        "image": "credit-commerce.jpg"
-      },
-      {
-        "id": 2,
-        "slug": "credit-artisanat",
-        "title": "Crédit Artisanat (CA)",
-        "category": "credit",
-        "icon": "fas fa-tools",
-        "short_description": "Financement spécialisé pour les artisans exerçant un métier d'art manuel avec des conditions avantageuses.",
-        "description": "Le Crédit Artisanat (CA) est conçu spécifiquement pour les personnes exerçant un métier d'art manuel. Ce produit reconnaît l'importance de l'artisanat dans l'économie locale et offre des conditions adaptées aux besoins des artisans.",
-        "features": [
-          "Activités financées : Toute personne exerçant un métier d'art manuel",
-          "Critères d'éligibilité : Être membre d'au moins 2 mois et mouvementer le compte",
-          "Durée maximale : 18 mois",
-          "Taux : 1,17 à 1,34% mensuel et dégressif",
-          "Différé : Au plus 3 mois",
-          "Paiement : Mensuel, trimestriel, semestriel ou unique",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 2.500.000 pour les personnes physiques et 5.000.000 pour les personnes morales"
-        ],
-        "requirements": [
-          "Être membre de COCEC depuis au moins 2 mois",
-          "Mouvementer régulièrement son compte",
-          "Nantissement : 1/3 à 1/5 du montant emprunté",
-          "Garanties : Plans visés, Certificat administratif, Titre foncier, Caution fin, caution solidaire"
-        ],
-        "image": "credit-artisanat.jpg"
-      },
-      {
-        "id": 3,
-        "slug": "credit-agriculture",
-        "title": "Crédit Agriculture (CAEP)",
-        "category": "credit",
-        "icon": "fas fa-seedling",
-        "short_description": "Financement pour l'agriculture, l'élevage et la pêche avec des durées adaptées aux cycles de production.",
-        "description": "Le Crédit Agriculture, Élevage et Pêche (CAEP) est spécialement conçu pour soutenir les activités agricoles, d'élevage et de pêche. Les durées de remboursement sont adaptées aux cycles de production spécifiques à chaque activité.",
-        "features": [
-          "Activités financées : Agriculture, Élevage et Pêche",
-          "Critères d'éligibilité : Être membre d'au moins trois 3 mois et mouvementer le compte",
-          "Durée maximale : Agriculture : 6 mois maxi | Élevage et pêche : 12 mois maxi",
-          "Taux : 1,17% à 1,34% mensuel et dégressif",
-          "Différé : Au plus 4 mois pour agriculture et élevage et pêche au plus 8 mois",
-          "Paiement : Mensuel, Trimestriel, Semestriel et Unique",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 2.000.000 pour les personnes physiques et 5.000.000 pour les personnes morales"
-        ],
-        "requirements": [
-          "Être membre de COCEC depuis au moins 3 mois",
-          "Mouvementer régulièrement son compte",
-          "Nantissement : 1/3 à 1/5 du montant emprunté",
-          "Garanties : Plans visés, Certificat administratif, Titre foncier, Caution fin. et caution solidaire"
-        ],
-        "image": "credit-agriculture.jpg"
-      },
-      {
-        "id": 4,
-        "slug": "credit-materiel-transport",
-        "title": "Crédit Acquisition de Matériel de Transport (CAMT)",
-        "category": "credit",
-        "icon": "fas fa-car",
-        "short_description": "Financement pour l'acquisition de moyens de transport à usage personnel et commercial.",
-        "description": "Le Crédit Acquisition de Matériel de Transport (CAMT) permet de financer l'achat de moyens de déplacement à usage personnel et à des fins commerciales. Les conditions varient selon le montant emprunté.",
-        "features": [
-          "Activités financées : Moyen de déplacement à usage personnel et à des fins commerciales",
-          "Critères d'éligibilité : Être membre et avoir mouvementé régulièrement son compte",
-          "Durée maximale : 0 à 5.000.000 : 24 mois max | 5.000.000 à 7.500.000 : 36 mois max | 7.500.000 à 20.000.000 : 48 mois max",
-          "Taux : 1.17% à 1.34% mensuel et dégressif",
-          "Différé : Au plus 3 mois",
-          "Paiement : Mensuel et trimestriel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 7.500.000 pour les personnes physiques et 20.000.000 pour les personnes morales"
-        ],
-        "requirements": [
-          "Être membre de COCEC",
-          "Avoir mouvementé régulièrement son compte",
-          "Nantissement : 1/3 à 1/5 du montant emprunté",
-          "Garanties : Plans visés, Certificat administratif, Titre foncier, Caution fin, solidaire et gage du véhicule"
-        ],
-        "image": "credit-transport.jpg"
-      },
-      {
-        "id": 5,
-        "slug": "credit-immobilier",
-        "title": "Crédit Immobilier (CIM)",
-        "category": "credit",
-        "icon": "fas fa-home",
-        "short_description": "Financement pour l'achat de terrain et la construction avec une durée maximale de 48 mois.",
-        "description": "Le Crédit Immobilier (CIM) est destiné à financer l'achat de terrain et la construction. Ce produit offre une durée de remboursement étendue pour s'adapter aux projets immobiliers.",
-        "features": [
-          "Activités financées : Achat de terrain et Construction",
-          "Critères d'éligibilité : Être membre d'au moins trois 3 mois et mouvementer le compte",
-          "Durée maximale : 48 mois",
-          "Taux : 1,17% à 1,34% mensuel et dégressif",
-          "Différé : Au plus 2 mois",
-          "Paiement : Mensuel, trimestriel, semestriel et unique",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 10.000.000 pour les personnes physiques et 20.000.000 pour les personnes morales"
-        ],
-        "requirements": [
-          "Être membre de COCEC depuis au moins 3 mois",
-          "Mouvementer régulièrement son compte",
-          "Nantissement : 1/3 à 1/5 du montant emprunté",
-          "Garanties : Plans visés, Certificat administratif, Titre foncier, Caution fin, solidaire et gage"
-        ],
-        "image": "credit-immobilier.jpg"
-      },
-      {
-        "id": 6,
-        "slug": "credit-tontine-fidelite",
-        "title": "Crédit Tontine Fidélité (CTF)",
-        "category": "credit",
-        "icon": "fas fa-handshake",
-        "short_description": "Crédit sans intérêt pour les membres fidèles de la tontine avec une durée de 3 mois maximum.",
-        "description": "Le Crédit Tontine Fidélité (CTF) est un produit spécial sans intérêt destiné aux membres qui cotisent régulièrement à la tontine. C'est une récompense pour la fidélité des membres.",
-        "features": [
-          "Activités financées : Activités génératrices de revenus",
-          "Critères d'éligibilité : Être membre et cotiser la tontine régulièrement et sans retrait durant un 01 mois",
-          "Durée maximale : 3 mois maximum",
-          "Taux : 0%",
-          "Différé : Néant",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 270.000"
-        ],
-        "requirements": [
-          "Être membre de COCEC",
-          "Cotiser régulièrement à la tontine sans retrait durant 1 mois",
-          "Nantissement : Cotisations de un 01 mois",
-          "Garanties : Caution solidaire, financière ou autres formes de garanties"
-        ],
-        "image": "credit-tontine-fidelite.jpg"
-      },
-      {
-        "id": 7,
-        "slug": "credit-tontine",
-        "title": "Crédit Tontine (CT)",
-        "category": "credit",
-        "icon": "fas fa-users",
-        "short_description": "Crédit basé sur les cotisations tontine avec des conditions progressives selon le nombre de crédits.",
-        "description": "Le Crédit Tontine (CT) est basé sur les cotisations tontine. Les conditions s'améliorent avec le nombre de crédits obtenus, encourageant ainsi la fidélité des membres.",
-        "features": [
-          "Activités financées : Activités génératrices de revenus",
-          "Critères d'éligibilité : Être membre et cotiser régulièrement sans retrait durant 3 mois",
-          "Durée maximale : 12 mois du 1er au 3è crédit, 18 mois à partir du 4è",
-          "Taux : 1,17% mensuel et dégressif soit 14% l'an",
-          "Différé : Néant",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : Du 1er au 3è crédit : 2.000.000 | A partir du 4è crédit : 3.000.000"
-        ],
-        "requirements": [
-          "Être membre de COCEC",
-          "Cotiser régulièrement sans retrait durant 3 mois",
-          "Nantissement : Cotisations de trois 3 mois",
-          "Garanties : Caution solidaire, financière ou autres formes de garanties"
-        ],
-        "image": "credit-tontine.jpg"
-      },
-      {
-        "id": 8,
-        "slug": "credit-virement-salaire",
-        "title": "Crédit sur Virement Salaire (CVS)",
-        "category": "credit",
-        "icon": "fas fa-university",
-        "short_description": "Crédit avantageux pour les employés avec salaire domicilié, taux réduit de 1,08% mensuel.",
-        "description": "Le Crédit sur Virement Salaire (CVS) est destiné aux employés dont le salaire est domicilié à la COCEC. Ce produit offre un taux avantageux et des conditions spéciales pour les employés des entreprises partenaires.",
-        "features": [
-          "Activités financées : Consommation, Acquisition de biens, Investissement et construction",
-          "Critères d'éligibilité : Être membre, salaire domicilié avec 3 mois de virement au moins",
-          "Durée maximale : 36 mois maxi | 60 mois maxi pour les employés des entreprises ayant signé un protocole d'accord avec la COCEC",
-          "Taux : 1,08% mensuel et dégressif soit 13% l'an",
-          "Différé : Néant",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 7.500.000 | Toutefois la quotité cessible est prise en compte"
-        ],
-        "requirements": [
-          "Être membre de COCEC",
-          "Avoir le salaire domicilié depuis au moins 3 mois",
-          "Nantissement : Néant",
-          "Garanties : Caution solidaire, Autorisation de saisie sur salaire, Accord tripartite Protocole d'Accord"
-        ],
-        "image": "credit-salaire.jpg"
-      },
-      {
-        "id": 9,
-        "slug": "credit-groupements",
-        "title": "Crédit aux Groupements (CAG)",
-        "category": "credit",
-        "icon": "fas fa-layer-group",
-        "short_description": "Financement pour les groupements avec caution solidaire et conditions adaptées aux montants.",
-        "description": "Le Crédit aux Groupements (CAG) est conçu pour financer les activités des groupements. La caution solidaire entre membres du groupement constitue la garantie principale.",
-        "features": [
-          "Activités financées : Activités génératrices de revenu",
-          "Critères d'éligibilité : Ouverture de compte, Caution solidaire",
-          "Durée maximale : 1.000.000 à 5.000.000 : 12 mois maxi | 5.000.000 à 10.000.000 : 24 mois maxi | 10.000.000 et plus : 36 mois",
-          "Taux : 1,34% mensuel et dégressif",
-          "Différé : Au plus 2 mois",
-          "Paiement : Quinzaine, mensuel, trimestriel et semestriel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 20.000.000"
-        ],
-        "requirements": [
-          "Ouverture de compte au nom du groupement",
-          "Caution solidaire entre membres",
-          "Nantissement : 1/5 du montant emprunté",
-          "Garanties : Plans visés, Certificat administratif, Titre foncier et Caution fin."
-        ],
-        "image": "credit-groupements.jpg"
-      },
-      {
-        "id": 10,
-        "slug": "credit-associations",
-        "title": "Crédit aux Associations (CAA)",
-        "category": "credit",
-        "icon": "fas fa-handshake",
-        "short_description": "Financement pour les associations avec une durée maximale de 60 mois et des conditions avantageuses.",
-        "description": "Le Crédit aux Associations (CAA) est destiné aux associations légalement constituées. Ce produit offre une durée de remboursement étendue pour s'adapter aux projets associatifs.",
-        "features": [
-          "Activités financées : Activités génératrices de revenus",
-          "Critères d'éligibilité : Ouverture de compte, Caution solidaire",
-          "Durée maximale : 60 mois maxi",
-          "Taux : 1,17% mensuel et dégressif",
-          "Différé : Au plus 2 mois",
-          "Paiement : Quinzaine, mensuel, trimestriel et semestriel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 20.000.000"
-        ],
-        "requirements": [
-          "Ouverture de compte au nom de l'association",
-          "Caution solidaire entre membres",
-          "Nantissement : 1/3 à 1/5 du montant emprunté",
-          "Garanties : Plans visés, Certificat administratif, Titre foncier et Caution fin."
-        ],
-        "image": "credit-associations.jpg"
-      },
-      {
-        "id": 11,
-        "slug": "credit-prefinancement-marche",
-        "title": "Crédit de Préfinancement de Marché (CPM)",
-        "category": "credit",
-        "icon": "fas fa-file-contract",
-        "short_description": "Financement pour l'exécution de marchés publics et privés avec des conditions spéciales.",
-        "description": "Le Crédit de Préfinancement de Marché (CPM) est destiné aux entrepreneurs ayant obtenu des contrats de marché. Ce produit permet de financer les besoins de trésorerie pour l'exécution des marchés.",
-        "features": [
-          "Activités financées : Entreprenariat, réalisation de grands travaux, etc.",
-          "Critères d'éligibilité : Contrat de marché conclu, attestation d'opérateur économique et marchés similaires et être membre",
-          "Durée maximale : 12 mois",
-          "Taux : 1,34% mensuel et dégressif",
-          "Différé : Au plus 3 mois",
-          "Paiement : Mensuel, Trimestriel, Semestriel ou unique",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 30.000.000"
-        ],
-        "requirements": [
-          "Avoir un contrat de marché conclu",
-          "Attestation d'opérateur économique",
-          "Expérience en marchés similaires",
-          "Être membre de COCEC",
-          "Nantissement : 1/5 du montant emprunté",
-          "Garanties : Plans visés, Certificat administratif, Titre foncier et Caution financière, engagement de domiciliation des paiements à la COCEC"
-        ],
-        "image": "credit-marche.jpg"
-      },
-      {
-        "id": 12,
-        "slug": "credit-special-social",
-        "title": "Crédit Spécial ou Social (CS)",
-        "category": "credit",
-        "icon": "fas fa-heart",
-        "short_description": "Crédit pour les besoins sociaux urgents : funérailles, soins médicaux, frais scolaires, mariage.",
-        "description": "Le Crédit Spécial ou Social (CS) est destiné aux besoins sociaux urgents. Ce produit reconnaît l'importance des événements de vie et offre un financement adapté pour ces situations.",
-        "features": [
-          "Activités financées : Funérailles, soins médicaux, frais scolaires, mariage, besoins sociaux, etc.",
-          "Critères d'éligibilité : Être membre",
-          "Durée maximale : 10 mois",
-          "Taux : 1,34% mensuel et dégressif",
-          "Différé : Au plus 2 mois",
-          "Paiement : Mensuel, trimestriel, semestriel et unique",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 350.000"
-        ],
-        "requirements": [
-          "Être membre de COCEC",
-          "Nantissement : Néant",
-          "Garanties : Une ou deux cautions solidaires solvables et toutes autres formes de garanties"
-        ],
-        "image": "credit-social.jpg"
-      },
-      {
-        "id": 13,
-        "slug": "decouvert",
-        "title": "Découvert (CD)",
-        "category": "credit",
-        "icon": "fas fa-clock",
-        "short_description": "Découvert sans intérêt pour les besoins urgents des employés avec salaire domicilié.",
-        "description": "Le Découvert (CD) est un produit sans intérêt destiné aux employés ayant leur salaire domicilié à la COCEC. Il permet de faire face aux besoins urgents en attendant le versement du salaire.",
-        "features": [
-          "Activités financées : Besoins urgents",
-          "Critères d'éligibilité : Salaire domicilié, et contrat avec son employeur",
-          "Durée maximale : 1 mois",
-          "Taux : 0%",
-          "Différé : Néant",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : Maximum 30% du salaire"
-        ],
-        "requirements": [
-          "Avoir le salaire domicilié à la COCEC",
-          "Contrat avec l'employeur",
-          "Nantissement : Néant",
-          "Garanties : Salaire domicilié et virement"
-        ],
-        "image": "decouvert.jpg"
-      },
-      {
-        "id": 14,
-        "slug": "credit-appui",
-        "title": "Crédit d'Appui",
-        "category": "credit",
-        "icon": "fas fa-hands-helping",
-        "short_description": "Crédit complémentaire pour les membres ayant déjà un crédit en cours pour développer leur activité.",
-        "description": "Le Crédit d'Appui est un produit complémentaire destiné aux membres qui ont déjà un crédit en cours et souhaitent développer davantage leur activité. Il permet de renforcer les capacités financières existantes.",
-        "features": [
-          "Activités financées : Activités génératrices de revenus",
-          "Critères d'éligibilité : Tous membres exerçant une AGR et disposant d'un crédit encours",
-          "Durée maximale : 12 mois maximum",
-          "Taux : 1,34% mensuel et dégressif",
-          "Différé : 2 mois",
-          "Paiement : Mensuel, trimestriel, semestriel ou unique",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 5.000.000"
-        ],
-        "requirements": [
-          "Être membre de COCEC",
-          "Exercer une AGR",
-          "Avoir un crédit en cours",
-          "Nantissement : 1/3 à 1/5 du montant emprunté",
-          "Garanties : Plans visés, certificat administratif, titre foncier, caution solidaire ou fin."
-        ],
-        "image": "credit-appui.jpg"
-      },
-      {
-        "id": 15,
-        "slug": "apsef",
-        "title": "APSEF",
-        "category": "credit",
-        "icon": "fas fa-female",
-        "short_description": "Programme de microfinance pour les femmes et hommes pauvres économiquement actifs.",
-        "description": "APSEF est un programme de microfinance destiné aux femmes et hommes pauvres potentiellement économiquement actifs. Il propose des cycles progressifs avec des montants et taux adaptés.",
-        "features": [
-          "Activités financées : Petits commerces, réparation, restauration, artisanat de service, petite agriculture, élevage, pêche, transformation, fabrication",
-          "Critères d'éligibilité : Femmes et hommes pauvres potentiellement économiquement actifs ayant ou pouvant exercer une AGR",
-          "Durée maximale : 6 mois",
-          "Taux : 5% constant au 1er et 2eme cycle | 8% constant au 3eme et 4eme cycle",
-          "Différé : Néant",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 30.000 au 1er cycle | 40.000 au 2nd cycle | 50.000 au 3eme et 4eme cycle (Par personne)"
-        ],
-        "requirements": [
-          "Être une femme ou un homme pauvre économiquement actif",
-          "Avoir ou pouvoir exercer une AGR",
-          "Nantissement : Néant",
-          "Garanties : Caution solidaire"
-        ],
-        "image": "apsef.jpg"
-      },
-      {
-        "id": 16,
-        "slug": "ajsef",
-        "title": "AJSEF",
-        "category": "credit",
-        "icon": "fas fa-graduation-cap",
-        "short_description": "Programme de financement pour les jeunes en fin d'apprentissage et diplômés sans emploi.",
-        "description": "AJSEF est un programme spécialement conçu pour les jeunes en fin d'apprentissage et les diplômés sans emploi de moins de 40 ans. Il vise à favoriser l'insertion professionnelle des jeunes.",
-        "features": [
-          "Activités financées : Artisanat de services, artisanat de production, transformation, petits services TIC",
-          "Critères d'éligibilité : Jeunes en fin d'apprentissage et diplômés sans emploi de moins de 40 ans",
-          "Durée maximale : 12 mois",
-          "Taux : 8% constant au 1er et 2eme cycle",
-          "Différé : 6 mois",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 300.000 au 1er et 2eme cycle (Par personne)"
-        ],
-        "requirements": [
-          "Être jeune en fin d'apprentissage ou diplômé sans emploi",
-          "Être âgé de moins de 40 ans",
-          "Nantissement : Néant",
-          "Garanties : Caution solidaire, gage"
-        ],
-        "image": "ajsef.jpg"
-      },
-      {
-        "id": 17,
-        "slug": "agrisef",
-        "title": "AGRISEF",
-        "category": "credit",
-        "icon": "fas fa-tractor",
-        "short_description": "Programme de microfinance pour les femmes et hommes pauvres exerçant une activité agricole.",
-        "description": "AGRISEF est un programme de microfinance destiné aux femmes et hommes pauvres potentiellement économiquement actifs exerçant une activité agricole. Il soutient les projets d'agriculture, de maraîchage, de pêche, de transformation et de stockage.",
-        "features": [
-          "Activités financées : Agriculture, maraîchage, pêche, transformation, stockage",
-          "Critères d'éligibilité : Femmes et hommes pauvres potentiellement économiquement actifs exerçant une activité agricole",
-          "Durée maximale : 12 mois",
-          "Taux : 8% constant au 1er et 2eme cycle",
-          "Différé : 3 mois",
-          "Paiement : Mensuel ou trimestriel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 100.000 au 1er et 2eme cycle (Par personne)"
-        ],
-        "requirements": [
-          "Être une femme ou un homme pauvre économiquement actif exerçant une activité agricole",
-          "Nantissement : Néant",
-          "Garanties : Caution solidaire"
-        ],
-        "image": "agrisef.jpg"
-      },
-      {
-        "id": 18,
-        "slug": "pas-ap",
-        "title": "PAS-AP",
-        "category": "credit",
-        "icon": "fas fa-briefcase",
-        "short_description": "Programme de microfinance pour les personnes ayant terminé tous les cycles APSEF.",
-        "description": "PAS-AP est un programme destiné aux femmes et hommes pauvres ayant terminé tous les cycles du programme APSEF et exerçant une activité génératrice de revenus. Il soutient les petits commerces, l'artisanat et d'autres activités économiques.",
-        "features": [
-          "Activités financées : Petits commerces, réparation, restauration, artisanat de service, petite agriculture, élevage, pêche, transformation, fabrication",
-          "Critères d'éligibilité : Femmes et hommes pauvres potentiellement économiquement actifs ayant ou pouvant exercer une AGR ayant terminé tous les cycles de APSEF",
-          "Durée maximale : 12 mois",
-          "Taux : 10% constant",
-          "Différé : Néant",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 100.000 (Par personne)"
-        ],
-        "requirements": [
-          "Être une femme ou un homme pauvre économiquement actif ayant terminé tous les cycles APSEF",
-          "Avoir ou pouvoir exercer une AGR",
-          "Nantissement : Néant",
-          "Garanties : Caution solidaire"
-        ],
-        "image": "pas-ap.jpg"
-      },
-      {
-        "id": 19,
-        "slug": "pas-agri",
-        "title": "PAS-AGRI",
-        "category": "credit",
-        "icon": "fas fa-leaf",
-        "short_description": "Programme pour les personnes ayant terminé tous les cycles AGRISEF exerçant une activité agricole.",
-        "description": "PAS-AGRI est un programme destiné aux femmes et hommes pauvres ayant terminé tous les cycles du programme AGRISEF et exerçant une activité agricole. Il soutient l'agriculture, le maraîchage, la pêche, la transformation et le stockage.",
-        "features": [
-          "Activités financées : Agriculture, maraîchage, pêche, transformation, stockage",
-          "Critères d'éligibilité : Femmes et hommes pauvres potentiellement économiquement actifs exerçant une activité agricole et ayant terminé tous les cycles AGRISEF",
-          "Durée maximale : 12 mois",
-          "Taux : 10% constant",
-          "Différé : Néant",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 130.000 (Par personne)"
-        ],
-        "requirements": [
-          "Être une femme ou un homme pauvre économiquement actif exerçant une activité agricole ayant terminé tous les cycles AGRISEF",
-          "Nantissement : Néant",
-          "Garanties : Caution solidaire"
-        ],
-        "image": "pas-agri.jpg"
-      },
-      {
-        "id": 20,
-        "slug": "credit-yayra",
-        "title": "Crédit Yayra (CY)",
-        "category": "credit",
-        "icon": "fas fa-rocket",
-        "short_description": "Crédit pour les membres ayant bouclé les cycles APSEF avec un compte groupe FNFI.",
-        "description": "Le Crédit Yayra (CY) est destiné aux membres ayant bouclé les quatre cycles du programme APSEF et disposant d’un compte groupe FNFI. Il finance des activités génératrices de revenus avec des conditions avantageuses.",
-        "features": [
-          "Activités financées : Activités génératrices de revenus",
-          "Critères d'éligibilité : Disposer d’un compte groupe FNFI, avoir bouclé les quatre cycles APSEF, avoir un compte physique (chaque bénéficiaire)",
-          "Durée maximale : 18 mois",
-          "Taux : 1,34% dégressif",
-          "Différé : Néant",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 1.200.000 au 1er crédit | 3.000.000 à partir du 2e crédit"
-        ],
-        "requirements": [
-          "Disposer d’un compte groupe FNFI",
-          "Avoir bouclé les quatre cycles APSEF",
-          "Avoir un compte physique (chaque bénéficiaire)",
-          "Nantissement : 1/5 à 1/10 du montant emprunté",
-          "Garanties : Caution solidaire, financière"
-        ],
-        "image": "credit-yayra.jpg"
-      },
-      {
-        "id": 21,
-        "slug": "credit-personnel-sfd",
-        "title": "Crédit au personnel des SFD",
-        "category": "credit",
-        "icon": "fas fa-user-tie",
-        "short_description": "Crédit pour le personnel des SFD pour divers projets comme l'achat de terrain ou de moyens de transport.",
-        "description": "Le Crédit au personnel des SFD finance des projets comme l'achat de terrain, la construction, l'achat de moyens de transport ou d'équipements pour le personnel des structures financières décentralisées (SFD).",
-        "features": [
-          "Activités financées : Achat de terrain, construction, achat de moyen de déplacement, équipements",
-          "Critères d'éligibilité : Disposer d’un compte ordinaire ouvert dans nos livres, disposer d’un contrat à durée couvrant la période du prêt, protocole d’accord entre les deux SFD",
-          "Durée maximale : 72 mois",
-          "Taux : 4 à 6% dégressif",
-          "Différé : Néant",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais d’assurance",
-          "Plafonds : 15.000.000"
-        ],
-        "requirements": [
-          "Disposer d’un compte ordinaire ouvert dans nos livres",
-          "Disposer d’un contrat à durée couvrant la période du prêt",
-          "Protocole d’accord entre les deux SFD",
-          "Nantissement : Néant",
-          "Garanties : Ordre de virement permanent, l’engagement de l’employeur, caution croisée"
-        ],
-        "image": "credit-personnel-sfd.jpg"
-      },
-      {
-        "id": 22,
-        "slug": "credit-energie-renouvelable",
-        "title": "Crédit énergie renouvelable",
-        "category": "credit",
-        "icon": "fas fa-solar-panel",
-        "short_description": "Financement pour l'achat d'équipements d'énergie renouvelable comme des fours à gaz ou des lampes solaires.",
-        "description": "Le Crédit énergie renouvelable soutient l'acquisition d'équipements comme des fours à gaz ou des lampes rechargeables solaires pour promouvoir des solutions énergétiques durables.",
-        "features": [
-          "Activités financées : Achat de four à gaz, de lampe rechargeable solaire",
-          "Critères d'éligibilité : Être membre et avoir mouvementé régulièrement son compte",
-          "Durée maximale : 6 mois pour crédits inférieurs à 100.000 | 12 mois pour les autres",
-          "Taux : 0%",
-          "Différé : Néant",
-          "Paiement : Mensuel",
-          "Déblocage : Paiement des frais et de l’assurance",
-          "Plafonds : 500.000"
-        ],
-        "requirements": [
-          "Être membre de COCEC",
-          "Avoir mouvementé régulièrement son compte",
-          "Nantissement : Néant",
-          "Garanties : Cotisation tontine, salaires, caution solidaire et toutes autres formes de garanties"
-        ],
-        "image": "credit-energie-renouvelable.jpg"
-      },
-      {
-        "id": 23,
-        "slug": "engagements-par-signature",
-        "title": "Engagements par Signature",
-        "category": "credit",
-        "icon": "fas fa-file-signature",
-        "short_description": "Garantie pour les appels d’offres et l’exécution de marchés publics ou privés.",
-        "description": "Les Engagements par Signature permettent de garantir les appels d’offres et l’exécution de marchés publics ou privés pour les entreprises légalement constituées.",
-        "features": [
-          "Activités financées : Garantie pour appels d’offres et exécution de marchés publics ou privés",
-          "Critères d'éligibilité : Être une société ou une entreprise légalement constituée et en règle avec l’Administration Fiscale, avoir un compte ouvert à la COCEC",
-          "Durée maximale : 12 mois",
-          "Taux : Commission de 5% sur le montant engagé",
-          "Différé : Néant",
-          "Paiement : Désengagement à la fin de l’exécution du contrat",
-          "Déblocage : Paiement des frais de l’assurance",
-          "Plafonds : 15.000.000"
-        ],
-        "requirements": [
-          "Être une société ou une entreprise légalement constituée et en règle avec l’Administration Fiscale",
-          "Avoir un compte ouvert à la COCEC",
-          "Nantissement : 1/3 à 1/5 du montant à garantir",
-          "Garanties : Titre Foncier"
-        ],
-        "image": "engagements-par-signature.jpg"
-      },
-      {
-        "id": 24,
-        "slug": "epargne-a-vue",
-        "title": "Épargne à vue",
-        "category": "epargne",
-        "icon": "fas fa-piggy-bank",
-        "short_description": "Compte d'épargne à vue avec accès facile aux fonds pour les personnes physiques et morales.",
-        "description": "L'Épargne à vue permet l'ouverture d'un compte de dépôt à vue pour les personnes physiques (7.000 FCFA) et morales (17.000 FCFA), avec des retraits et dépôts flexibles dans toutes les agences COCEC.",
-        "features": [
-          "Définition : Ouverture de compte et dépôt à vue, 7.000 FCFA pour les personnes physiques et 17.000 FCFA pour les personnes morales",
-          "Frais de tenue de compte : 100 FCFA par mois",
-          "Taux d’intérêt (rémunération) : 3,5 à 3,75% l’an",
-          "Condition de mise en place : Faire le dépôt à tous les guichets de nos agences",
-          "Condition de retrait : Faire le retrait à tous les guichets de nos agences sur présentation du livret de membre"
-        ],
-        "requirements": [
-          "Ouverture de compte ordinaire de dépôt à vue : 7.000 FCFA pour les personnes physiques (2.000 pour frais d’adhésion et 5.000 pour la part sociale) et 17.000 FCFA pour les personnes morales (2.000 pour frais d’adhésion et 15.000 pour la part sociale)",
-          "Ouverture de compte auxiliaire de dépôt à vue : 2.000 FCFA (frais d’adhésion)"
-        ],
-        "image": "epargne-a-vue.jpg"
-      },
-      {
-        "id": 25,
-        "slug": "epargne-a-terme",
-        "title": "Épargne à terme",
-        "category": "epargne",
-        "icon": "fas fa-wallet",
-        "short_description": "Compte d'épargne à terme avec des taux attractifs pour des dépôts à long terme.",
-        "description": "L'Épargne à terme est un contrat de dépôt à terme avec un montant minimum de 100.000 FCFA et une durée minimale de 3 mois, offrant des taux d’intérêt compétitifs.",
-        "features": [
-          "Définition : Contrat et dépôt à terme avec un montant minimum de 100.000 FCFA et une durée minimale de 3 mois",
-          "Frais de tenue de compte : Néant",
-          "Taux d’intérêt (rémunération) : 3,5 à 5,5% l’an selon le montant et la durée",
-          "Condition de mise en place : Par le prélèvement sur le compte ou par apport personnel du membre",
-          "Condition de retrait : Suivant les termes du contrat"
-        ],
-        "requirements": [
-          "Montant minimum de 100.000 FCFA",
-          "Durée minimale de 3 mois"
-        ],
-        "image": "epargne-a-terme.jpg"
-      },
-      {
-        "id": 26,
-        "slug": "tontine",
-        "title": "Tontine",
-        "category": "tontine",
-        "icon": "fas fa-coins",
-        "short_description": "Petite épargne par cotisation journalière avec deux produits : EDEM et SOLUTION.",
-        "description": "La Tontine est une épargne constituée par une cotisation journalière. COCEC propose deux produits : EDEM (accès au crédit après 3 mois de cotisation) et SOLUTION (paiement de factures d’eau et d’électricité). Les agents collectent les cotisations directement auprès des clients.",
-        "features": [
-          "Définition : Petite épargne constituée par une cotisation journalière",
-          "Produits : EDEM (accès au crédit après 3 mois) et SOLUTION (paiement de factures mensuelles)",
-          "Frais de tenue de compte : La 1ère mise est la commission",
-          "Taux d’intérêt (rémunération) : Néant",
-          "Condition de mise en place : Souscription à la tontine et cotisation",
-          "Condition de retrait : Présentation du livret/carton du membre"
-        ],
-        "requirements": [
-          "Souscription libre et volontaire",
-          "Cotisation journalière"
-        ],
-        "image": "tontine.jpg"
-      },
-      {
-        "id": 27,
-        "slug": "transfert",
-        "title": "Transfert",
-        "category": "transfert",
-        "icon": "fas fa-exchange-alt",
-        "short_description": "Services de transfert d'argent via des partenaires internationaux et locaux.",
-        "description": "COCEC propose des services de transfert d'argent via des partenaires comme Wari, Ria, Transfast, Small World, Tmoney, Flooz, Western Union, et Money, permettant des transactions rapides et sécurisées au niveau local et international.",
-        "features": [
-          "Services : Wari, Ria, Transfast, Small World, Tmoney, Flooz, Western Union, Money",
-          "Accessibilité : Transferts locaux et internationaux",
-          "Condition de mise en place : Utilisation des guichets COCEC ou des applications des partenaires",
-          "Frais : Variables selon le service et le montant"
-        ],
-        "requirements": [
-          "Présentation d’une pièce d’identité valide",
-          "Respect des conditions spécifiques de chaque partenaire"
-        ],
-        "image": [
-          "wari.jpg",
-          "ria.png",
-          "transfast.png",
-          "small-world.webp",
-          "tmoney.jpg",
-          "flooz.jpg",
-          "WU.jpg",
-          "money.jpg"
-        ]
-      },
-      {
-        "id": 28,
-        "slug": "conseils-financements",
-        "title": "Conseils et financements",
-        "category": "conseils",
-        "icon": "fas fa-lightbulb",
-        "short_description": "Accompagnement personnalisé pour la gestion de projets et l’optimisation des financements.",
-        "description": "COCEC accompagne ses clients au-delà du simple octroi de crédits, en offrant des conseils pour mieux comprendre leurs projets, gérer leur trésorerie, optimiser leurs ventes et respecter leurs échéances financières.",
-        "features": [
-          "Conseils sur les investissements à réaliser",
-          "Gestion de projet et stratégies d’augmentation des ventes",
-          "Gestion des stocks et du besoin en fonds de roulement (BFR)",
-          "Planification des dépenses initiales (loyer, assurances, salaires, etc.)",
-          "Respect des échéances de paiement"
-        ],
-        "requirements": [
-          "Être client de COCEC",
-          "Demande d’accompagnement ou de financement"
-        ],
-        "image": "conseils-financements.jpg"
-      },
-      {
-        "id": 29,
-        "slug": "domiciliation",
-        "title": "Domiciliation",
-        "category": "domiciliation",
-        "icon": "fas fa-building",
-        "short_description": "Domiciliation de salaires pour entreprises et employés avec accès à des crédits avantageux.",
-        "description": "Les entreprises, établissements scolaires, églises, ONG, associations ou autres structures peuvent domicilier les salaires de leurs employés à la COCEC. Les employés bénéficient de crédits à des taux compétitifs pour financer leurs projets.",
-        "features": [
-          "Domiciliation des salaires pour entreprises, écoles, ONG, etc.",
-          "Accès à des crédits à taux compétitifs pour les employés",
-          "Flexibilité pour les structures de toutes tailles"
-        ],
-        "requirements": [
-          "Accord de domiciliation avec la COCEC",
-          "Ouverture de comptes pour les employés"
-        ],
-        "image": "domiciliation.jpg"
-      }
-    ]
-  }
+  "products": [
+    {
+      "id": 1,
+      "slug": "credit-commerce-agr",
+      "title": "Crédit Commerce et autres AGR (CCAA)",
+      "category": "credit",
+      "icon": "fas fa-store",
+      "short_description": "Financement pour le commerce et autres activités génératrices de revenus avec des conditions adaptées selon le montant.",
+      "description": "Le Crédit Commerce et autres AGR (CCAA) est destiné aux membres qui exercent des activités commerciales et autres activités génératrices de revenus. Ce produit offre une flexibilité dans la durée selon le montant emprunté et des conditions de remboursement adaptées.",
+      "features": [
+        "Activités financées : Commerce et autres activités génératrices de revenus",
+        "Critères d'éligibilité : Être membre et avoir mouvementé régulièrement son compte",
+        "Durée maximale : 0 à 3.000.000 : 18 mois maxi | 3.000.000 à 7.500.000 : 24 mois maxi | 7.500.000 à 10.000.000 : 36 mois maxi | 10.000.000 à 25.000.000 : 48 mois maxi",
+        "Taux : 1,17 à 1,34% mensuel et dégressif",
+        "Différé : Au plus 3 mois",
+        "Paiement : Mensuel, trimestriel, semestriel ou unique",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 15.000.000 pour les personnes physiques et 25.000.000 pour les personnes morales"
+      ],
+      "requirements": [
+        "Être membre de COCEC",
+        "Avoir mouvementé régulièrement son compte",
+        "Nantissement : 1/3 à 1/5 du montant emprunté",
+        "Garanties : Plans visés, Certificat administratif, Titre foncier, Caution fin. et caution solidaire"
+      ],
+      "image": "credit-commerce.jpg"
+    },
+    {
+      "id": 2,
+      "slug": "credit-artisanat",
+      "title": "Crédit Artisanat (CA)",
+      "category": "credit",
+      "icon": "fas fa-tools",
+      "short_description": "Financement spécialisé pour les artisans exerçant un métier d'art manuel avec des conditions avantageuses.",
+      "description": "Le Crédit Artisanat (CA) est conçu spécifiquement pour les personnes exerçant un métier d'art manuel. Ce produit reconnaît l'importance de l'artisanat dans l'économie locale et offre des conditions adaptées aux besoins des artisans.",
+      "features": [
+        "Activités financées : Toute personne exerçant un métier d'art manuel",
+        "Critères d'éligibilité : Être membre d'au moins 2 mois et mouvementer le compte",
+        "Durée maximale : 18 mois",
+        "Taux : 1,17 à 1,34% mensuel et dégressif",
+        "Différé : Au plus 3 mois",
+        "Paiement : Mensuel, trimestriel, semestriel ou unique",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 2.500.000 pour les personnes physiques et 5.000.000 pour les personnes morales"
+      ],
+      "requirements": [
+        "Être membre de COCEC depuis au moins 2 mois",
+        "Mouvementer régulièrement son compte",
+        "Nantissement : 1/3 à 1/5 du montant emprunté",
+        "Garanties : Plans visés, Certificat administratif, Titre foncier, Caution fin, caution solidaire"
+      ],
+      "image": "credit-artisanat.jpg"
+    },
+    {
+      "id": 3,
+      "slug": "credit-agriculture",
+      "title": "Crédit Agriculture (CAEP)",
+      "category": "credit",
+      "icon": "fas fa-seedling",
+      "short_description": "Financement pour l'agriculture, l'élevage et la pêche avec des durées adaptées aux cycles de production.",
+      "description": "Le Crédit Agriculture, Élevage et Pêche (CAEP) est spécialement conçu pour soutenir les activités agricoles, d'élevage et de pêche. Les durées de remboursement sont adaptées aux cycles de production spécifiques à chaque activité.",
+      "features": [
+        "Activités financées : Agriculture, Élevage et Pêche",
+        "Critères d'éligibilité : Être membre d'au moins trois 3 mois et mouvementer le compte",
+        "Durée maximale : Agriculture : 6 mois maxi | Élevage et pêche : 12 mois maxi",
+        "Taux : 1,17% à 1,34% mensuel et dégressif",
+        "Différé : Au plus 4 mois pour agriculture et élevage et pêche au plus 8 mois",
+        "Paiement : Mensuel, Trimestriel, Semestriel et Unique",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 2.000.000 pour les personnes physiques et 5.000.000 pour les personnes morales"
+      ],
+      "requirements": [
+        "Être membre de COCEC depuis au moins 3 mois",
+        "Mouvementer régulièrement son compte",
+        "Nantissement : 1/3 à 1/5 du montant emprunté",
+        "Garanties : Plans visés, Certificat administratif, Titre foncier, Caution fin. et caution solidaire"
+      ],
+      "image": "credit-agriculture.jpg"
+    },
+    {
+      "id": 4,
+      "slug": "credit-materiel-transport",
+      "title": "Crédit Acquisition de Matériel de Transport (CAMT)",
+      "category": "credit",
+      "icon": "fas fa-car",
+      "short_description": "Financement pour l'acquisition de moyens de transport à usage personnel et commercial.",
+      "description": "Le Crédit Acquisition de Matériel de Transport (CAMT) permet de financer l'achat de moyens de déplacement à usage personnel et à des fins commerciales. Les conditions varient selon le montant emprunté.",
+      "features": [
+        "Activités financées : Moyen de déplacement à usage personnel et à des fins commerciales",
+        "Critères d'éligibilité : Être membre et avoir mouvementé régulièrement son compte",
+        "Durée maximale : 0 à 5.000.000 : 24 mois max | 5.000.000 à 7.500.000 : 36 mois max | 7.500.000 à 20.000.000 : 48 mois max",
+        "Taux : 1.17% à 1.34% mensuel et dégressif",
+        "Différé : Au plus 3 mois",
+        "Paiement : Mensuel et trimestriel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 7.500.000 pour les personnes physiques et 20.000.000 pour les personnes morales"
+      ],
+      "requirements": [
+        "Être membre de COCEC",
+        "Avoir mouvementé régulièrement son compte",
+        "Nantissement : 1/3 à 1/5 du montant emprunté",
+        "Garanties : Plans visés, Certificat administratif, Titre foncier, Caution fin, solidaire et gage du véhicule"
+      ],
+      "image": "credit-transport.jpg"
+    },
+    {
+      "id": 5,
+      "slug": "credit-immobilier",
+      "title": "Crédit Immobilier (CIM)",
+      "category": "credit",
+      "icon": "fas fa-home",
+      "short_description": "Financement pour l'achat de terrain et la construction avec une durée maximale de 48 mois.",
+      "description": "Le Crédit Immobilier (CIM) est destiné à financer l'achat de terrain et la construction. Ce produit offre une durée de remboursement étendue pour s'adapter aux projets immobiliers.",
+      "features": [
+        "Activités financées : Achat de terrain et Construction",
+        "Critères d'éligibilité : Être membre d'au moins trois 3 mois et mouvementer le compte",
+        "Durée maximale : 48 mois",
+        "Taux : 1,17% à 1,34% mensuel et dégressif",
+        "Différé : Au plus 2 mois",
+        "Paiement : Mensuel, trimestriel, semestriel et unique",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 10.000.000 pour les personnes physiques et 20.000.000 pour les personnes morales"
+      ],
+      "requirements": [
+        "Être membre de COCEC depuis au moins 3 mois",
+        "Mouvementer régulièrement son compte",
+        "Nantissement : 1/3 à 1/5 du montant emprunté",
+        "Garanties : Plans visés, Certificat administratif, Titre foncier, Caution fin, solidaire et gage"
+      ],
+      "image": "credit-immobilier.jpg"
+    },
+    {
+      "id": 6,
+      "slug": "credit-tontine-fidelite",
+      "title": "Crédit Tontine Fidélité (CTF)",
+      "category": "credit",
+      "icon": "fas fa-handshake",
+      "short_description": "Crédit sans intérêt pour les membres fidèles de la tontine avec une durée de 3 mois maximum.",
+      "description": "Le Crédit Tontine Fidélité (CTF) est un produit spécial sans intérêt destiné aux membres qui cotisent régulièrement à la tontine. C'est une récompense pour la fidélité des membres.",
+      "features": [
+        "Activités financées : Activités génératrices de revenus",
+        "Critères d'éligibilité : Être membre et cotiser la tontine régulièrement et sans retrait durant un 01 mois",
+        "Durée maximale : 3 mois maximum",
+        "Taux : 0%",
+        "Différé : Néant",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 270.000"
+      ],
+      "requirements": [
+        "Être membre de COCEC",
+        "Cotiser régulièrement à la tontine sans retrait durant 1 mois",
+        "Nantissement : Cotisations de un 01 mois",
+        "Garanties : Caution solidaire, financière ou autres formes de garanties"
+      ],
+      "image": "credit-tontine-fidelite.jpg"
+    },
+    {
+      "id": 7,
+      "slug": "credit-tontine",
+      "title": "Crédit Tontine (CT)",
+      "category": "credit",
+      "icon": "fas fa-users",
+      "short_description": "Crédit basé sur les cotisations tontine avec des conditions progressives selon le nombre de crédits.",
+      "description": "Le Crédit Tontine (CT) est basé sur les cotisations tontine. Les conditions s'améliorent avec le nombre de crédits obtenus, encourageant ainsi la fidélité des membres.",
+      "features": [
+        "Activités financées : Activités génératrices de revenus",
+        "Critères d'éligibilité : Être membre et cotiser régulièrement sans retrait durant 3 mois",
+        "Durée maximale : 12 mois du 1er au 3è crédit, 18 mois à partir du 4è",
+        "Taux : 1,17% mensuel et dégressif soit 14% l'an",
+        "Différé : Néant",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : Du 1er au 3è crédit : 2.000.000 | A partir du 4è crédit : 3.000.000"
+      ],
+      "requirements": [
+        "Être membre de COCEC",
+        "Cotiser régulièrement sans retrait durant 3 mois",
+        "Nantissement : Cotisations de trois 3 mois",
+        "Garanties : Caution solidaire, financière ou autres formes de garanties"
+      ],
+      "image": "credit-tontine.jpg"
+    },
+    {
+      "id": 8,
+      "slug": "credit-virement-salaire",
+      "title": "Crédit sur Virement Salaire (CVS)",
+      "category": "credit",
+      "icon": "fas fa-university",
+      "short_description": "Crédit avantageux pour les employés avec salaire domicilié, taux réduit de 1,08% mensuel.",
+      "description": "Le Crédit sur Virement Salaire (CVS) est destiné aux employés dont le salaire est domicilié à la COCEC. Ce produit offre un taux avantageux et des conditions spéciales pour les employés des entreprises partenaires.",
+      "features": [
+        "Activités financées : Consommation, Acquisition de biens, Investissement et construction",
+        "Critères d'éligibilité : Être membre, salaire domicilié avec 3 mois de virement au moins",
+        "Durée maximale : 36 mois maxi | 60 mois maxi pour les employés des entreprises ayant signé un protocole d'accord avec la COCEC",
+        "Taux : 1,08% mensuel et dégressif soit 13% l'an",
+        "Différé : Néant",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 7.500.000 | Toutefois la quotité cessible est prise en compte"
+      ],
+      "requirements": [
+        "Être membre de COCEC",
+        "Avoir le salaire domicilié depuis au moins 3 mois",
+        "Nantissement : Néant",
+        "Garanties : Caution solidaire, Autorisation de saisie sur salaire, Accord tripartite Protocole d'Accord"
+      ],
+      "image": "credit-salaire.jpg"
+    },
+    {
+      "id": 9,
+      "slug": "credit-groupements",
+      "title": "Crédit aux Groupements (CAG)",
+      "category": "credit",
+      "icon": "fas fa-layer-group",
+      "short_description": "Financement pour les groupements avec caution solidaire et conditions adaptées aux montants.",
+      "description": "Le Crédit aux Groupements (CAG) est conçu pour financer les activités des groupements. La caution solidaire entre membres du groupement constitue la garantie principale.",
+      "features": [
+        "Activités financées : Activités génératrices de revenu",
+        "Critères d'éligibilité : Ouverture de compte, Caution solidaire",
+        "Durée maximale : 1.000.000 à 5.000.000 : 12 mois maxi | 5.000.000 à 10.000.000 : 24 mois maxi | 10.000.000 et plus : 36 mois",
+        "Taux : 1,34% mensuel et dégressif",
+        "Différé : Au plus 2 mois",
+        "Paiement : Quinzaine, mensuel, trimestriel et semestriel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 20.000.000"
+      ],
+      "requirements": [
+        "Ouverture de compte au nom du groupement",
+        "Caution solidaire entre membres",
+        "Nantissement : 1/5 du montant emprunté",
+        "Garanties : Plans visés, Certificat administratif, Titre foncier et Caution fin."
+      ],
+      "image": "credit-groupements.jpg"
+    },
+    {
+      "id": 10,
+      "slug": "credit-associations",
+      "title": "Crédit aux Associations (CAA)",
+      "category": "credit",
+      "icon": "fas fa-handshake",
+      "short_description": "Financement pour les associations avec une durée maximale de 60 mois et des conditions avantageuses.",
+      "description": "Le Crédit aux Associations (CAA) est destiné aux associations légalement constituées. Ce produit offre une durée de remboursement étendue pour s'adapter aux projets associatifs.",
+      "features": [
+        "Activités financées : Activités génératrices de revenus",
+        "Critères d'éligibilité : Ouverture de compte, Caution solidaire",
+        "Durée maximale : 60 mois maxi",
+        "Taux : 1,17% mensuel et dégressif",
+        "Différé : Au plus 2 mois",
+        "Paiement : Quinzaine, mensuel, trimestriel et semestriel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 20.000.000"
+      ],
+      "requirements": [
+        "Ouverture de compte au nom de l'association",
+        "Caution solidaire entre membres",
+        "Nantissement : 1/3 à 1/5 du montant emprunté",
+        "Garanties : Plans visés, Certificat administratif, Titre foncier et Caution fin."
+      ],
+      "image": "credit-associations.jpg"
+    },
+    {
+      "id": 11,
+      "slug": "credit-prefinancement-marche",
+      "title": "Crédit de Préfinancement de Marché (CPM)",
+      "category": "credit",
+      "icon": "fas fa-file-contract",
+      "short_description": "Financement pour l'exécution de marchés publics et privés avec des conditions spéciales.",
+      "description": "Le Crédit de Préfinancement de Marché (CPM) est destiné aux entrepreneurs ayant obtenu des contrats de marché. Ce produit permet de financer les besoins de trésorerie pour l'exécution des marchés.",
+      "features": [
+        "Activités financées : Entreprenariat, réalisation de grands travaux, etc.",
+        "Critères d'éligibilité : Contrat de marché conclu, attestation d'opérateur économique et marchés similaires et être membre",
+        "Durée maximale : 12 mois",
+        "Taux : 1,34% mensuel et dégressif",
+        "Différé : Au plus 3 mois",
+        "Paiement : Mensuel, Trimestriel, Semestriel ou unique",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 30.000.000"
+      ],
+      "requirements": [
+        "Avoir un contrat de marché conclu",
+        "Attestation d'opérateur économique",
+        "Expérience en marchés similaires",
+        "Être membre de COCEC",
+        "Nantissement : 1/5 du montant emprunté",
+        "Garanties : Plans visés, Certificat administratif, Titre foncier et Caution financière, engagement de domiciliation des paiements à la COCEC"
+      ],
+      "image": "credit-marche.jpg"
+    },
+    {
+      "id": 12,
+      "slug": "credit-special-social",
+      "title": "Crédit Spécial ou Social (CS)",
+      "category": "credit",
+      "icon": "fas fa-heart",
+      "short_description": "Crédit pour les besoins sociaux urgents : funérailles, soins médicaux, frais scolaires, mariage.",
+      "description": "Le Crédit Spécial ou Social (CS) est destiné aux besoins sociaux urgents. Ce produit reconnaît l'importance des événements de vie et offre un financement adapté pour ces situations.",
+      "features": [
+        "Activités financées : Funérailles, soins médicaux, frais scolaires, mariage, besoins sociaux, etc.",
+        "Critères d'éligibilité : Être membre",
+        "Durée maximale : 10 mois",
+        "Taux : 1,34% mensuel et dégressif",
+        "Différé : Au plus 2 mois",
+        "Paiement : Mensuel, trimestriel, semestriel et unique",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 350.000"
+      ],
+      "requirements": [
+        "Être membre de COCEC",
+        "Nantissement : Néant",
+        "Garanties : Une ou deux cautions solidaires solvables et toutes autres formes de garanties"
+      ],
+      "image": "credit-social.jpg"
+    },
+    {
+      "id": 13,
+      "slug": "decouvert",
+      "title": "Découvert (CD)",
+      "category": "credit",
+      "icon": "fas fa-clock",
+      "short_description": "Découvert sans intérêt pour les besoins urgents des employés avec salaire domicilié.",
+      "description": "Le Découvert (CD) est un produit sans intérêt destiné aux employés ayant leur salaire domicilié à la COCEC. Il permet de faire face aux besoins urgents en attendant le versement du salaire.",
+      "features": [
+        "Activités financées : Besoins urgents",
+        "Critères d'éligibilité : Salaire domicilié, et contrat avec son employeur",
+        "Durée maximale : 1 mois",
+        "Taux : 0%",
+        "Différé : Néant",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : Maximum 30% du salaire"
+      ],
+      "requirements": [
+        "Avoir le salaire domicilié à la COCEC",
+        "Contrat avec l'employeur",
+        "Nantissement : Néant",
+        "Garanties : Salaire domicilié et virement"
+      ],
+      "image": "decouvert.jpg"
+    },
+    {
+      "id": 14,
+      "slug": "credit-appui",
+      "title": "Crédit d'Appui",
+      "category": "credit",
+      "icon": "fas fa-hands-helping",
+      "short_description": "Crédit complémentaire pour les membres ayant déjà un crédit en cours pour développer leur activité.",
+      "description": "Le Crédit d'Appui est un produit complémentaire destiné aux membres qui ont déjà un crédit en cours et souhaitent développer davantage leur activité. Il permet de renforcer les capacités financières existantes.",
+      "features": [
+        "Activités financées : Activités génératrices de revenus",
+        "Critères d'éligibilité : Tous membres exerçant une AGR et disposant d'un crédit encours",
+        "Durée maximale : 12 mois maximum",
+        "Taux : 1,34% mensuel et dégressif",
+        "Différé : 2 mois",
+        "Paiement : Mensuel, trimestriel, semestriel ou unique",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 5.000.000"
+      ],
+      "requirements": [
+        "Être membre de COCEC",
+        "Exercer une AGR",
+        "Avoir un crédit en cours",
+        "Nantissement : 1/3 à 1/5 du montant emprunté",
+        "Garanties : Plans visés, certificat administratif, titre foncier, caution solidaire ou fin."
+      ],
+      "image": "credit-appui.jpg"
+    },
+    {
+      "id": 15,
+      "slug": "apsef",
+      "title": "APSEF",
+      "category": "credit",
+      "icon": "fas fa-female",
+      "short_description": "Programme de microfinance pour les femmes et hommes pauvres économiquement actifs.",
+      "description": "APSEF est un programme de microfinance destiné aux femmes et hommes pauvres potentiellement économiquement actifs. Il propose des cycles progressifs avec des montants et taux adaptés.",
+      "features": [
+        "Activités financées : Petits commerces, réparation, restauration, artisanat de service, petite agriculture, élevage, pêche, transformation, fabrication",
+        "Critères d'éligibilité : Femmes et hommes pauvres potentiellement économiquement actifs ayant ou pouvant exercer une AGR",
+        "Durée maximale : 6 mois",
+        "Taux : 5% constant au 1er et 2eme cycle | 8% constant au 3eme et 4eme cycle",
+        "Différé : Néant",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 30.000 au 1er cycle | 40.000 au 2nd cycle | 50.000 au 3eme et 4eme cycle (Par personne)"
+      ],
+      "requirements": [
+        "Être une femme ou un homme pauvre économiquement actif",
+        "Avoir ou pouvoir exercer une AGR",
+        "Nantissement : Néant",
+        "Garanties : Caution solidaire"
+      ],
+      "image": "apsef.jpg"
+    },
+    {
+      "id": 16,
+      "slug": "ajsef",
+      "title": "AJSEF",
+      "category": "credit",
+      "icon": "fas fa-graduation-cap",
+      "short_description": "Programme de financement pour les jeunes en fin d'apprentissage et diplômés sans emploi.",
+      "description": "AJSEF est un programme spécialement conçu pour les jeunes en fin d'apprentissage et les diplômés sans emploi de moins de 40 ans. Il vise à favoriser l'insertion professionnelle des jeunes.",
+      "features": [
+        "Activités financées : Artisanat de services, artisanat de production, transformation, petits services TIC",
+        "Critères d'éligibilité : Jeunes en fin d'apprentissage et diplômés sans emploi de moins de 40 ans",
+        "Durée maximale : 12 mois",
+        "Taux : 8% constant au 1er et 2eme cycle",
+        "Différé : 6 mois",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 300.000 au 1er et 2eme cycle (Par personne)"
+      ],
+      "requirements": [
+        "Être jeune en fin d'apprentissage ou diplômé sans emploi",
+        "Être âgé de moins de 40 ans",
+        "Nantissement : Néant",
+        "Garanties : Caution solidaire, gage"
+      ],
+      "image": "ajsef.jpg"
+    },
+    {
+      "id": 17,
+      "slug": "agrisef",
+      "title": "AGRISEF",
+      "category": "credit",
+      "icon": "fas fa-tractor",
+      "short_description": "Programme de microfinance pour les femmes et hommes pauvres exerçant une activité agricole.",
+      "description": "AGRISEF est un programme de microfinance destiné aux femmes et hommes pauvres potentiellement économiquement actifs exerçant une activité agricole. Il soutient les projets d'agriculture, de maraîchage, de pêche, de transformation et de stockage.",
+      "features": [
+        "Activités financées : Agriculture, maraîchage, pêche, transformation, stockage",
+        "Critères d'éligibilité : Femmes et hommes pauvres potentiellement économiquement actifs exerçant une activité agricole",
+        "Durée maximale : 12 mois",
+        "Taux : 8% constant au 1er et 2eme cycle",
+        "Différé : 3 mois",
+        "Paiement : Mensuel ou trimestriel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 100.000 au 1er et 2eme cycle (Par personne)"
+      ],
+      "requirements": [
+        "Être une femme ou un homme pauvre économiquement actif exerçant une activité agricole",
+        "Nantissement : Néant",
+        "Garanties : Caution solidaire"
+      ],
+      "image": "agrisef.jpg"
+    },
+    {
+      "id": 18,
+      "slug": "pas-ap",
+      "title": "PAS-AP",
+      "category": "credit",
+      "icon": "fas fa-briefcase",
+      "short_description": "Programme de microfinance pour les personnes ayant terminé tous les cycles APSEF.",
+      "description": "PAS-AP est un programme destiné aux femmes et hommes pauvres ayant terminé tous les cycles du programme APSEF et exerçant une activité génératrice de revenus. Il soutient les petits commerces, l'artisanat et d'autres activités économiques.",
+      "features": [
+        "Activités financées : Petits commerces, réparation, restauration, artisanat de service, petite agriculture, élevage, pêche, transformation, fabrication",
+        "Critères d'éligibilité : Femmes et hommes pauvres potentiellement économiquement actifs ayant ou pouvant exercer une AGR ayant terminé tous les cycles de APSEF",
+        "Durée maximale : 12 mois",
+        "Taux : 10% constant",
+        "Différé : Néant",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 100.000 (Par personne)"
+      ],
+      "requirements": [
+        "Être une femme ou un homme pauvre économiquement actif ayant terminé tous les cycles APSEF",
+        "Avoir ou pouvoir exercer une AGR",
+        "Nantissement : Néant",
+        "Garanties : Caution solidaire"
+      ],
+      "image": "pas-ap.jpg"
+    },
+    {
+      "id": 19,
+      "slug": "pas-agri",
+      "title": "PAS-AGRI",
+      "category": "credit",
+      "icon": "fas fa-leaf",
+      "short_description": "Programme pour les personnes ayant terminé tous les cycles AGRISEF exerçant une activité agricole.",
+      "description": "PAS-AGRI est un programme destiné aux femmes et hommes pauvres ayant terminé tous les cycles du programme AGRISEF et exerçant une activité agricole. Il soutient l'agriculture, le maraîchage, la pêche, la transformation et le stockage.",
+      "features": [
+        "Activités financées : Agriculture, maraîchage, pêche, transformation, stockage",
+        "Critères d'éligibilité : Femmes et hommes pauvres potentiellement économiquement actifs exerçant une activité agricole et ayant terminé tous les cycles AGRISEF",
+        "Durée maximale : 12 mois",
+        "Taux : 10% constant",
+        "Différé : Néant",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 130.000 (Par personne)"
+      ],
+      "requirements": [
+        "Être une femme ou un homme pauvre économiquement actif exerçant une activité agricole ayant terminé tous les cycles AGRISEF",
+        "Nantissement : Néant",
+        "Garanties : Caution solidaire"
+      ],
+      "image": "pas-agri.jpg"
+    },
+    {
+      "id": 20,
+      "slug": "credit-yayra",
+      "title": "Crédit Yayra (CY)",
+      "category": "credit",
+      "icon": "fas fa-rocket",
+      "short_description": "Crédit pour les membres ayant bouclé les cycles APSEF avec un compte groupe FNFI.",
+      "description": "Le Crédit Yayra (CY) est destiné aux membres ayant bouclé les quatre cycles du programme APSEF et disposant d’un compte groupe FNFI. Il finance des activités génératrices de revenus avec des conditions avantageuses.",
+      "features": [
+        "Activités financées : Activités génératrices de revenus",
+        "Critères d'éligibilité : Disposer d’un compte groupe FNFI, avoir bouclé les quatre cycles APSEF, avoir un compte physique (chaque bénéficiaire)",
+        "Durée maximale : 18 mois",
+        "Taux : 1,34% dégressif",
+        "Différé : Néant",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 1.200.000 au 1er crédit | 3.000.000 à partir du 2e crédit"
+      ],
+      "requirements": [
+        "Disposer d’un compte groupe FNFI",
+        "Avoir bouclé les quatre cycles APSEF",
+        "Avoir un compte physique (chaque bénéficiaire)",
+        "Nantissement : 1/5 à 1/10 du montant emprunté",
+        "Garanties : Caution solidaire, financière"
+      ],
+      "image": "credit-yayra.jpg"
+    },
+    {
+      "id": 21,
+      "slug": "credit-personnel-sfd",
+      "title": "Crédit au personnel des SFD",
+      "category": "credit",
+      "icon": "fas fa-user-tie",
+      "short_description": "Crédit pour le personnel des SFD pour divers projets comme l'achat de terrain ou de moyens de transport.",
+      "description": "Le Crédit au personnel des SFD finance des projets comme l'achat de terrain, la construction, l'achat de moyens de transport ou d'équipements pour le personnel des structures financières décentralisées (SFD).",
+      "features": [
+        "Activités financées : Achat de terrain, construction, achat de moyen de déplacement, équipements",
+        "Critères d'éligibilité : Disposer d’un compte ordinaire ouvert dans nos livres, disposer d’un contrat à durée couvrant la période du prêt, protocole d’accord entre les deux SFD",
+        "Durée maximale : 72 mois",
+        "Taux : 4 à 6% dégressif",
+        "Différé : Néant",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais d’assurance",
+        "Plafonds : 15.000.000"
+      ],
+      "requirements": [
+        "Disposer d’un compte ordinaire ouvert dans nos livres",
+        "Disposer d’un contrat à durée couvrant la période du prêt",
+        "Protocole d’accord entre les deux SFD",
+        "Nantissement : Néant",
+        "Garanties : Ordre de virement permanent, l’engagement de l’employeur, caution croisée"
+      ],
+      "image": "credit-personnel-sfd.jpg"
+    },
+    {
+      "id": 22,
+      "slug": "credit-energie-renouvelable",
+      "title": "Crédit énergie renouvelable",
+      "category": "credit",
+      "icon": "fas fa-solar-panel",
+      "short_description": "Financement pour l'achat d'équipements d'énergie renouvelable comme des fours à gaz ou des lampes solaires.",
+      "description": "Le Crédit énergie renouvelable soutient l'acquisition d'équipements comme des fours à gaz ou des lampes rechargeables solaires pour promouvoir des solutions énergétiques durables.",
+      "features": [
+        "Activités financées : Achat de four à gaz, de lampe rechargeable solaire",
+        "Critères d'éligibilité : Être membre et avoir mouvementé régulièrement son compte",
+        "Durée maximale : 6 mois pour crédits inférieurs à 100.000 | 12 mois pour les autres",
+        "Taux : 0%",
+        "Différé : Néant",
+        "Paiement : Mensuel",
+        "Déblocage : Paiement des frais et de l’assurance",
+        "Plafonds : 500.000"
+      ],
+      "requirements": [
+        "Être membre de COCEC",
+        "Avoir mouvementé régulièrement son compte",
+        "Nantissement : Néant",
+        "Garanties : Cotisation tontine, salaires, caution solidaire et toutes autres formes de garanties"
+      ],
+      "image": "credit-energie-renouvelable.jpg"
+    },
+    {
+      "id": 23,
+      "slug": "engagements-par-signature",
+      "title": "Engagements par Signature",
+      "category": "credit",
+      "icon": "fas fa-file-signature",
+      "short_description": "Garantie pour les appels d’offres et l’exécution de marchés publics ou privés.",
+      "description": "Les Engagements par Signature permettent de garantir les appels d’offres et l’exécution de marchés publics ou privés pour les entreprises légalement constituées.",
+      "features": [
+        "Activités financées : Garantie pour appels d’offres et exécution de marchés publics ou privés",
+        "Critères d'éligibilité : Être une société ou une entreprise légalement constituée et en règle avec l’Administration Fiscale, avoir un compte ouvert à la COCEC",
+        "Durée maximale : 12 mois",
+        "Taux : Commission de 5% sur le montant engagé",
+        "Différé : Néant",
+        "Paiement : Désengagement à la fin de l’exécution du contrat",
+        "Déblocage : Paiement des frais de l’assurance",
+        "Plafonds : 15.000.000"
+      ],
+      "requirements": [
+        "Être une société ou une entreprise légalement constituée et en règle avec l’Administration Fiscale",
+        "Avoir un compte ouvert à la COCEC",
+        "Nantissement : 1/3 à 1/5 du montant à garantir",
+        "Garanties : Titre Foncier"
+      ],
+      "image": "engagements-par-signature.jpg"
+    },
+    {
+      "id": 24,
+      "slug": "epargne-a-vue",
+      "title": "Épargne à vue",
+      "category": "epargne",
+      "icon": "fas fa-piggy-bank",
+      "short_description": "Compte d'épargne à vue avec accès facile aux fonds pour les personnes physiques et morales.",
+      "description": "L'Épargne à vue permet l'ouverture d'un compte de dépôt à vue pour les personnes physiques (7.000 FCFA) et morales (17.000 FCFA), avec des retraits et dépôts flexibles dans toutes les agences COCEC.",
+      "features": [
+        "Définition : Ouverture de compte et dépôt à vue, 7.000 FCFA pour les personnes physiques et 17.000 FCFA pour les personnes morales",
+        "Frais de tenue de compte : 100 FCFA par mois",
+        "Taux d’intérêt (rémunération) : 3,5 à 3,75% l’an",
+        "Condition de mise en place : Faire le dépôt à tous les guichets de nos agences",
+        "Condition de retrait : Faire le retrait à tous les guichets de nos agences sur présentation du livret de membre"
+      ],
+      "requirements": [
+        "Ouverture de compte ordinaire de dépôt à vue : 7.000 FCFA pour les personnes physiques (2.000 pour frais d’adhésion et 5.000 pour la part sociale) et 17.000 FCFA pour les personnes morales (2.000 pour frais d’adhésion et 15.000 pour la part sociale)",
+        "Ouverture de compte auxiliaire de dépôt à vue : 2.000 FCFA (frais d’adhésion)"
+      ],
+      "image": "epargne-a-vue.jpg"
+    },
+    {
+      "id": 25,
+      "slug": "epargne-a-terme",
+      "title": "Épargne à terme",
+      "category": "epargne",
+      "icon": "fas fa-wallet",
+      "short_description": "Compte d'épargne à terme avec des taux attractifs pour des dépôts à long terme.",
+      "description": "L'Épargne à terme est un contrat de dépôt à terme avec un montant minimum de 100.000 FCFA et une durée minimale de 3 mois, offrant des taux d’intérêt compétitifs.",
+      "features": [
+        "Définition : Contrat et dépôt à terme avec un montant minimum de 100.000 FCFA et une durée minimale de 3 mois",
+        "Frais de tenue de compte : Néant",
+        "Taux d’intérêt (rémunération) : 3,5 à 5,5% l’an selon le montant et la durée",
+        "Condition de mise en place : Par le prélèvement sur le compte ou par apport personnel du membre",
+        "Condition de retrait : Suivant les termes du contrat"
+      ],
+      "requirements": [
+        "Montant minimum de 100.000 FCFA",
+        "Durée minimale de 3 mois"
+      ],
+      "image": "epargne-a-terme.jpg"
+    },
+    {
+      "id": 26,
+      "slug": "tontine",
+      "title": "Tontine",
+      "category": "tontine",
+      "icon": "fas fa-coins",
+      "short_description": "Petite épargne par cotisation journalière avec deux produits : EDEM et SOLUTION.",
+      "description": "La Tontine est une épargne constituée par une cotisation journalière. COCEC propose deux produits : EDEM (accès au crédit après 3 mois de cotisation) et SOLUTION (paiement de factures d’eau et d’électricité). Les agents collectent les cotisations directement auprès des membres.",
+      "features": [
+        "Définition : Petite épargne constituée par une cotisation journalière",
+        "Produits : EDEM (accès au crédit après 3 mois) et SOLUTION (paiement de factures mensuelles)",
+        "Frais de tenue de compte : La 1ère mise est la commission",
+        "Taux d’intérêt (rémunération) : Néant",
+        "Condition de mise en place : Souscription à la tontine et cotisation",
+        "Condition de retrait : Présentation du livret/carton du membre"
+      ],
+      "requirements": [
+        "Souscription libre et volontaire",
+        "Cotisation journalière"
+      ],
+      "image": "tontine.jpg"
+    },
+    {
+      "id": 27,
+      "slug": "transfert",
+      "title": "Transfert",
+      "category": "transfert",
+      "icon": "fas fa-exchange-alt",
+      "short_description": "Services de transfert d'argent via des partenaires internationaux et locaux.",
+      "description": "COCEC propose des services de transfert d'argent via des partenaires comme Wari, Ria, Transfast, Small World, Tmoney, Flooz, Western Union, et Money, permettant des transactions rapides et sécurisées au niveau local et international.",
+      "features": [
+        "Services : Wari, Ria, Transfast, Small World, Tmoney, Flooz, Western Union, Money",
+        "Accessibilité : Transferts locaux et internationaux",
+        "Condition de mise en place : Utilisation des guichets COCEC ou des applications des partenaires",
+        "Frais : Variables selon le service et le montant"
+      ],
+      "requirements": [
+        "Présentation d’une pièce d’identité valide",
+        "Respect des conditions spécifiques de chaque partenaire"
+      ],
+      "image": [
+        "wari.jpg",
+        "ria.png",
+        "transfast.png",
+        "small-world.webp",
+        "tmoney.jpg",
+        "flooz.jpg",
+        "WU.jpg",
+        "money.jpg"
+      ]
+    },
+    {
+      "id": 28,
+      "slug": "conseils-financements",
+      "title": "Conseils et financements",
+      "category": "conseils",
+      "icon": "fas fa-lightbulb",
+      "short_description": "Accompagnement personnalisé pour la gestion de projets et l’optimisation des financements.",
+      "description": "COCEC accompagne ses membres au-delà du simple octroi de crédits, en offrant des conseils pour mieux comprendre leurs projets, gérer leur trésorerie, optimiser leurs ventes et respecter leurs échéances financières.",
+      "features": [
+        "Conseils sur les investissements à réaliser",
+        "Gestion de projet et stratégies d’augmentation des ventes",
+        "Gestion des stocks et du besoin en fonds de roulement (BFR)",
+        "Planification des dépenses initiales (loyer, assurances, salaires, etc.)",
+        "Respect des échéances de paiement"
+      ],
+      "requirements": [
+        "Être membre de COCEC",
+        "Demande d’accompagnement ou de financement"
+      ],
+      "image": "conseils-financements.jpg"
+    },
+    {
+      "id": 29,
+      "slug": "domiciliation",
+      "title": "Domiciliation",
+      "category": "domiciliation",
+      "icon": "fas fa-building",
+      "short_description": "Domiciliation de salaires pour entreprises et employés avec accès à des crédits avantageux.",
+      "description": "Les entreprises, établissements scolaires, églises, ONG, associations ou autres structures peuvent domicilier les salaires de leurs employés à la COCEC. Les employés bénéficient de crédits à des taux compétitifs pour financer leurs projets.",
+      "features": [
+        "Domiciliation des salaires pour entreprises, écoles, ONG, etc.",
+        "Accès à des crédits à taux compétitifs pour les employés",
+        "Flexibilité pour les structures de toutes tailles"
+      ],
+      "requirements": [
+        "Accord de domiciliation avec la COCEC",
+        "Ouverture de comptes pour les employés"
+      ],
+      "image": "domiciliation.jpg"
+    }
+  ]
+}

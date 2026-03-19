@@ -114,7 +114,7 @@ class DigitalFinanceUpdateController extends Controller
 
         // Envoyer le mail de notification à l'admin
         try {
-            Mail::to('info@cocectogo.org')->send(new DigitalFinanceUpdateNotificationMail(
+            Mail::to(['info@cocectogo.org', 'finance-digitale@cocectogo.org'])->send(new DigitalFinanceUpdateNotificationMail(
                 $request->full_name,
                 $request->account_number,
                 $request->cni_number,
