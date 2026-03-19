@@ -52,9 +52,9 @@ class JobController extends Controller
             'email' => 'required|email|max:255',
             'intitule' => 'required|string|max:255',
             'application_type' => 'required|in:emploi,stage',
-            'cv' => 'required|file|mimes:pdf|max:30720', // 30MB Max
-            'motivation_letter' => 'required|file|mimes:pdf|max:30720', // 30MB Max
-            'identity_document' => 'required|file|mimes:pdf,jpg,jpeg,png|max:30720', // 30MB Max
+            'cv' => 'required|file|mimes:pdf|max:2048', // 2MB Max
+            'motivation_letter' => 'required|file|mimes:pdf|max:2048', // 2MB Max
+            'identity_document' => 'required|file|mimes:pdf,jpg,jpeg,png|max:5120', // 5MB Max
             'passport_photo' => 'required|image|mimes:jpg,jpeg,png|max:5120', // 5MB Max
             'recaptcha_token' => 'required|string',
         ]);
@@ -125,9 +125,9 @@ class JobController extends Controller
             'intitule' => 'required|string|max:255',
             'application_type' => 'required|in:emploi,stage',
 
-            'cv' => 'required|file|mimes:pdf|max:30720',
-            'motivation_letter' => 'required|file|mimes:pdf|max:30720',
-            'identity_document' => 'required|file|mimes:pdf,jpg,jpeg,png|max:30720', // 30MB Max
+            'cv' => 'required|file|mimes:pdf|max:2048',
+            'motivation_letter' => 'required|file|mimes:pdf|max:2048',
+            'identity_document' => 'required|file|mimes:pdf,jpg,jpeg,png|max:5120', // 5MB Max
             'passport_photo' => 'required|image|mimes:jpg,jpeg,png|max:5120', // 5MB Max
             'recaptcha_token' => 'required|string',
         ]);

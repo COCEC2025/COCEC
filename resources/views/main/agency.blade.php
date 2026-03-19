@@ -334,6 +334,33 @@
             overflow-y: visible;
         }
     }
+
+    /* Loading Spinner for Agency List */
+    .agency-loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        color: var(--text-color);
+        background: white;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+    }
+
+    .spinner {
+        width: 45px;
+        height: 45px;
+        border: 4px solid rgba(236, 40, 28, 0.1);
+        border-left-color: var(--primary-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 15px;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
 </style>
 @endsection
 
@@ -372,7 +399,12 @@
                 <div class="agency-list-header">
                     <h3>Nos agences</h3><span id="agency-count"></span>
                 </div>
-                <div class="agency-list-container" id="agency-list"></div>
+                <div class="agency-list-container" id="agency-list">
+                    <div class="agency-loading">
+                        <div class="spinner"></div>
+                        <p>Chargement des agences...</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -417,9 +449,11 @@
 
         function getDynamicAgencyStatus(status) {
             const now = new Date();
-            const day = now.getDay();
-            const hour = now.getHours();
-            const minute = now.getMinutes();
+            // COCEC est au Togo (GMT / UTC+0)
+            // On utilise les méthodes UTC pour éviter les erreurs liées au fuseau horaire de l'utilisateur
+            const day = now.getUTCDay();
+            const hour = now.getUTCHours();
+            const minute = now.getUTCMinutes();
             const currentTime = hour + minute / 60; // Convertir en heures décimales
             
             // Dimanche : toujours fermé
@@ -430,9 +464,9 @@
                 };
             }
             
-            // Samedi : vérifier le statut de l'agence
+            // Samedi : vérifier le statut de l'agence (COCEC ferme plus tôt le samedi)
             if (day === 6) {
-                if (status === 'Open' && currentTime >= 8.0 && currentTime < 12.0) {
+                if (currentTime >= 8.0 && currentTime < 12.0) {
                     return {
                         text: 'Ouvert',
                         className: 'Open'
@@ -445,7 +479,7 @@
                 }
             }
             
-            // Lundi à Vendredi : 7h30-15h00
+            // Lundi à Vendredi : 7h30-15h00 (Heures du Togo)
             if (currentTime >= 7.5 && currentTime < 15.0) {
                 return {
                     text: 'Ouvert',
@@ -570,11 +604,14 @@
         console.log('Agences après vérification:', agencies);
         console.log('=== FIN DEBUG ===');
 
-        // Toujours afficher les agences, avec ou sans géolocalisation
-        renderListAndMarkers(agencies);
-
         // Si pas de coordonnées dans l'URL, essayer la géolocalisation
         if ('geolocation' in navigator && !window.location.search.includes('lat=')) {
+            agencyListContainer.innerHTML = `
+                <div class="agency-loading">
+                    <div class="spinner"></div>
+                    <p>Recherche des agences les plus proches...</p>
+                </div>`;
+            
             navigator.geolocation.getCurrentPosition(
                 function(position) {
                     const lat = position.coords.latitude;
@@ -586,13 +623,16 @@
                 },
                 function(error) {
                     console.log('Géolocalisation non disponible:', error.message);
-                    // Les agences sont déjà affichées, pas besoin de refaire
+                    renderListAndMarkers(agencies); // Re-rendre avec la liste par défaut si refus/erreur
                 }, {
                     enableHighAccuracy: true,
                     timeout: 5000,
                     maximumAge: 300000
                 }
             );
+        } else {
+            // Toujours afficher les agences si on a déjà les coordonnées ou si géo non supportée
+            renderListAndMarkers(agencies);
         }
     });
 </script>
