@@ -540,7 +540,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide hero-slide-2" data-background="{{ asset('assets/images/cocec-accueil-banniere-credit-investissement.jpeg') }}">
+                <div class="swiper-slide hero-slide-2" data-background="{{ asset('assets/images/cocec-accueil-banniere-credit-investissement.jpeg') }}?v={{ time() }}">
                     <div class="container-2">
                         <div class="hero-content hero-content-3">
                             <div class="section-heading mb-40 red-content">
