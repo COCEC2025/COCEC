@@ -83,7 +83,8 @@ Route::middleware(['auth', 'check.suspension'])->prefix('admin')->group(function
     Route::prefix('blog')->controller(BlogController::class)->group(function () {
         Route::get('/create', 'create')->name('blog.create');
         Route::post('/store', 'store')->name('blog.store');
-        Route::patch('/edit/{id}', 'edit')->name('blog.edit');
+        Route::get('/edit/{id}', 'edit')->name('blog.edit');
+        Route::patch('/update/{id}', 'update')->name('blog.update');
         Route::delete('/destroy/{id}', 'destroy')->name('blog.destroy');
     });
 

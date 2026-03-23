@@ -367,7 +367,7 @@
                             <div class="card-badge-header">
                                 <div>
                                     <h3>{{ $offer->title }}</h3>
-                                    <p class="company">COCEC SA</p>
+                                    <p class="company">COCEC</p>
                                 </div>
                                 <span class="job-type-badge {{ $offer->type }}">{{ $offer->type }}</span>
                             </div>

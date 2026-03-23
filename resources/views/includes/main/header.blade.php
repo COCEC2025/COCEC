@@ -5,7 +5,7 @@
                 <div class="container-2">
                     <div class="top-bar-inner">
                         <ul class="top-bar-list">
-                            <li><i class="fa-sharp fa-regular fa-phone"></i><a href="tel:+22891126471">(+228) 91 12 64 71</a></li>
+                            <li><i class="fa-sharp fa-regular fa-phone"></i><a href="tel:+22891126471">(+228) 91 12 64 71 /</a> <a href="tel:+2288989">8989</a></li>
                             <li><i class="fa-sharp fa-regular fa-location-dot"></i><span>KANYIKOPE près du Lycée FOLLY-BEBE</span></li>
                             <li><i class="fa-sharp fa-regular fa-envelope"></i><a href="mailto:cocec@cocectogo.org">cocec@cocectogo.org</a></li>
                         </ul>

@@ -340,8 +340,8 @@
                             <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($blog->image, 'assets/images/blog.jpg') }}" alt="{{ $blog->title }}">
                         </div>
                         <ul class="post-meta">
-                            <li><i class="fa-regular fa-calendar"></i>{{ $blog->created_at->format('d M, Y à H:i') }}</li>
-                            <li><i class="fa-regular fa-user"></i>{{ $blog->user->name ?? 'admin' }}</li>
+                            <li><i class="fa-regular fa-calendar"></i>{{ $blog->created_at->translatedFormat('d M Y à H:i') }}</li>
+                            <li><i class="fa-regular fa-user"></i>{{ $blog->author ?? 'Admin' }}</li>
                         </ul>
                         <div class="blog-details-content">
                             <h2 class="details-title mb-25">{{ $blog->title }}</h2>
@@ -363,7 +363,7 @@
                                 </div>
                                 <div class="comment-info">
                                     <div class="comments-meta">
-                                        <span>{{ $comment->created_at->format('d M, Y à H:i') }}</span>
+                                        <span>{{ $comment->created_at->translatedFormat('d M Y à H:i') }}</span>
                                     </div>
                                     <h3 class="author">{{ $comment->name }} 
                                         @if ($comment->user && $comment->user->is_admin)
@@ -417,7 +417,7 @@
                                         </div>
                                         <div class="comment-reply-info">
                                             <div class="comments-meta">
-                                                <span>{{ $reply->created_at->format('d M, Y à H:i') }}</span>
+                                                <span>{{ $reply->created_at->translatedFormat('d M Y à H:i') }}</span>
                                             </div>
                                             <h3 class="author">{{ $reply->name }}
                                                 @if ($reply->user && $reply->user->is_admin)
@@ -509,7 +509,7 @@
                             <img src="{{ \App\Helpers\FileHelper::getStorageImageUrl($blog->image, 'assets/images/blog.jpg') }}" alt="{{ $blog->title }}">
                             <div class="post-content">
                                 <ul class="post-meta">
-                                    <li><i class="fa-light fa-circle-user"></i>by David Smith</li>
+                                    <li><i class="fa-light fa-circle-user"></i>{{ $blog->author ?? 'Admin' }}</li>
                                 </ul>
                                 <h3 class="title"><a href="#">{{ $blog->title }}</a></h3>
                             </div>

@@ -65,6 +65,7 @@ class BlogController extends Controller
             "title" => $request->title,
             "short_description" => $request->short_description,
             "long_description" => $request->long_description,
+            "author" => auth()->user()->name ?? 'Admin',
             "image" => $imagePath,
             "is_published" => $request->is_published,
         ];
@@ -116,35 +117,45 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
+    {
+        $blog = Blog::findOrFail($id);
+        return view('admin.blog.edit', compact('blog'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
     {
         $blog = Blog::findOrFail($id);
 
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:30720',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:30720',
             'short_description' => 'required|string|max:500',
             'long_description' => 'required|string',
+            'is_published' => 'required|boolean',
         ]);
 
-        $imagePath = null;
+        $imagePath = $blog->image;
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('blog', 'public');
-        } else {
-            $imagePath = $blog->image;
         }
 
         $data = [
             "title" => $request->title,
             "short_description" => $request->short_description,
             "long_description" => $request->long_description,
+            "author" => $blog->author ?? (auth()->user()->name ?? 'Admin'),
             "image" => $imagePath,
             "is_published" => $request->is_published,
         ];
 
         $response = $this->blogInterface->edit($id, $data);
-        if (!$response)
+        if (!$response) {
             return back()->with('error', 'Erreur lors de la modification du blog!');
+        }
 
         // Envoyer les notifications newsletter si l'article vient d'être publié
         if ($request->is_published && !$blog->is_published) {
@@ -157,20 +168,12 @@ class BlogController extends Controller
                 }
             } catch (\Exception $e) {
                 Log::error("Erreur lors de l'envoi des notifications newsletter: " . $e->getMessage());
-                // Ne pas faire échouer la modification du blog si l'envoi de notification échoue
             }
         }
 
-        return back()->with('success', 'Blog modifié avec succès!');
+        return redirect()->route('admin.blogs')->with('success', 'Blog modifié avec succès!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

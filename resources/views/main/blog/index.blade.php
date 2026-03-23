@@ -64,7 +64,7 @@
                     <div class="post-content">
                         <ul class="post-meta">
                             <li><i class="fa-regular fa-calendar"></i>{{ $blog->created_at->translatedFormat('d F Y à H:i') }}</li>
-                            <li><i class="fa-regular fa-user"></i>Par Admin</li>
+                            <li><i class="fa-regular fa-user"></i>{{ $blog->author ?? 'Admin' }}</li>
                         </ul>
                         <h3 class="title"><a href="{{ route('blogs.show', $blog->id) }}">{{ $blog->title }}</a></h3>
                         <p>{{ $blog->short_description }}</p>

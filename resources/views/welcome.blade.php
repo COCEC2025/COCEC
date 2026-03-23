@@ -540,7 +540,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide hero-slide-2" data-background="{{ asset('assets/images/cocec-accueil-banniere-credit-investissement.jpg') }}">
+                <div class="swiper-slide hero-slide-2" data-background="{{ asset('assets/images/cocec-accueil-banniere-credit-investissement.jpeg') }}">
                     <div class="container-2">
                         <div class="hero-content hero-content-3">
                             <div class="section-heading mb-40 red-content">
@@ -1104,7 +1104,7 @@
                         <div class="post-content">
                             <ul class="post-meta">
                                 <li><i class="fa-regular fa-calendar"></i>{{ $blog->created_at->translatedFormat('d F Y') }}</li>
-                                <li><i class="fa-regular fa-user"></i>par Admin</li>
+                                <li><i class="fa-regular fa-user"></i>{{ $blog->author ?? 'Admin' }}</li>
                             </ul>
                             <h3 class="title"><a href="{{ route('blogs.show', $blog->id) }}">{{ $blog->title }}</a></h3>
                             <a href="{{ route('blogs.show', $blog->id) }}" class="blog-btn"><i class="fa-regular fa-arrow-right"></i>Lire la suite</a>

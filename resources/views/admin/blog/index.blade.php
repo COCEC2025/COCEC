@@ -72,19 +72,10 @@
                                 <i class="ri-arrow-right-double-line text-xl d-flex line-height-1"></i>
                             </a>
                             <div class="d-flex gap-2 mt-16">
-                                <button type="button" class="btn btn-outline-primary btn-sm edit-blog-btn"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#editBlogModal"
-                                    data-id="{{ $blog->id }}"
-                                    data-title="{{ $blog->title }}"
-                                    data-short-description="{{ $blog->short_description }}"
-                                    data-long-description="{{ $blog->long_description }}"
-                                    data-image-url="{{ \App\Helpers\FileHelper::getStorageImageUrl($blog->image, 'assets/images/blog.jpg') }}"
-                                    data-is-published="{{ $blog->is_published }}"
-                                    data-action-url="{{ route('blog.edit', $blog->id) }}">
+                                <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-outline-primary btn-sm">
                                     <iconify-icon icon="ri:edit-line" class="icon"></iconify-icon>
                                     Éditer
-                                </button>
+                                </a>
                                 <form action="{{ route('blog.destroy', $blog->id) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce blog ?');">
                                     @csrf
                                     @method('DELETE')
@@ -101,141 +92,7 @@
             @endforeach
         </div>
 
-
-
-        <!-- Edit Blog Modal -->
-        <div class="modal fade" id="editBlogModal" tabindex="-1" aria-labelledby="editBlogModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editBlogModalLabel">Modifier le blog</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="editBlogForm" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            @method('PATCH')
-                            <div class="mb-3">
-                                <label for="editBlogTitle" class="form-label">Titre</label>
-                                <input type="text" class="form-control" id="editBlogTitle" name="title" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editIsPublished" class="form-label">Statut</label>
-                                <select class="form-select" id="editIsPublished" name="is_published" required>
-                                    <option value="1">Publié</option>
-                                    <option value="0">Non publié</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editBlogImage" class="form-label">Changer l'image (laisser vide pour conserver l'actuelle)</label>
-                                <input type="file" class="form-control" id="editBlogImage" name="image" accept="image/*">
-                                <div class="mt-3 text-center">
-                                    <p class="small text-muted mb-1">Image actuelle :</p>
-                                    <img id="editImagePreview" src="#" alt="Prévisualisation de l'image actuelle" class="img-fluid" style="max-height: 200px;">
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editBlogShortDescription" class="form-label">Brève description</label>
-                                <textarea class="form-control" id="editBlogShortDescription" name="short_description" rows="3" required></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="editBlogLongDescription" class="form-label">Longue description</label>
-                                <textarea class="form-control" id="editBlogLongDescription" name="long_description" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-danger">Mettre à jour</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
     </div>
     @include('includes.admin.footer')
 </main>
-@endsection
-
-@section('js')
-<!-- Summernote JS -->
-<script src="{{ URL::asset('assets/summernote/summernote.min.js') }}"></script>
-<script>
-    $(document).ready(function() {
-        // Initialize Summernote for ADD modal
-        $('#blogLongDescription').summernote({
-            height: 300,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
-
-        // Initialize Summernote for EDIT modal
-        $('#editBlogLongDescription').summernote({
-            height: 300,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
-
-        // Image Preview for ADD modal
-        $('#blogImage').on('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#imagePreview').attr('src', e.target.result).show();
-                };
-                reader.readAsDataURL(file);
-            } else {
-                $('#imagePreview').hide();
-            }
-        });
-
-        // Image Preview for EDIT modal
-        $('#editBlogImage').on('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#editImagePreview').attr('src', e.target.result).show();
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Handle EDIT modal population
-        $('#editBlogModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget);
-
-            // Extract info from data-* attributes
-            var title = button.data('title');
-            var shortDescription = button.data('short-description');
-            var longDescription = button.data('long-description');
-            var imageUrl = button.data('image-url');
-            var actionUrl = button.data('action-url');
-            var isPublished = button.data('is-published');
-
-            // Update the modal's content
-            var modal = $(this);
-            modal.find('form').attr('action', actionUrl);
-            modal.find('#editBlogTitle').val(title);
-            modal.find('#editIsPublished').val(isPublished ? '1' : '0');
-            modal.find('#editBlogShortDescription').val(shortDescription);
-            modal.find('#editBlogLongDescription').summernote('code', longDescription);
-            modal.find('#editImagePreview').attr('src', imageUrl).show();
-            modal.find('#editBlogImage').val('');
-        });
-    });
-</script>
 @endsection
